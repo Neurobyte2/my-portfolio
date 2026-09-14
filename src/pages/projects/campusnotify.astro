@@ -1,0 +1,99 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout>
+	<main class="case-study-container">
+		<a href="/" class="back-link">&larr; Back to Portfolio</a>
+		
+		<header class="case-header">
+			<span class="badge">Final Year Project</span>
+			<h1>CampusNotify</h1>
+			<p class="subtitle">Centralized campus communication ecosystem featuring real-time announcements, event management, and role-based workflows.</p>
+		</header>
+
+		<section class="content-section">
+			<h2>The Problem & Solution</h2>
+			<p>Students traditionally receive fragmented campus information via social media groups, messaging apps, and physical notice boards. CampusNotify aggregates these communications into a single, structured Android application complete with authentication and a scalable architecture.</p>
+		</section>
+
+		<section class="content-section">
+			<h2>Architecture & Tech Stack</h2>
+			<div class="grid-2">
+				<div class="card">
+					<h3>Architecture</h3>
+					<p>Built using <strong>Clean Architecture + MVVM</strong>. Separates presentation, domain, and data layers to maintain clean boundaries and high testability.</p>
+				</div>
+				<div class="card">
+					<h3>Tech Stack</h3>
+					<p>Kotlin, Jetpack Compose, Hilt (Dependency Injection), Firebase Authentication, Cloud Firestore, Coroutines & Flow.</p>
+				</div>
+			</div>
+		</section>
+
+		<section class="content-section">
+			<h2>Key Features</h2>
+			<ul>
+				<li><strong>Secure Authentication:</strong> Complete Firebase Auth flow with email/password, password recovery, and Google Sign-In.</li>
+				<li><strong>Role-Based Dashboards:</strong> Structured flows separating student updates from administrative management.</li>
+				<li><strong>Reactive UI State:</strong> Built entirely with Jetpack Compose for smooth, predictable interfaces.</li>
+			</ul>
+		</section>
+	</main>
+</Layout>
+
+<style>
+	body {
+		background-color: #090d16;
+		color: #f1f5f9;
+		font-family: system-ui, sans-serif;
+	}
+	.case-study-container {
+		max-width: 800px;
+		margin: 0 auto;
+		padding: 4rem 2rem;
+	}
+	.back-link {
+		color: #38bdf8;
+		text-decoration: none;
+		font-weight: 600;
+		display: inline-block;
+		margin-bottom: 2rem;
+	}
+	.case-header h1 {
+		font-size: 2.5rem;
+		color: #ffffff;
+		margin: 0.5rem 0;
+	}
+	.subtitle {
+		color: #94a3b8;
+		font-size: 1.2rem;
+	}
+	.content-section {
+		margin-top: 3rem;
+	}
+	.content-section h2 {
+		color: #38bdf8;
+		border-bottom: 1px solid #1e293b;
+		padding-bottom: 0.5rem;
+		margin-bottom: 1rem;
+	}
+	.grid-2 {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+		gap: 1.5rem;
+	}
+	.card {
+		background: #111827;
+		padding: 1.5rem;
+		border-radius: 0.75rem;
+		border: 1px solid #1f2937;
+	}
+	ul {
+		color: #94a3b8;
+		line-height: 1.6;
+	}
+	ul strong {
+		color: #f1f5f9;
+	}
+</style>
