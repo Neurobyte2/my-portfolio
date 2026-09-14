@@ -4,31 +4,84 @@ import Layout from '../layouts/Layout.astro';
 
 <Layout>
 	<main class="portfolio-container">
+		<!-- Hero Section -->
 		<section class="hero">
-			<h1>Hi, I'm a Native Android Engineer</h1>
-			<p>Building high-performance, clean-architecture mobile applications for global impact.</p>
+			<div class="badge">Available for International Opportunities</div>
+			<h1>Hi, I'm Ali Ansar</h1>
+			<h2>Native Android & Full-Stack Engineer</h2>
+			<p>Building high-performance, production-grade mobile applications with clean architecture, real-time dashboards, and modern UI.</p>
+			
 			<div class="cta-buttons">
-				<a href="https://github.com/your-github-username" target="_blank" class="btn primary">GitHub Profile</a>
-				<a href="mailto:your-email@example.com" class="btn secondary">Get in Touch</a>
+				<a href="https://github.com/Neurobyte2" target="_blank" class="btn primary">GitHub Profile</a>
+				<a href="https://www.linkedin.com" target="_blank" class="btn secondary">LinkedIn</a>
+				<a href="https://wa.me/920000000000" target="_blank" class="btn whatsapp">WhatsApp Chat</a>
 			</div>
 		</section>
 
+		<!-- Projects Section -->
 		<section class="projects">
 			<h2>Featured Projects</h2>
 			
-			<div class="project-card">
-				<h3>Asterloom</h3>
-				<p>A focused Pomodoro and productivity tool built with native Android, Jetpack Compose, and robust architectural principles.</p>
+			<div class="project-card highlight">
+				<span class="tag">Flagship Platform</span>
+				<h3>CampusNotify</h3>
+				<p>A fully functional, comprehensive campus communication ecosystem featuring dedicated <strong>Student</strong> and <strong>Admin Dashboards</strong>. Designed for real-time notifications, event management, and seamless administrative workflows.</p>
+				<div class="tech-stack">
+					<span>Native Android</span>
+					<span>Real-time DB</span>
+					<span>Role-based Dashboards</span>
+				</div>
 			</div>
 
 			<div class="project-card">
 				<h3>Semesta</h3>
-				<p>An advanced native Android application showcasing modern UI design patterns, clean codebases, and seamless state management.</p>
+				<p>An advanced native Android application showcasing modern UI patterns, modular architecture, and robust state management for a smooth user experience.</p>
+				<div class="tech-stack">
+					<span>Jetpack Compose</span>
+					<span>Clean Architecture</span>
+					<span>Kotlin</span>
+				</div>
 			</div>
 
 			<div class="project-card">
-				<h3>CampusNotify</h3>
-				<p>A real-time notification and utility application designed to streamline student communication and campus updates.</p>
+				<h3>Flash Quiz Card</h3>
+				<p>An interactive utility application built for active learning and efficient retention, featuring dynamic card flipping logic and performance tracking.</p>
+				<div class="tech-stack">
+					<span>Android SDK</span>
+					<span>Local Storage</span>
+					<span>UI/UX Focused</span>
+				</div>
+			</div>
+
+			<div class="project-card">
+				<h3>Asterloom</h3>
+				<p>A focused Pomodoro and productivity tool built to optimize deep work intervals, utilizing modern background services and custom UI components.</p>
+				<div class="tech-stack">
+					<span>Jetpack Compose</span>
+					<span>Coroutines</span>
+					<span>Productivity</span>
+				</div>
+			</div>
+		</section>
+
+		<!-- Contact Section -->
+		<section class="contact-section">
+			<h2>Get In Touch</h2>
+			<p>Let's build something exceptional together. Reach out via direct call, WhatsApp, or professional networks.</p>
+			
+			<div class="contact-grid">
+				<div class="contact-item">
+					<strong>Phone / WhatsApp:</strong>
+					<a href="tel:+920000000000">+92 (000) 000-0000</a>
+				</div>
+				<div class="contact-item">
+					<strong>Email:</strong>
+					<a href="mailto:contact@aliansar.dev">contact@aliansar.dev</a>
+				</div>
+				<div class="contact-item">
+					<strong>GitHub:</strong>
+					<a href="https://github.com/Neurobyte2" target="_blank">github.com/Neurobyte2</a>
+				</div>
 			</div>
 		</section>
 	</main>
@@ -37,61 +90,169 @@ import Layout from '../layouts/Layout.astro';
 <style>
 	body {
 		font-family: system-ui, -apple-system, sans-serif;
-		background-color: #0f172a;
-		color: #f8fafc;
+		background-color: #090d16;
+		color: #f1f5f9;
 		margin: 0;
 		padding: 0;
+		line-height: 1.6;
 	}
 	.portfolio-container {
-		max-width: 800px;
+		max-width: 900px;
 		margin: 0 auto;
-		padding: 4rem 2rem;
+		padding: 5rem 2rem;
 	}
 	.hero {
 		text-align: center;
-		margin-bottom: 4rem;
+		margin-bottom: 5rem;
+	}
+	.badge {
+		display: inline-block;
+		background: rgba(56, 189, 248, 0.1);
+		color: #38bdf8;
+		padding: 0.35rem 1rem;
+		border-radius: 50px;
+		font-size: 0.85rem;
+		font-weight: 600;
+		margin-bottom: 1.5rem;
+		border: 1px solid rgba(56, 189, 248, 0.2);
 	}
 	.hero h1 {
-		font-size: 2.5rem;
-		margin-bottom: 1rem;
+		font-size: 3rem;
+		margin: 0 0 0.5rem 0;
+		color: #ffffff;
+		letter-spacing: -0.02em;
+	}
+	.hero h2 {
+		font-size: 1.5rem;
 		color: #38bdf8;
+		margin-bottom: 1rem;
+		font-weight: 500;
 	}
 	.hero p {
-		font-size: 1.2rem;
+		font-size: 1.15rem;
 		color: #94a3b8;
-		margin-bottom: 2rem;
+		max-width: 650px;
+		margin: 0 auto 2.5rem auto;
+	}
+	.cta-buttons {
+		display: flex;
+		gap: 1rem;
+		justify-content: center;
+		flex-wrap: wrap;
 	}
 	.btn {
-		display: inline-block;
 		padding: 0.75rem 1.5rem;
 		border-radius: 0.5rem;
 		text-decoration: none;
-		font-weight: bold;
-		margin: 0 0.5rem;
+		font-weight: 600;
+		transition: all 0.2s ease;
 	}
 	.btn.primary {
 		background-color: #38bdf8;
-		color: #0f172a;
+		color: #090d16;
+	}
+	.btn.primary:hover {
+		background-color: #0ea5e9;
 	}
 	.btn.secondary {
-		border: 1px solid #38bdf8;
-		color: #38bdf8;
-	}
-	.projects h2 {
-		font-size: 1.8rem;
-		border-bottom: 2px solid #1e293b;
-		padding-bottom: 0.5rem;
-		margin-bottom: 2rem;
-	}
-	.project-card {
 		background-color: #1e293b;
-		padding: 1.5rem;
-		border-radius: 0.75rem;
-		margin-bottom: 1.5rem;
+		color: #f1f5f9;
 		border: 1px solid #334155;
 	}
+	.btn.whatsapp {
+		background-color: #22c55e;
+		color: #ffffff;
+	}
+	.projects h2, .contact-section h2 {
+		font-size: 2rem;
+		margin-bottom: 2rem;
+		color: #ffffff;
+		border-bottom: 1px solid #1e293b;
+		padding-bottom: 0.75rem;
+	}
+	.project-card {
+		background-color: #111827;
+		padding: 2rem;
+		border-radius: 1rem;
+		margin-bottom: 1.5rem;
+		border: 1px solid #1f2937;
+		position: relative;
+		transition: transform 0.2s ease, border-color 0.2s ease;
+	}
+	.project-card:hover {
+		border-color: #38bdf8;
+		transform: translateY(-2px);
+	}
+	.project-card.highlight {
+		border-color: rgba(56, 189, 248, 0.4);
+		background: linear-gradient(135://, #111827 0%, #162032 100%);
+	}
+	.tag {
+		background: #0284c7;
+		color: #ffffff;
+		font-size: 0.7rem;
+		padding: 0.25rem 0.6rem;
+		border-radius: 4px;
+		text-transform: uppercase;
+		font-weight: bold;
+		letter-spacing: 0.05em;
+	}
 	.project-card h3 {
-		margin-top: 0;
+		font-size: 1.5rem;
+		margin: 0.75rem 0 0.5rem 0;
 		color: #38bdf8;
+	}
+	.project-card p {
+		color: #94a3b8;
+		margin-bottom: 1.5rem;
+	}
+	.tech-stack {
+		display: flex;
+		gap: 0.5rem;
+		flex-wrap: wrap;
+	}
+	.tech-stack span {
+		background: #1f2937;
+		color: #cbd5e1;
+		font-size: 0.8rem;
+		padding: 0.25rem 0.75rem;
+		border-radius: 999px;
+	}
+	.contact-section {
+		margin-top: 5rem;
+		background: #111827;
+		padding: 3rem;
+		border-radius: 1rem;
+		border: 1px solid #1f2937;
+		text-align: center;
+	}
+	.contact-section p {
+		color: #94a3b8;
+		margin-bottom: 2rem;
+	}
+	.contact-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+		gap: 1.5rem;
+		text-align: left;
+	}
+	.contact-item {
+		background: #1f2937;
+		padding: 1rem 1.25rem;
+		border-radius: 0.5rem;
+	}
+	.contact-item strong {
+		display: block;
+		font-size: 0.85rem;
+		color: #94a3b8;
+		margin-bottom: 0.25rem;
+	}
+	.contact-item a {
+		color: #38bdf8;
+		text-decoration: none;
+		font-weight: 600;
+	}
+	.contact-item a:hover {
+		text-decoration: underline;
 	}
 </style>
