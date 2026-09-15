@@ -9,35 +9,102 @@ import Layout from '../../layouts/Layout.astro';
 		<header class="case-header">
 			<span class="badge">Final Year Project</span>
 			<h1>CampusNotify</h1>
-			<p class="subtitle">Centralized campus communication ecosystem featuring real-time announcements, event management, and role-based workflows.</p>
+			<p class="subtitle">A campus event and notification platform that keeps students informed through one centralized mobile experience.</p>
 		</header>
 
 		<section class="content-section">
-			<h2>The Problem & Solution</h2>
-			<p>Students traditionally receive fragmented campus information via social media groups, messaging apps, and physical notice boards. CampusNotify aggregates these communications into a single, structured Android application complete with authentication and a scalable architecture.</p>
+			<h2>Overview</h2>
+			<p>CampusNotify was developed as an FYP-quality Android application focused on modern architecture, Firebase integration, authentication, and a clean user experience. Its goal is simple: keep students informed about what is happening on campus.</p>
 		</section>
 
 		<section class="content-section">
-			<h2>Architecture & Tech Stack</h2>
-			<div class="grid-2">
-				<div class="card">
-					<h3>Architecture</h3>
-					<p>Built using <strong>Clean Architecture + MVVM</strong>. Separates presentation, domain, and data layers to maintain clean boundaries and high testability.</p>
+			<h2>The Problem</h2>
+			<p>University students often receive information about events and announcements through notice boards, social media groups, messaging applications, and informal communication. This makes it difficult to discover upcoming activities, track important announcements, and find event information quickly.</p>
+			<p>CampusNotify addresses this fragmentation by providing a centralized digital platform for campus communication.</p>
+		</section>
+
+		<section class="content-section">
+			<h2>The Solution</h2>
+			<p>The application gives users a structured mobile experience for accessing campus-related information in one place. It combines Android development, Firebase services, authentication, navigation, and cloud-based data management into a scalable foundation for university communication.</p>
+		</section>
+
+		<section class="content-section">
+			<h2>Key Features</h2>
+			<div class="feature-list">
+				<div class="feature-item">
+					<h3>Authentication</h3>
+					<p>User login, registration, forgot password, Google Sign-In, authentication state management, and persistent sessions.</p>
 				</div>
-				<div class="card">
-					<h3>Tech Stack</h3>
-					<p>Kotlin, Jetpack Compose, Hilt (Dependency Injection), Firebase Authentication, Cloud Firestore, Coroutines & Flow.</p>
+				<div class="feature-item">
+					<h3>Campus Events & Notifications</h3>
+					<p>A centralized place for students to discover campus activities, announcements, and university information without relying on multiple external channels.</p>
+				</div>
+				<div class="feature-item">
+					<h3>Onboarding Experience</h3>
+					<p>A dedicated onboarding flow introduces new users to the application's purpose before they enter authentication and the main experience.</p>
+				</div>
+				<div class="feature-item">
+					<h3>Structured Navigation</h3>
+					<p>Predictable navigation architecture provides clear transitions between application sections and keeps user flows easy to understand.</p>
 				</div>
 			</div>
 		</section>
 
 		<section class="content-section">
-			<h2>Key Features</h2>
+			<h2>Architecture & Technology</h2>
+			<div class="grid-2">
+				<div class="card">
+					<h3>Clean Architecture + MVVM</h3>
+					<p>The presentation layer owns Compose screens, ViewModels, UI state, user interactions, and navigation. The domain layer contains business logic, use cases, models, and application rules.</p>
+				</div>
+				<div class="card">
+					<h3>Data & Dependency Management</h3>
+					<p>The data layer manages Firebase data sources, Firestore operations, authentication, repositories, and remote data management. Hilt reduces coupling and keeps dependencies easier to provide and maintain.</p>
+				</div>
+			</div>
+			<div class="tech-stack">
+				<span>Kotlin</span><span>Jetpack Compose</span><span>Firebase Authentication</span><span>Cloud Firestore</span><span>Hilt</span><span>MVVM</span><span>Navigation</span><span>Lottie Animations</span>
+			</div>
+		</section>
+
+		<section class="content-section">
+			<h2>Authentication Flow</h2>
+			<p class="flow">Splash <span>&rarr;</span> Onboarding <span>&rarr;</span> Login / Signup <span>&rarr;</span> Authentication <span>&rarr;</span> Main Application</p>
+			<p>The application maintains authentication state so returning users can avoid unnecessary authentication steps while first-time users receive the full onboarding experience.</p>
+		</section>
+
+		<section class="content-section">
+			<h2>Development Challenges</h2>
 			<ul>
-				<li><strong>Secure Authentication:</strong> Complete Firebase Auth flow with email/password, password recovery, and Google Sign-In.</li>
-				<li><strong>Role-Based Dashboards:</strong> Structured flows separating student updates from administrative management.</li>
-				<li><strong>Reactive UI State:</strong> Built entirely with Jetpack Compose for smooth, predictable interfaces.</li>
+				<li>Coordinating Compose UI, ViewModels, navigation, Hilt, Firebase Authentication, and Firestore.</li>
+				<li>Ensuring authentication and navigation behave correctly for first-time, authenticated, and returning users.</li>
+				<li>Maintaining clean boundaries while integrating multiple application layers.</li>
 			</ul>
+		</section>
+
+		<section class="content-section">
+			<h2>Engineering Approach</h2>
+			<p>Rather than building the application as a collection of tightly coupled screens, CampusNotify was structured around reusable components and clear separation of responsibilities. This makes it easier to add features, replace data sources, modify UI components, maintain authentication logic, and expand the Firestore data model.</p>
+		</section>
+
+		<section class="content-section">
+			<h2>Future Improvements</h2>
+			<ul>
+				<li>Real-time push notifications and improved Firestore synchronization</li>
+				<li>Event registration, digital tickets, and event bookmarking</li>
+				<li>Advanced event search, filtering, and campus location integration</li>
+				<li>Role-based administration, analytics, and department-specific announcements</li>
+			</ul>
+		</section>
+
+		<section class="content-section outcome-section">
+			<h2>Outcome</h2>
+			<p>CampusNotify demonstrates the ability to build a complete, production-oriented Android application rather than focusing only on individual UI screens. It combines modern Android UI, Clean Architecture, MVVM, Firebase, authentication, cloud data, and dependency injection into a practical solution for improving communication between universities and students.</p>
+			<div class="role-details">
+				<p><strong>Role:</strong> Android Developer</p>
+				<p><strong>Project Type:</strong> Final Year Project / Academic Campus Management Application</p>
+				<p><strong>Focus:</strong> Kotlin &bull; Jetpack Compose &bull; Clean Architecture &bull; MVVM &bull; Firebase &bull; Firestore &bull; Hilt &bull; Authentication</p>
+			</div>
 		</section>
 	</main>
 </Layout>
@@ -89,11 +156,70 @@ import Layout from '../../layouts/Layout.astro';
 		border-radius: 0.75rem;
 		border: 1px solid #1f2937;
 	}
+	.feature-list {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+		gap: 1rem;
+	}
+	.feature-item {
+		background: #111827;
+		padding: 1.25rem;
+		border-radius: 0.75rem;
+		border: 1px solid #1f2937;
+	}
+	.feature-item h3 {
+		color: #f1f5f9;
+		margin-top: 0;
+	}
+	.feature-item p,
+	.flow {
+		color: #94a3b8;
+	}
+	.tech-stack {
+		display: flex;
+		gap: 0.5rem;
+		flex-wrap: wrap;
+		margin-top: 1.5rem;
+	}
+	.tech-stack span {
+		background: #1f2937;
+		color: #cbd5e1;
+		font-size: 0.8rem;
+		padding: 0.25rem 0.75rem;
+		border-radius: 999px;
+	}
+	.flow {
+		background: #111827;
+		border: 1px solid #1f2937;
+		border-radius: 0.75rem;
+		padding: 1rem;
+		line-height: 1.8;
+	}
+	.flow span {
+		color: #38bdf8;
+		padding: 0 0.35rem;
+	}
 	ul {
 		color: #94a3b8;
 		line-height: 1.6;
 	}
-	ul strong {
+	ul strong,
+	.role-details strong {
 		color: #f1f5f9;
+	}
+	.role-details {
+		border-top: 1px solid #1e293b;
+		margin-top: 1.5rem;
+		padding-top: 1rem;
+		color: #94a3b8;
+	}
+	.role-details p {
+		margin: 0.5rem 0;
+	}
+	@media (max-width: 560px) {
+		.case-study-container { padding: 2.5rem 1.25rem; }
+		.case-header h1 { font-size: 2.25rem; }
+		.subtitle { font-size: 1rem; }
+		.flow span { padding: 0 0.1rem; }
 	}
 </style>
