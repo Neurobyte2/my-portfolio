@@ -1,0 +1,108 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout>
+	<main class="case-study-container">
+		<a href="/" class="back-link">&larr; Back to Portfolio</a>
+		
+		<header class="case-header">
+			<span class="badge">Native Android App</span>
+			<h1>Semesta</h1>
+			<p class="subtitle">An advanced native Android application showcasing modern UI patterns, modular architecture, and robust state management.</p>
+		</header>
+
+		<section class="content-section">
+			<h2>Overview & Purpose</h2>
+			<p>Semesta was engineered to explore and implement modern native Android UI paradigms and scalable application design. The primary focus was delivering fluid animations, responsive layouts, and a decoupled codebase that scales seamlessly.</p>
+		</section>
+
+		<section class="content-section">
+			<h2>Architecture & Technical Design</h2>
+			<div class="grid-2">
+				<div class="card">
+					<h3>UI Toolkit</h3>
+					<p>Built fully with <strong>Jetpack Compose</strong>, utilizing custom layout modifiers, dynamic state hoisting, and Material Design components.</p>
+				</div>
+				<div class="card">
+					<h3>Code Quality & Structure</h3>
+					<p>Features a modularized codebase separating feature logic from core utilities, ensuring high maintainability and clean separation of concerns.</p>
+				</div>
+			</div>
+		</section>
+
+		<section class="content-section">
+			<h2>Core Engineering Highlights</h2>
+			<ul>
+				<li><strong>Declarative UI Patterns:</strong> Utilized state flows and Compose side-effects to handle complex, real-time user interactions smoothly.</li>
+				<li><strong>Robust State Management:</strong> Leveraged Kotlin Coroutines and StateFlow to maintain predictable UI states across lifecycle changes.</li>
+				<li><strong>Optimized Performance:</strong> Minimized unnecessary recompositions to ensure smooth rendering performance on lower-end devices.</li>
+			</ul>
+		</section>
+	</main>
+</Layout>
+
+<style>
+	body {
+		background-color: #090d16;
+		color: #f1f5f9;
+		font-family: system-ui, sans-serif;
+	}
+	.case-study-container {
+		max-width: 800px;
+		margin: 0 auto;
+		padding: 4rem 2rem;
+	}
+	.back-link {
+		color: #38bdf8;
+		text-decoration: none;
+		font-weight: 600;
+		display: inline-block;
+		margin-bottom: 2rem;
+	}
+	.case-header h1 {
+		font-size: 2.5rem;
+		color: #ffffff;
+		margin: 0.5rem 0;
+	}
+	.subtitle {
+		color: #94a3b8;
+		font-size: 1.2rem;
+	}
+	.badge {
+		background: rgba(56, 189, 248, 0.1);
+		color: #38bdf8;
+		padding: 0.25rem 0.75rem;
+		border-radius: 50px;
+		font-size: 0.8rem;
+		font-weight: 600;
+		border: 1px solid rgba(56, 189, 248, 0.2);
+	}
+	.content-section {
+		margin-top: 3rem;
+	}
+	.content-section h2 {
+		color: #38bdf8;
+		border-bottom: 1px solid #1e293b;
+		padding-bottom: 0.5rem;
+		margin-bottom: 1rem;
+	}
+	.grid-2 {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+		gap: 1.5rem;
+	}
+	.card {
+		background: #111827;
+		padding: 1.5rem;
+		border-radius: 0.75rem;
+		border: 1px solid #1f2937;
+	}
+	ul {
+		color: #94a3b8;
+		line-height: 1.6;
+	}
+	ul strong {
+		color: #f1f5f9;
+	}
+</style>
