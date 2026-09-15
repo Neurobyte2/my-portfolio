@@ -1,0 +1,155 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout>
+	<main class="case-study-container">
+		<a href="/" class="back-link">&larr; Back to Portfolio</a>
+
+		<header class="case-header">
+			<span class="badge">Native Android App</span>
+			<h1>Asterloom</h1>
+			<p class="subtitle">A modern Android application designed around intuitive navigation, polished UI, reusable components, and scalable development practices.</p>
+		</header>
+
+		<section class="content-section">
+			<h2>Overview</h2>
+			<p>Asterloom is a modern mobile application with a clean, user-focused experience. The project focused on transforming a product concept into a responsive Android experience while maintaining a consistent visual system, reusable components, and maintainable architecture.</p>
+		</section>
+
+		<section class="content-section">
+			<h2>The Challenge</h2>
+			<p>The main challenge was creating an application that feels simple and intuitive while keeping the underlying codebase structured enough to support future features and improvements.</p>
+			<ul>
+				<li>Designing a clean and modern mobile interface</li>
+				<li>Maintaining consistency across different screens</li>
+				<li>Building reusable UI components and responsive layouts</li>
+				<li>Separating UI, business logic, and data responsibilities</li>
+			</ul>
+		</section>
+
+		<section class="content-section">
+			<h2>The Solution</h2>
+			<p>Asterloom was developed with a structured Android architecture that separates application responsibilities into clear layers. The implementation emphasizes reusable UI components, responsive layouts, clean navigation, state-driven UI, and consistent design patterns.</p>
+		</section>
+
+		<section class="content-section">
+			<h2>Key Features</h2>
+			<ul>
+				<li>Modern and responsive Android UI</li>
+				<li>Clean navigation experience</li>
+				<li>Reusable interface components</li>
+				<li>Structured screen architecture</li>
+				<li>Smooth user interactions and scalable project organization</li>
+			</ul>
+		</section>
+
+		<section class="content-section">
+			<h2>Technology & Approach</h2>
+			<div class="grid-2">
+				<div class="card">
+					<h3>Technology Stack</h3>
+					<p>Kotlin, Android, Jetpack Compose, MVVM, Clean Architecture, Dependency Injection, and Material Design.</p>
+				</div>
+				<div class="card">
+					<h3>Development Approach</h3>
+					<p>Components were designed for reuse, presentation was separated from application logic, and the project structure was organized for future development.</p>
+				</div>
+			</div>
+		</section>
+
+		<section class="content-section">
+			<h2>Challenges & Learnings</h2>
+			<ul>
+				<li><strong>Architecture First:</strong> Planning the application structure before individual screens improved consistency.</li>
+				<li><strong>Responsive Compose UI:</strong> Reusable layouts made it easier to support different screen sizes.</li>
+				<li><strong>Component Reusability:</strong> Shared patterns reduced duplication and made visual refinement faster.</li>
+				<li><strong>Scalable Organization:</strong> Clear boundaries made future features easier to reason about.</li>
+			</ul>
+		</section>
+
+		<section class="content-section outcome-section">
+			<h2>Outcome</h2>
+			<p>Asterloom resulted in a polished Android application experience with a maintainable foundation that can be extended as the product evolves.</p>
+			<div class="role-details">
+				<p><strong>Role:</strong> Android Developer</p>
+				<p><strong>Focus:</strong> Android Development &bull; UI/UX Implementation &bull; Architecture &bull; Kotlin &bull; Jetpack Compose</p>
+			</div>
+		</section>
+	</main>
+</Layout>
+
+<style>
+	body {
+		background-color: #090d16;
+		color: #f1f5f9;
+		font-family: system-ui, sans-serif;
+	}
+	.case-study-container {
+		max-width: 800px;
+		margin: 0 auto;
+		padding: 4rem 2rem;
+	}
+	.back-link {
+		color: #38bdf8;
+		text-decoration: none;
+		font-weight: 600;
+		display: inline-block;
+		margin-bottom: 2rem;
+	}
+	.case-header h1 {
+		font-size: 2.5rem;
+		color: #ffffff;
+		margin: 0.5rem 0;
+	}
+	.subtitle {
+		color: #94a3b8;
+		font-size: 1.2rem;
+	}
+	.badge {
+		background: rgba(56, 189, 248, 0.1);
+		color: #38bdf8;
+		padding: 0.25rem 0.75rem;
+		border-radius: 50px;
+		font-size: 0.8rem;
+		font-weight: 600;
+		border: 1px solid rgba(56, 189, 248, 0.2);
+	}
+	.content-section {
+		margin-top: 3rem;
+	}
+	.content-section h2 {
+		color: #38bdf8;
+		border-bottom: 1px solid #1e293b;
+		padding-bottom: 0.5rem;
+		margin-bottom: 1rem;
+	}
+	.grid-2 {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+		gap: 1.5rem;
+	}
+	.card {
+		background: #111827;
+		padding: 1.5rem;
+		border-radius: 0.75rem;
+		border: 1px solid #1f2937;
+	}
+	ul {
+		color: #94a3b8;
+		line-height: 1.6;
+	}
+	ul strong,
+	.role-details strong {
+		color: #f1f5f9;
+	}
+	.role-details {
+		border-top: 1px solid #1e293b;
+		margin-top: 1.5rem;
+		padding-top: 1rem;
+		color: #94a3b8;
+	}
+	.role-details p {
+		margin: 0.5rem 0;
+	}
+</style>

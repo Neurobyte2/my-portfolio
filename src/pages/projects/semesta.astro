@@ -13,8 +13,23 @@ import Layout from '../../layouts/Layout.astro';
 		</header>
 
 		<section class="content-section">
-			<h2>Overview & Purpose</h2>
-			<p>Semesta was engineered to explore and implement modern native Android UI paradigms and scalable application design. The primary focus was delivering fluid animations, responsive layouts, and a decoupled codebase that scales seamlessly.</p>
+			<h2>Overview</h2>
+			<p>Semesta is a modern native Android application built to explore polished UI patterns, modular architecture, and predictable state management. The project focuses on delivering a smooth, responsive experience while keeping the underlying codebase organized for future growth.</p>
+		</section>
+
+		<section class="content-section">
+			<h2>The Challenge</h2>
+			<p>The goal was to create an application that feels fluid and intuitive without sacrificing maintainability. That meant balancing responsive layouts and smooth interactions with a clear separation between UI, business logic, and reusable application features.</p>
+			<ul>
+				<li>Designing a consistent modern interface across screens</li>
+				<li>Managing state predictably through lifecycle changes</li>
+				<li>Structuring the project so features can grow independently</li>
+			</ul>
+		</section>
+
+		<section class="content-section">
+			<h2>The Solution</h2>
+			<p>Semesta uses a structured Android architecture built around reusable Compose components, state-driven UI, and clear module boundaries. This approach keeps presentation concerns focused while allowing application logic and shared utilities to evolve independently.</p>
 		</section>
 
 		<section class="content-section">
@@ -25,19 +40,38 @@ import Layout from '../../layouts/Layout.astro';
 					<p>Built fully with <strong>Jetpack Compose</strong>, utilizing custom layout modifiers, dynamic state hoisting, and Material Design components.</p>
 				</div>
 				<div class="card">
-					<h3>Code Quality & Structure</h3>
-					<p>Features a modularized codebase separating feature logic from core utilities, ensuring high maintainability and clean separation of concerns.</p>
+					<h3>Application Architecture</h3>
+					<p>Uses <strong>MVVM and Clean Architecture</strong> principles to separate presentation, domain logic, and data responsibilities for easier testing and maintenance.</p>
 				</div>
 			</div>
 		</section>
 
 		<section class="content-section">
-			<h2>Core Engineering Highlights</h2>
+			<h2>Key Features</h2>
 			<ul>
-				<li><strong>Declarative UI Patterns:</strong> Utilized state flows and Compose side-effects to handle complex, real-time user interactions smoothly.</li>
-				<li><strong>Robust State Management:</strong> Leveraged Kotlin Coroutines and StateFlow to maintain predictable UI states across lifecycle changes.</li>
-				<li><strong>Optimized Performance:</strong> Minimized unnecessary recompositions to ensure smooth rendering performance on lower-end devices.</li>
+				<li><strong>Responsive UI:</strong> Layouts adapt cleanly across different screen sizes and device configurations.</li>
+				<li><strong>Reusable Components:</strong> Shared Compose components keep visual patterns consistent throughout the application.</li>
+				<li><strong>State-Driven Experience:</strong> Kotlin Coroutines and StateFlow provide predictable updates and smooth interactions.</li>
+				<li><strong>Modular Structure:</strong> Feature logic and core utilities remain separated for long-term maintainability.</li>
 			</ul>
+		</section>
+
+		<section class="content-section">
+			<h2>Challenges & Learnings</h2>
+			<ul>
+				<li><strong>Declarative UI Patterns:</strong> Learned how to model complex interactions with Compose state and side-effects.</li>
+				<li><strong>Architecture Before Screens:</strong> Designing boundaries early made individual features easier to implement and extend.</li>
+				<li><strong>Performance Awareness:</strong> Reducing unnecessary recompositions helped maintain smooth rendering on lower-end devices.</li>
+			</ul>
+		</section>
+
+		<section class="content-section outcome-section">
+			<h2>Outcome</h2>
+			<p>Semesta resulted in a polished Android experience with a maintainable foundation for future features. The project strengthened practical experience with Kotlin, Jetpack Compose, modular design, and scalable application architecture.</p>
+			<div class="role-details">
+				<p><strong>Role:</strong> Android Developer</p>
+				<p><strong>Focus:</strong> Kotlin &bull; Jetpack Compose &bull; UI/UX &bull; Architecture &bull; State Management</p>
+			</div>
 		</section>
 	</main>
 </Layout>

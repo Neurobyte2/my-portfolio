@@ -1,0 +1,157 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout>
+	<main class="case-study-container">
+		<a href="/" class="back-link">&larr; Back to Portfolio</a>
+
+		<header class="case-header">
+			<span class="badge">Offline Learning App</span>
+			<h1>Flashcard Quiz App</h1>
+			<p class="subtitle">An Android learning application for creating, managing, and reviewing flashcards through a focused and interactive study experience.</p>
+		</header>
+
+		<section class="content-section">
+			<h2>Overview</h2>
+			<p>Flashcard Quiz App was built as a practical Android learning product with an emphasis on clean architecture, local data persistence, navigation, and a polished user interface. It gives users a simple way to create their own study material and review it offline.</p>
+		</section>
+
+		<section class="content-section">
+			<h2>The Problem</h2>
+			<p>Students often need a lightweight way to create personal study material and quickly review important concepts. The goal was to avoid unnecessary complexity and provide a focused flow for creating, browsing, reviewing, and testing knowledge.</p>
+			<ol>
+				<li>Create flashcards</li>
+				<li>Store them locally</li>
+				<li>Browse saved material</li>
+				<li>Review content and test knowledge through quizzes</li>
+			</ol>
+		</section>
+
+		<section class="content-section">
+			<h2>The Solution</h2>
+			<p>The application combines a dedicated flashcard workflow with local persistence, allowing study material to remain available without a remote backend. Modern Android practices keep the feature set maintainable and easy to extend.</p>
+		</section>
+
+		<section class="content-section">
+			<h2>Key Features</h2>
+			<ul>
+				<li>Create and edit new flashcards</li>
+				<li>Store flashcards locally for offline access</li>
+				<li>View saved flashcards in an organized collection</li>
+				<li>Use an interactive quiz experience for revision</li>
+				<li>Navigate smoothly between creation, review, and quiz screens</li>
+				<li>Maintain predictable UI state with a clean and responsive interface</li>
+			</ul>
+		</section>
+
+		<section class="content-section">
+			<h2>Architecture & Technology</h2>
+			<div class="grid-2">
+				<div class="card">
+					<h3>Technology Stack</h3>
+					<p>Kotlin, Android, Jetpack Compose, Room Database, Hilt, Navigation, MVVM, and Clean Architecture.</p>
+				</div>
+				<div class="card">
+					<h3>Layered Design</h3>
+					<p>The presentation layer owns Compose UI and ViewModels, the domain layer contains use cases and models, and the data layer handles Room, DAOs, repositories, and persistence.</p>
+				</div>
+			</div>
+		</section>
+
+		<section class="content-section">
+			<h2>Challenges & Learnings</h2>
+			<ul>
+				<li><strong>Local Persistence:</strong> Learned to coordinate Room database operations with responsive UI state.</li>
+				<li><strong>Quiz Interactions:</strong> Designed a smooth learning flow while keeping the interface focused.</li>
+				<li><strong>State Management:</strong> Applied Compose state and ViewModels to keep interactions predictable.</li>
+				<li><strong>Architecture:</strong> Strengthened practical experience with Hilt, MVVM, and Clean Architecture.</li>
+			</ul>
+		</section>
+
+		<section class="content-section outcome-section">
+			<h2>Outcome</h2>
+			<p>Flashcard Quiz App became a functional, offline-capable learning application demonstrating how modern Android technologies can be combined to build a structured educational product.</p>
+			<div class="role-details">
+				<p><strong>Role:</strong> Android Developer</p>
+				<p><strong>Focus:</strong> Kotlin &bull; Jetpack Compose &bull; Room &bull; Hilt &bull; MVVM &bull; Clean Architecture</p>
+			</div>
+		</section>
+	</main>
+</Layout>
+
+<style>
+	body {
+		background-color: #090d16;
+		color: #f1f5f9;
+		font-family: system-ui, sans-serif;
+	}
+	.case-study-container {
+		max-width: 800px;
+		margin: 0 auto;
+		padding: 4rem 2rem;
+	}
+	.back-link {
+		color: #38bdf8;
+		text-decoration: none;
+		font-weight: 600;
+		display: inline-block;
+		margin-bottom: 2rem;
+	}
+	.case-header h1 {
+		font-size: 2.5rem;
+		color: #ffffff;
+		margin: 0.5rem 0;
+	}
+	.subtitle {
+		color: #94a3b8;
+		font-size: 1.2rem;
+	}
+	.badge {
+		background: rgba(56, 189, 248, 0.1);
+		color: #38bdf8;
+		padding: 0.25rem 0.75rem;
+		border-radius: 50px;
+		font-size: 0.8rem;
+		font-weight: 600;
+		border: 1px solid rgba(56, 189, 248, 0.2);
+	}
+	.content-section {
+		margin-top: 3rem;
+	}
+	.content-section h2 {
+		color: #38bdf8;
+		border-bottom: 1px solid #1e293b;
+		padding-bottom: 0.5rem;
+		margin-bottom: 1rem;
+	}
+	.grid-2 {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+		gap: 1.5rem;
+	}
+	.card {
+		background: #111827;
+		padding: 1.5rem;
+		border-radius: 0.75rem;
+		border: 1px solid #1f2937;
+	}
+	ul,
+	ol {
+		color: #94a3b8;
+		line-height: 1.6;
+	}
+	ul strong,
+	.role-details strong {
+		color: #f1f5f9;
+	}
+	.role-details {
+		border-top: 1px solid #1e293b;
+		margin-top: 1.5rem;
+		padding-top: 1rem;
+		color: #94a3b8;
+	}
+	.role-details p {
+		margin: 0.5rem 0;
+	}
+</style>
