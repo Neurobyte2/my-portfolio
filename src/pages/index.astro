@@ -13,6 +13,7 @@ import Layout from '../layouts/Layout.astro';
 			<div class="cta-buttons">
 				<a href="#contact" class="btn primary">Start a conversation <span>&rarr;</span></a>
 				<a href="#projects" class="btn secondary">Explore my work</a>
+				<a href="/resume.pdf" class="btn resume-link" download>Download résumé <span>&darr;</span></a>
 			</div>
 			<div class="hero-proof">
 				<span>Android-first</span>
@@ -241,6 +242,11 @@ import Layout from '../layouts/Layout.astro';
 		background-color: #1e293b;
 		color: #f1f5f9;
 		border: 1px solid #334155;
+	}
+	.btn.resume-link {
+		color: #cbd5e1;
+		border: 1px solid #334155;
+		background: transparent;
 	}
 	.btn.whatsapp {
 		background-color: #22c55e;
