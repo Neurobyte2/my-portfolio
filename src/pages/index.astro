@@ -4,23 +4,59 @@ import Layout from '../layouts/Layout.astro';
 
 <Layout>
 	<main class="portfolio-container">
-		<!-- Hero Section -->
 		<section class="hero">
-			<div class="badge">Available for International Opportunities</div>
-			<h1>Hi, I'm Ali Ansar</h1>
-			<h2>Native Android & Full-Stack Engineer</h2>
-			<p>Building high-performance, production-grade mobile applications with clean architecture, real-time dashboards, and modern UI.</p>
+			<div class="eyebrow"><span class="availability-dot"></span>Available for remote roles & freelance projects</div>
+			<h1>Android products that feel <em>as good as they work.</em></h1>
+			<h2>I'm Ali Ansar, a Native Android & Full-Stack Engineer.</h2>
+			<p>From the first screen to the backend that powers it, I build reliable mobile products with thoughtful UX, clean architecture, and production-ready engineering.</p>
 			
 			<div class="cta-buttons">
-				<a href="https://github.com/Neurobyte2" target="_blank" class="btn primary">GitHub Profile</a>
-				<a href="https://www.linkedin.com/in/ali-ansar-536153366" target="_blank" class="btn secondary">LinkedIn</a>
-				<a href="https://wa.me/923479951664" target="_blank" class="btn whatsapp">WhatsApp Chat</a>
+				<a href="#contact" class="btn primary">Start a conversation <span>&rarr;</span></a>
+				<a href="#projects" class="btn secondary">Explore my work</a>
+			</div>
+			<div class="hero-proof">
+				<span>Android-first</span>
+				<span>End-to-end thinking</span>
+				<span>Built for scale</span>
 			</div>
 		</section>
 
-		<!-- Projects Section -->
-		<section class="projects">
-			<h2>Featured Projects</h2>
+		<section class="expertise" id="expertise">
+			<div class="section-intro">
+				<span class="section-label">What I bring</span>
+				<h2>Full-stack Android expertise</h2>
+				<p>A practical toolkit for taking an idea from product thinking to a polished, maintainable release.</p>
+			</div>
+			<div class="expertise-grid">
+				<article class="expertise-card">
+					<span class="expertise-number">01</span>
+					<h3>Native Android</h3>
+					<p>Modern, responsive mobile experiences built for real users and real devices.</p>
+					<div class="skill-list"><span>Kotlin</span><span>Jetpack Compose</span><span>Material Design</span><span>Coroutines & Flow</span><span>Navigation</span></div>
+				</article>
+				<article class="expertise-card">
+					<span class="expertise-number">02</span>
+					<h3>Architecture & quality</h3>
+					<p>Codebases that stay understandable as features, teams, and users grow.</p>
+					<div class="skill-list"><span>Clean Architecture</span><span>MVVM</span><span>State Management</span><span>Hilt / DI</span><span>Unit Testing</span></div>
+				</article>
+				<article class="expertise-card">
+					<span class="expertise-number">03</span>
+					<h3>Backend & data</h3>
+					<p>Connected applications with dependable data flows, authentication, and persistence.</p>
+					<div class="skill-list"><span>REST APIs</span><span>Retrofit</span><span>Firebase</span><span>Firestore</span><span>Room Database</span></div>
+				</article>
+				<article class="expertise-card">
+					<span class="expertise-number">04</span>
+					<h3>Delivery & collaboration</h3>
+					<p>Clear communication and disciplined delivery from discovery through release.</p>
+					<div class="skill-list"><span>Git & GitHub</span><span>API Integration</span><span>Agile Workflow</span><span>Debugging</span><span>Performance</span></div>
+				</article>
+			</div>
+		</section>
+
+		<section class="projects" id="projects">
+			<div class="section-heading"><div><span class="section-label">Selected work</span><h2>Projects with purpose</h2></div><a href="#contact" class="text-link">Have a project? Let’s talk &rarr;</a></div>
 			
 			<a href="/projects/campusnotify" class="project-card highlight project-card-link">
 				<span class="tag">Flagship Platform</span>
@@ -70,10 +106,13 @@ import Layout from '../layouts/Layout.astro';
 			</a>
 		</section>
 
-		<!-- Contact Section -->
-		<section class="contact-section">
-			<h2>Get In Touch</h2>
-			<p>Let's build something exceptional together. Reach out via direct call, WhatsApp, or professional networks.</p>
+		<section class="contact-section" id="contact">
+			<div class="contact-copy">
+				<span class="section-label">Let’s work together</span>
+				<h2>Have an idea worth building?</h2>
+				<p>Whether you’re hiring an Android engineer or shaping a new product, I’m open to thoughtful conversations about the problem, the users, and the best way forward.</p>
+				<div class="contact-actions"><a href="mailto:aliedits1129@gmail.com" class="btn primary">Email me <span>&rarr;</span></a><a href="https://wa.me/923479951664" target="_blank" class="btn whatsapp">Message on WhatsApp</a></div>
+			</div>
 			
 			<div class="contact-grid">
 				<div class="contact-item">
@@ -88,6 +127,10 @@ import Layout from '../layouts/Layout.astro';
 					<strong>GitHub:</strong>
 					<a href="https://github.com/Neurobyte2" target="_blank">github.com/Neurobyte2</a>
 				</div>
+				<div class="contact-item">
+					<strong>LinkedIn:</strong>
+					<a href="https://www.linkedin.com/in/ali-ansar-536153366" target="_blank">Connect professionally</a>
+				</div>
 			</div>
 		</section>
 	</main>
@@ -95,64 +138,96 @@ import Layout from '../layouts/Layout.astro';
 
 <style>
 	body {
-		font-family: system-ui, -apple-system, sans-serif;
-		background-color: #090d16;
+		font-family: Georgia, 'Times New Roman', serif;
+		background: #090d16;
 		color: #f1f5f9;
 		margin: 0;
 		padding: 0;
 		line-height: 1.6;
 	}
 	.portfolio-container {
-		max-width: 900px;
+		max-width: 1040px;
 		margin: 0 auto;
-		padding: 5rem 2rem;
+		padding: 2rem 2rem 5rem;
 	}
 	.hero {
 		text-align: center;
-		margin-bottom: 5rem;
+		min-height: 590px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		margin-bottom: 4rem;
+		position: relative;
 	}
-	.badge {
+	.hero::before {
+		content: '';
+		position: absolute;
+		inset: 5% 12% 8%;
+		background: radial-gradient(circle at center, rgba(56, 189, 248, 0.11), transparent 65%);
+		z-index: -1;
+	}
+	.eyebrow {
 		display: inline-block;
-		background: rgba(56, 189, 248, 0.1);
+		background: rgba(56, 189, 248, 0.08);
 		color: #38bdf8;
-		padding: 0.35rem 1rem;
+		padding: 0.55rem 1rem;
 		border-radius: 50px;
-		font-size: 0.85rem;
+		font-family: system-ui, sans-serif;
+		font-size: 0.78rem;
 		font-weight: 600;
-		margin-bottom: 1.5rem;
 		border: 1px solid rgba(56, 189, 248, 0.2);
+		letter-spacing: 0.02em;
+	}
+	.availability-dot {
+		display: inline-block;
+		width: 7px;
+		height: 7px;
+		background: #22c55e;
+		border-radius: 50%;
+		margin-right: 0.45rem;
 	}
 	.hero h1 {
-		font-size: 3rem;
-		margin: 0 0 0.5rem 0;
+		font-size: clamp(3.1rem, 7vw, 5.8rem);
+		line-height: 0.98;
+		max-width: 850px;
+		margin: 2rem 0 1.5rem;
 		color: #ffffff;
-		letter-spacing: -0.02em;
+		letter-spacing: -0.04em;
+	}
+	.hero h1 em {
+		color: #38bdf8;
+		font-style: normal;
 	}
 	.hero h2 {
-		font-size: 1.5rem;
-		color: #38bdf8;
-		margin-bottom: 1rem;
-		font-weight: 500;
+		font-family: system-ui, sans-serif;
+		font-size: 1.15rem;
+		color: #e2e8f0;
+		margin: 0 0 1rem;
+		font-weight: 600;
 	}
 	.hero p {
-		font-size: 1.15rem;
+		font-family: system-ui, sans-serif;
+		font-size: 1.05rem;
 		color: #94a3b8;
-		max-width: 650px;
-		margin: 0 auto 2.5rem auto;
+		max-width: 670px;
+		margin: 0 auto 2rem;
 	}
 	.cta-buttons {
 		display: flex;
-		gap: 1.5rem;
+		gap: 0.85rem;
 		justify-content: center;
 		flex-wrap: wrap;
 	}
 	.btn {
-		padding: 0.75rem 1.5rem;
+		font-family: system-ui, sans-serif;
+		padding: 0.85rem 1.25rem;
 		border-radius: 0.5rem;
 		text-decoration: none;
 		font-weight: 600;
 		transition: all 0.2s ease;
 	}
+	.btn span { margin-left: 0.4rem; }
 	.btn.primary {
 		background-color: #38bdf8;
 		color: #090d16;
@@ -169,12 +244,54 @@ import Layout from '../layouts/Layout.astro';
 		background-color: #22c55e;
 		color: #ffffff;
 	}
+	.btn:hover { transform: translateY(-2px); }
+	.hero-proof {
+		display: flex;
+		gap: 1.5rem;
+		margin-top: 2.2rem;
+		color: #64748b;
+		font-family: system-ui, sans-serif;
+		font-size: 0.75rem;
+		text-transform: uppercase;
+		letter-spacing: 0.08em;
+	}
+	.hero-proof span + span::before { content: '•'; color: #38bdf8; margin-right: 1.5rem; }
+	.section-label {
+		color: #38bdf8;
+		font-family: system-ui, sans-serif;
+		font-size: 0.72rem;
+		font-weight: 700;
+		letter-spacing: 0.14em;
+		text-transform: uppercase;
+	}
+	.section-intro { max-width: 610px; margin-bottom: 2rem; }
+	.section-intro h2, .section-heading h2 {
+		font-size: 2.25rem;
+		color: #ffffff;
+		margin: 0.55rem 0 0.5rem;
+	}
+	.section-intro p { color: #94a3b8; font-family: system-ui, sans-serif; margin: 0; }
+	.expertise { padding: 2rem 0 5rem; }
+	.expertise-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+	.expertise-card {
+		padding: 1.5rem;
+		background: #0e1522;
+		border: 1px solid #1f2937;
+		border-radius: 0.75rem;
+	}
+	.expertise-number { color: #38bdf8; font: 700 0.75rem system-ui, sans-serif; }
+	.expertise-card h3 { color: #fff; font-size: 1.2rem; margin: 1.8rem 0 0.6rem; }
+	.expertise-card p { color: #94a3b8; font: 0.9rem/1.5 system-ui, sans-serif; min-height: 4.1rem; }
+	.skill-list { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+	.skill-list span { color: #cbd5e1; background: #1f2937; border-radius: 999px; padding: 0.3rem 0.55rem; font: 0.7rem system-ui, sans-serif; }
+	.projects { padding: 2rem 0; }
+	.section-heading { display: flex; align-items: end; justify-content: space-between; margin-bottom: 2rem; }
+	.text-link { color: #38bdf8; font: 600 0.85rem system-ui, sans-serif; text-decoration: none; }
+	.text-link:hover { text-decoration: underline; }
 	.projects h2, .contact-section h2 {
 		font-size: 2rem;
 		margin-bottom: 2rem;
 		color: #ffffff;
-		border-bottom: 1px solid #1e293b;
-		padding-bottom: 0.75rem;
 	}
 	.project-card {
 		background-color: #111827;
@@ -241,16 +358,20 @@ import Layout from '../layouts/Layout.astro';
 	}
 	.contact-section {
 		margin-top: 5rem;
-		background: #111827;
-		padding: 3rem;
+		background: linear-gradient(135deg, #111827, #0e1b2b);
+		padding: 3.5rem;
 		border-radius: 1rem;
 		border: 1px solid #1f2937;
-		text-align: center;
+		text-align: left;
 	}
+	.contact-copy { max-width: 650px; }
+	.contact-copy h2 { margin: 0.55rem 0 0.75rem; }
 	.contact-section p {
 		color: #94a3b8;
 		margin-bottom: 2rem;
+		font-family: system-ui, sans-serif;
 	}
+	.contact-actions { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 2.5rem; }
 	.contact-grid {
 		display: grid;
 		grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -275,5 +396,19 @@ import Layout from '../layouts/Layout.astro';
 	}
 	.contact-item a:hover {
 		text-decoration: underline;
+	}
+	@media (max-width: 800px) {
+		.expertise-grid { grid-template-columns: repeat(2, 1fr); }
+	}
+	@media (max-width: 560px) {
+		.portfolio-container { padding: 1rem 1.25rem 3rem; }
+		.hero { min-height: 600px; }
+		.hero h1 { font-size: 3.2rem; }
+		.hero-proof { gap: 0.7rem; flex-wrap: wrap; justify-content: center; }
+		.hero-proof span + span::before { margin-right: 0.7rem; }
+		.expertise-grid { grid-template-columns: 1fr; }
+		.section-heading { display: block; }
+		.text-link { display: inline-block; margin-top: 0.75rem; }
+		.contact-section { padding: 2rem 1.25rem; }
 	}
 </style>
