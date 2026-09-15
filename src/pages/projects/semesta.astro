@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import ScreenshotGallery from '../../components/ScreenshotGallery.astro';
 ---
 
 <Layout>
@@ -11,6 +12,14 @@ import Layout from '../../layouts/Layout.astro';
 			<h1>Semesta</h1>
 			<p class="subtitle">An advanced native Android application showcasing modern UI patterns, modular architecture, and robust state management.</p>
 		</header>
+
+		<ScreenshotGallery
+			project="semesta"
+			screenshots={[
+				{ file: 'semesta-ss-1.jpeg', alt: 'Semesta application screen one', caption: 'Explore the Semesta experience' },
+				{ file: 'semesta-ss-2.jpeg', alt: 'Semesta application screen two', caption: 'Focused mobile interaction' },
+			]}
+		/>
 
 		<section class="content-section">
 			<h2>Overview</h2>

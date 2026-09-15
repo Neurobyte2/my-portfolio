@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import ScreenshotGallery from '../../components/ScreenshotGallery.astro';
 ---
 
 <Layout>
@@ -11,6 +12,14 @@ import Layout from '../../layouts/Layout.astro';
 			<h1>Flashcard Quiz App</h1>
 			<p class="subtitle">An Android learning application for creating, managing, and reviewing flashcards through a focused and interactive study experience.</p>
 		</header>
+
+		<ScreenshotGallery
+			project="flashcard-quiz"
+			screenshots={[
+				{ file: 'flashcard-ss-1.jpeg', alt: 'Flashcard Quiz home screen', caption: 'Track your study cards' },
+				{ file: 'flashcard-ss-2.jpeg', alt: 'Flashcard Quiz review screen', caption: 'Flip and review cards' },
+			]}
+		/>
 
 		<section class="content-section">
 			<h2>Overview</h2>

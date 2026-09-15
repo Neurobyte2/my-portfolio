@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import ScreenshotGallery from '../../components/ScreenshotGallery.astro';
 ---
 
 <Layout>
@@ -11,6 +12,14 @@ import Layout from '../../layouts/Layout.astro';
 			<h1>Asterloom</h1>
 			<p class="subtitle">A modern Android application designed around intuitive navigation, polished UI, reusable components, and scalable development practices.</p>
 		</header>
+
+		<ScreenshotGallery
+			project="asterloom"
+			screenshots={[
+				{ file: 'asterloom-ss-1.jpeg', alt: 'Asterloom focus timer screen', caption: 'Start a focused session' },
+				{ file: 'asterloom-ss-2.jpeg', alt: 'Asterloom theme customization screen', caption: 'Personalize the experience' },
+			]}
+		/>
 
 		<section class="content-section">
 			<h2>Overview</h2>

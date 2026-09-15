@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import ScreenshotGallery from '../../components/ScreenshotGallery.astro';
 ---
 
 <Layout>
@@ -11,6 +12,16 @@ import Layout from '../../layouts/Layout.astro';
 			<h1>CampusNotify</h1>
 			<p class="subtitle">A campus event and notification platform that keeps students informed through one centralized mobile experience.</p>
 		</header>
+
+		<ScreenshotGallery
+			project="campusnotify"
+			screenshots={[
+				{ file: 'campusnotify-ss-1.jpeg', alt: 'CampusNotify events feed', caption: 'Browse campus events' },
+				{ file: 'campusnotify-ss-2.jpeg', alt: 'CampusNotify event details', caption: 'View event details' },
+				{ file: 'campusnotify-ss-3.jpeg', alt: 'CampusNotify admin dashboard', caption: 'Manage campus updates' },
+				{ file: 'campusnotify-ss-4.jpeg', alt: 'CampusNotify add event screen', caption: 'Create an event' },
+			]}
+		/>
 
 		<section class="content-section">
 			<h2>Overview</h2>
