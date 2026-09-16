@@ -155,6 +155,7 @@ import Layout from '../layouts/Layout.astro';
 	}
 	.hero {
 		text-align: center;
+		width: 100%;
 		min-height: 590px;
 		display: flex;
 		flex-direction: column;
@@ -413,9 +414,10 @@ import Layout from '../layouts/Layout.astro';
 		.hero { min-height: auto; padding: 4rem 0 5rem; margin-bottom: 1rem; }
 		.hero::before { inset: 8% -20% 8%; }
 		.eyebrow { max-width: 100%; padding: 0.55rem 0.75rem; font-size: 0.7rem; line-height: 1.35; }
-		.hero h1 { font-size: clamp(2.65rem, 13vw, 3.5rem); line-height: 1.02; margin: 1.5rem 0 1.25rem; }
+		.hero h1 { width: 100%; max-width: 22rem; font-size: clamp(2.65rem, 13vw, 3.5rem); line-height: 1.02; margin: 1.5rem auto 1.25rem; }
+		.hero h2, .hero p { width: 100%; }
 		.hero h2 { font-size: 0.98rem; line-height: 1.45; }
-		.hero p { font-size: 0.95rem; line-height: 1.65; }
+		.hero p { max-width: 34rem; font-size: 0.95rem; line-height: 1.65; }
 		.cta-buttons, .contact-actions { width: 100%; flex-direction: column; align-items: stretch; }
 		.cta-buttons .btn, .contact-actions .btn { width: 100%; text-align: center; }
 		.hero-proof { gap: 0.35rem 0.7rem; flex-wrap: wrap; justify-content: center; font-size: 0.65rem; line-height: 1.4; }
