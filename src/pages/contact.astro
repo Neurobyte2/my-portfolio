@@ -1,0 +1,71 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Contact Ali Ansar | Start a Web or Android Project" description="Contact Ali Ansar about a full-stack website, web application, Android app, freelance project, or remote software development opportunity.">
+	<main class="contact-shell">
+		<header>
+			<span class="section-label">Contact</span>
+			<h1>Let’s talk about <em>what you’re building.</em></h1>
+			<p>Have an idea, a project brief, or a product that needs a thoughtful developer? Tell me a little about it and I’ll get back to you.</p>
+		</header>
+		<div class="contact-layout">
+			<section class="contact-card" aria-labelledby="email-heading">
+				<span class="section-label">Best place to start</span>
+				<h2 id="email-heading">Send me a message.</h2>
+				<p>Share what you’re working on, what kind of help you need, and any timing you have in mind.</p>
+				<a class="button" href="mailto:aliedits1129@gmail.com?subject=Project%20inquiry">Email Ali <span aria-hidden="true">↗</span></a>
+				<div class="contact-links">
+					<a href="mailto:aliedits1129@gmail.com"><span>Email</span><strong>aliedits1129@gmail.com</strong></a>
+					<a href="tel:+923479951664"><span>Phone / WhatsApp</span><strong>+92 347 9951664</strong></a>
+				</div>
+			</section>
+			<aside>
+				<div class="availability"><span class="availability-dot"></span>Available for freelance & remote opportunities</div>
+				<h2>What are you looking for?</h2>
+				<ul><li>Business website or landing page</li><li>Full-stack web application</li><li>Native Android development</li><li>API, integration, or product improvements</li></ul>
+				<p>Not sure how to scope it yet? That’s fine — a short conversation is a good first step.</p>
+				<div class="social-links">
+					<a href="https://github.com/Neurobyte2" target="_blank" rel="noreferrer">GitHub ↗</a>
+					<a href="https://www.linkedin.com/in/ali-ansar-536153366" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+				</div>
+			</aside>
+		</div>
+	</main>
+</Layout>
+
+<style>
+	.contact-shell { width: min(1000px, calc(100% - 3rem)); margin: 0 auto; padding: 4.5rem 0 5.5rem; }
+	.section-label { color: #38bdf8; font-size: 0.68rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; }
+	h1, h2, p { margin-top: 0; }
+	header { max-width: 740px; margin-bottom: 2.5rem; }
+	header h1 { margin: 0.6rem 0 0.8rem; font-size: clamp(3rem, 7vw, 5.2rem); line-height: 1; letter-spacing: -0.06em; }
+	header h1 em { color: #38bdf8; font-style: normal; }
+	header p, .contact-card > p, .contact-layout aside > p { color: #9aa9bd; font-size: 0.92rem; }
+	.contact-layout { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 1rem; }
+	.contact-card, .contact-layout aside { padding: 1.8rem; border: 1px solid #1d2a3c; border-radius: 0.95rem; background: #0e1624; }
+	.contact-card h2, .contact-layout aside h2 { margin: 0.5rem 0 0.6rem; font-size: 1.55rem; letter-spacing: -0.035em; }
+	.button { display: inline-flex; align-items: center; gap: 0.65rem; margin: 0.3rem 0 1.4rem; padding: 0.75rem 1rem; border-radius: 0.65rem; background: #38bdf8; color: #04111d; font-size: 0.82rem; font-weight: 750; text-decoration: none; }
+	.contact-links { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-top: 0.5rem; }
+	.contact-links a { display: grid; gap: 0.25rem; padding: 0.8rem; border: 1px solid #223147; border-radius: 0.65rem; color: inherit; text-decoration: none; }
+	.contact-links a span { color: #8797ac; font-size: 0.68rem; }
+	.contact-links strong { overflow-wrap: anywhere; font-size: 0.76rem; }
+	.availability { display: inline-flex; align-items: center; margin-bottom: 1.1rem; color: #9bd8c5; font-size: 0.7rem; font-weight: 650; }
+	.availability-dot { width: 7px; height: 7px; margin-right: 0.5rem; border-radius: 50%; background: #34d399; }
+	.contact-layout aside h2 { font-size: 1.2rem; }
+	.contact-layout ul { display: grid; gap: 0.55rem; margin: 0 0 1.3rem; padding: 0; list-style: none; }
+	.contact-layout li { color: #c5d0df; font-size: 0.81rem; }
+	.contact-layout li::before { content: "→"; margin-right: 0.55rem; color: #38bdf8; }
+	.contact-layout aside > p { font-size: 0.8rem; }
+	.social-links { display: flex; gap: 1rem; padding-top: 0.9rem; border-top: 1px solid #1e2a3b; }
+	.social-links a { color: #77d7ff; font-size: 0.78rem; font-weight: 700; text-decoration: none; }
+	@media (max-width: 760px) {
+		.contact-shell { padding-top: 3rem; }
+		.contact-layout { grid-template-columns: 1fr; }
+	}
+	@media (max-width: 560px) {
+		.contact-shell { width: calc(100% - 2.5rem); }
+		.contact-card, .contact-layout aside { padding: 1.3rem; }
+		.contact-links { grid-template-columns: 1fr; }
+	}
+</style>

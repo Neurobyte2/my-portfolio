@@ -1,0 +1,116 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+interface Props {
+	title: string;
+	description: string;
+	category: string;
+	status: string;
+	image: string;
+	imageAlt: string;
+	overview: string;
+	role: string;
+	technologies: string[];
+	highlights: string[];
+	liveUrl?: string;
+	liveLabel?: string;
+	launchNote?: string;
+}
+
+const {
+	title,
+	description,
+	category,
+	status,
+	image,
+	imageAlt,
+	overview,
+	role,
+	technologies,
+	highlights,
+	liveUrl,
+	liveLabel = 'Visit live website',
+	launchNote,
+} = Astro.props;
+---
+
+<Layout title={`${title} | Ali Ansar Projects`} description={description}>
+	<main class="case-shell">
+		<a class="back-link" href="/projects/">← All projects</a>
+		<header class="case-header">
+			<div class="case-meta"><span class="category">{category}</span><span class:list={['status', status === 'In progress' && 'status-progress']}>{status}</span></div>
+			<h1>{title}</h1>
+			<p>{description}</p>
+			<div class="case-actions">
+				{liveUrl && <a class="button button-primary" href={liveUrl} target="_blank" rel="noopener noreferrer">{liveLabel} <span aria-hidden="true">↗</span></a>}
+				{launchNote && <span class="launch-note">{launchNote}</span>}
+			</div>
+		</header>
+		<figure class="case-image">
+			<img src={image} alt={imageAlt} fetchpriority="high" />
+			<figcaption>{title} — website preview</figcaption>
+		</figure>
+		<div class="case-content">
+			<section>
+				<span class="section-label">Project overview</span>
+				<h2>Designed around a clear purpose.</h2>
+				<p>{overview}</p>
+			</section>
+			<section>
+				<span class="section-label">What it delivers</span>
+				<h2>Details that make the experience work.</h2>
+				<ul>{highlights.map((highlight) => <li>{highlight}</li>)}</ul>
+			</section>
+			<section class="project-details">
+				<div><span class="detail-label">My role</span><strong>{role}</strong></div>
+				<div><span class="detail-label">Tools & focus</span><div class="tag-list">{technologies.map((technology) => <span>{technology}</span>)}</div></div>
+			</section>
+			<div class="case-next">
+				<p>Have a project with a similar challenge?</p>
+				<a href="/contact/">Let’s talk about it <span aria-hidden="true">↗</span></a>
+			</div>
+		</div>
+	</main>
+</Layout>
+
+<style>
+	.case-shell { width: min(960px, calc(100% - 3rem)); margin: 0 auto; padding: 3.2rem 0 5rem; }
+	.back-link { display: inline-block; margin-bottom: 2.2rem; color: #83d9ff; font-size: 0.82rem; font-weight: 650; text-decoration: none; }
+	.back-link:hover { color: #d5f4ff; }
+	.case-header { max-width: 760px; margin-bottom: 2.3rem; }
+	.case-meta { display: flex; flex-wrap: wrap; gap: 0.55rem; }
+	.category, .status { padding: 0.3rem 0.65rem; border: 1px solid #244158; border-radius: 999px; color: #91dfff; font-size: 0.67rem; font-weight: 750; letter-spacing: 0.035em; }
+	.status { border-color: #1a805e88; color: #76e3ba; }
+	.status-progress { border-color: #a8622888; color: #ffc27f; }
+	.case-header h1 { margin: 1.15rem 0 0.6rem; font-size: clamp(2.8rem, 7vw, 5rem); line-height: 1; letter-spacing: -0.06em; }
+	.case-header > p { max-width: 680px; margin-bottom: 1.35rem; color: #9aa9bd; font-size: 1.05rem; }
+	.case-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 1rem; }
+	.button { display: inline-flex; align-items: center; gap: 0.65rem; min-height: 46px; padding: 0.7rem 1rem; border-radius: 0.65rem; background: #38bdf8; color: #04111d; font-size: 0.82rem; font-weight: 750; text-decoration: none; }
+	.button:hover { background: #75d6ff; }
+	.launch-note { color: #d4a978; font-size: 0.79rem; }
+	.case-image { margin: 0; overflow: hidden; border: 1px solid #213146; border-radius: 1rem; background: #111827; }
+	.case-image img { display: block; width: 100%; max-height: 610px; aspect-ratio: 1.7; object-fit: cover; object-position: top; }
+	.case-image figcaption { padding: 0.7rem 1rem; color: #8291a7; font-size: 0.72rem; }
+	.case-content { max-width: 760px; margin: 3.5rem auto 0; }
+	.case-content section { margin-top: 2.8rem; }
+	.section-label, .detail-label { color: #38bdf8; font-size: 0.67rem; font-weight: 800; letter-spacing: 0.13em; text-transform: uppercase; }
+	.case-content h2 { margin: 0.45rem 0 0.7rem; font-size: 1.7rem; line-height: 1.2; letter-spacing: -0.035em; }
+	.case-content p, .case-content li { color: #9aa9bd; font-size: 0.9rem; }
+	.case-content ul { display: grid; gap: 0.65rem; margin: 1rem 0 0; padding-left: 1.2rem; }
+	.case-content li::marker { color: #38bdf8; }
+	.project-details { display: grid; grid-template-columns: 0.7fr 1.3fr; gap: 2rem; padding: 1.5rem 0; border-block: 1px solid #1d2a3c; }
+	.project-details > div { display: flex; flex-direction: column; align-items: flex-start; gap: 0.7rem; }
+	.project-details strong { font-size: 0.9rem; }
+	.tag-list { display: flex; flex-wrap: wrap; gap: 0.45rem; }
+	.tag-list span { padding: 0.35rem 0.6rem; border: 1px solid #253448; border-radius: 999px; color: #bdc9d9; font-size: 0.7rem; }
+	.case-next { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-top: 2.5rem; padding: 1.2rem 1.35rem; border: 1px solid #1d2a3c; border-radius: 0.8rem; background: #101827; }
+	.case-next p { margin: 0; }
+	.case-next a { color: #75d6ff; font-size: 0.82rem; font-weight: 750; text-decoration: none; white-space: nowrap; }
+	@media (max-width: 560px) {
+		.case-shell { width: calc(100% - 2.5rem); padding-top: 2.2rem; }
+		.case-header > p { font-size: 0.94rem; }
+		.case-image img { aspect-ratio: 1.2; }
+		.project-details { grid-template-columns: 1fr; gap: 1.4rem; }
+		.case-next { align-items: flex-start; flex-direction: column; }
+	}
+</style>

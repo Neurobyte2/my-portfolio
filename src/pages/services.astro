@@ -1,0 +1,110 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const offerings = [
+	{ number: '01', title: 'Business websites', text: 'A polished, responsive home for your business that explains what you do and makes the next step obvious.', deliverables: ['Responsive multi-page website', 'Clear service and contact journeys', 'Search-friendly page structure', 'Launch-ready performance basics'] },
+	{ number: '02', title: 'Full-stack web applications', text: 'Purpose-built web products that pair thoughtful interfaces with dependable server-side features.', deliverables: ['React and Next.js interfaces', 'Node.js and Express APIs', 'MongoDB data models and integration', 'Authentication and product workflows'] },
+	{ number: '03', title: 'Android applications', text: 'Native Android experiences designed to feel intuitive and supported by maintainable architecture.', deliverables: ['Kotlin and Jetpack Compose UI', 'MVVM and Clean Architecture', 'Firebase-connected features', 'Reliable state and data handling'] },
+	{ number: '04', title: 'Website improvements', text: 'Targeted upgrades for an existing website, from responsive polish to clearer content and integrations.', deliverables: ['Mobile and layout refinements', 'UI implementation from designs', 'API and database integrations', 'Technical SEO foundations'] },
+];
+
+const stack = [
+	{ group: 'Web interface', tools: ['React', 'Next.js', 'Responsive UI'] },
+	{ group: 'Backend', tools: ['Node.js', 'Express.js', 'REST APIs'] },
+	{ group: 'Data', tools: ['MongoDB', 'Firebase', 'Firestore'] },
+	{ group: 'Android', tools: ['Kotlin', 'Jetpack Compose', 'MVVM'] },
+	{ group: 'Workflow', tools: ['Git', 'GitHub', 'API integration'] },
+];
+---
+
+<Layout title="Web & Android Development Services | Ali Ansar" description="Full-stack web development, business websites, backend APIs, and native Android app services by Ali Ansar. React, Next.js, Node.js, Express, MongoDB, Kotlin, and Firebase.">
+	<main class="page-shell">
+		<header class="page-hero">
+			<span class="section-label">Services</span>
+			<h1>Good software starts with understanding <em>what you need.</em></h1>
+			<p>I work with businesses and teams to design and build websites, web applications, and Android products — with practical engineering from the first conversation to launch.</p>
+			<a class="button" href="/contact/">Tell me what you’re building <span aria-hidden="true">↗</span></a>
+		</header>
+
+		<section class="offerings" aria-labelledby="offerings-title">
+			<div class="section-heading"><div><span class="section-label">Ways we can work together</span><h2 id="offerings-title">Services built around your next step.</h2></div></div>
+			<div class="offering-grid">
+				{offerings.map((offering) => (
+					<article class="offering-card">
+						<span class="number">{offering.number}</span>
+						<h3>{offering.title}</h3>
+						<p>{offering.text}</p>
+						<ul>{offering.deliverables.map((deliverable) => <li>{deliverable}</li>)}</ul>
+					</article>
+				))}
+			</div>
+		</section>
+
+		<section class="toolkit" aria-labelledby="toolkit-title">
+			<div><span class="section-label">Tools & technologies</span><h2 id="toolkit-title">A practical, modern toolkit.</h2><p>I choose tools to fit the product, with an emphasis on maintainable code and dependable delivery.</p></div>
+			<div class="stack-grid">
+				{stack.map((item) => <div class="stack-card"><h3>{item.group}</h3><div>{item.tools.map((tool) => <span>{tool}</span>)}</div></div>)}
+			</div>
+		</section>
+
+		<section class="process" aria-labelledby="process-title">
+			<span class="section-label">The process</span><h2 id="process-title">Clear steps. No mystery.</h2>
+			<div class="process-grid">
+				<div><b>01</b><h3>Understand</h3><p>We align on the audience, goals, scope, and what success should look like.</p></div>
+				<div><b>02</b><h3>Plan & build</h3><p>I shape the structure, implement the experience, and share progress as the work takes form.</p></div>
+				<div><b>03</b><h3>Refine & launch</h3><p>We test the important details, make final refinements, and prepare a confident handoff.</p></div>
+			</div>
+		</section>
+
+		<aside class="bottom-cta"><div><span class="section-label">Ready to start?</span><h2>Let’s make your next idea real.</h2><p>Tell me where you are and what you need help with.</p></div><a class="button" href="/contact/">Start a conversation <span aria-hidden="true">↗</span></a></aside>
+	</main>
+</Layout>
+
+<style>
+	.page-shell { width: min(1050px, calc(100% - 3rem)); margin: 0 auto; padding: 4.5rem 0 5rem; }
+	.page-hero { max-width: 790px; padding: 1.5rem 0 4.5rem; }
+	.section-label { color: #38bdf8; font-size: 0.68rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; }
+	h1, h2, h3, p { margin-top: 0; }
+	.page-hero h1 { margin: 0.7rem 0 1rem; font-size: clamp(3rem, 7vw, 5.2rem); line-height: 1; letter-spacing: -0.06em; }
+	.page-hero h1 em { color: #38bdf8; font-style: normal; }
+	.page-hero > p { max-width: 670px; margin-bottom: 1.5rem; color: #9aa9bd; font-size: 1rem; }
+	.button { display: inline-flex; align-items: center; gap: 0.65rem; min-height: 47px; padding: 0.72rem 1rem; border-radius: 0.65rem; background: #38bdf8; color: #04111d; font-size: 0.82rem; font-weight: 750; text-decoration: none; }
+	.button:hover { background: #75d6ff; }
+	.section-heading { margin-bottom: 1.5rem; }
+	.section-heading h2, .toolkit h2, .process h2 { margin: 0.45rem 0 0; font-size: clamp(1.9rem, 4vw, 2.8rem); line-height: 1.15; letter-spacing: -0.045em; }
+	.offering-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+	.offering-card { padding: 1.6rem; border: 1px solid #1d2a3c; border-radius: 0.9rem; background: #0e1624; }
+	.number, .process-grid b { color: #38bdf8; font-size: 0.7rem; font-weight: 800; }
+	.offering-card h3, .process-grid h3 { margin: 0.9rem 0 0.5rem; font-size: 1.15rem; }
+	.offering-card p, .process-grid p, .toolkit p, .bottom-cta p { color: #94a3b8; font-size: 0.85rem; }
+	.offering-card ul { display: grid; gap: 0.45rem; margin: 1rem 0 0; padding: 0; list-style: none; }
+	.offering-card li { color: #bdc9d9; font-size: 0.79rem; }
+	.offering-card li::before { content: "✓"; margin-right: 0.55rem; color: #38bdf8; }
+	.toolkit { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 2.5rem; margin-top: 5rem; padding: 2.2rem; border: 1px solid #1d2a3c; border-radius: 1rem; background: linear-gradient(135deg, #101827, #0b1320); }
+	.toolkit h2 { margin-bottom: 0.7rem; }
+	.toolkit p { margin-bottom: 0; }
+	.stack-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+	.stack-card { padding: 0.9rem; border: 1px solid #223147; border-radius: 0.7rem; background: #0b1320; }
+	.stack-card h3 { margin: 0 0 0.55rem; color: #91a0b5; font-size: 0.72rem; font-weight: 650; }
+	.stack-card div { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+	.stack-card span { padding: 0.28rem 0.5rem; border-radius: 999px; background: #172438; color: #d0dbea; font-size: 0.68rem; }
+	.process { margin-top: 5rem; }
+	.process-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 1.5rem; }
+	.process-grid > div { padding: 1.2rem 1.3rem; border-left: 1px solid #294057; }
+	.process-grid h3 { margin-top: 0.65rem; }
+	.process-grid p { margin-bottom: 0; }
+	.bottom-cta { display: flex; align-items: center; justify-content: space-between; gap: 2rem; margin-top: 5rem; padding: 2rem; border: 1px solid #1e3a50; border-radius: 1rem; background: radial-gradient(ellipse at 20% 20%, #0d2634, #0e1624 72%); }
+	.bottom-cta h2 { margin: 0.4rem 0; font-size: 1.7rem; letter-spacing: -0.04em; }
+	.bottom-cta p { margin-bottom: 0; }
+	@media (max-width: 760px) {
+		.page-shell { padding-top: 3rem; }
+		.toolkit { grid-template-columns: 1fr; gap: 1.5rem; }
+	}
+	@media (max-width: 560px) {
+		.page-shell { width: calc(100% - 2.5rem); }
+		.page-hero { padding-bottom: 3.3rem; }
+		.offering-grid, .process-grid { grid-template-columns: 1fr; }
+		.toolkit { padding: 1.3rem; }
+		.bottom-cta { align-items: flex-start; flex-direction: column; margin-top: 3.5rem; padding: 1.4rem; }
+	}
+</style>

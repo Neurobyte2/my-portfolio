@@ -1,0 +1,89 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const webProjects = [
+	{ title: 'NexVion Sportswear', category: 'Live business website', image: '/projects/nexvion-preview.png', alt: 'NexVion Sportswear homepage showcasing custom sportswear manufacturing', text: 'A modern business website for a sportswear manufacturer, presenting its products and custom manufacturing capabilities.', href: '/projects/nexvion/', status: 'Live' },
+	{ title: 'DubaiAd', category: 'Printing & advertising', image: '/projects/dubaiad-preview.png', alt: 'DubaiAd website design for printing, signage, and advertising services', text: 'A confident web design for a printing and signage company. The design is complete; the site has not been published yet.', href: '/projects/dubaiad/', status: 'In progress' },
+	{ title: 'Portfolio Website', category: 'Personal portfolio', image: '/projects/portfolio-preview.png', alt: 'Ali Ansar portfolio website preview', text: 'My own portfolio: a multi-page presentation of development services, selected projects, and ways to get in touch.', href: '/projects/portfolio/', status: 'This site' },
+];
+const androidProjects = [
+	{ title: 'CampusNotify', text: 'A campus communication platform bringing student and admin experiences together.', href: '/projects/campusnotify', stack: 'Kotlin · Firebase · MVVM' },
+	{ title: 'Semesta', text: 'A native Android app focused on polished UI, modular design, and predictable state.', href: '/projects/semesta', stack: 'Kotlin · Jetpack Compose · Clean Architecture' },
+	{ title: 'Flashcard Quiz', text: 'An offline-friendly study app for creating, organizing, and reviewing flashcards.', href: '/projects/flashcard-quiz', stack: 'Jetpack Compose · Room · Hilt' },
+	{ title: 'Asterloom', text: 'A modern Android application with intuitive navigation and reusable interface patterns.', href: '/projects/asterloom', stack: 'Kotlin · Jetpack Compose · MVVM' },
+];
+---
+
+<Layout title="Projects | Ali Ansar Web & Android Portfolio" description="Explore websites, full-stack development, and Android applications by Ali Ansar, including NexVion Sportswear, DubaiAd, CampusNotify, and more.">
+	<main class="projects-shell">
+		<header class="projects-hero">
+			<span class="section-label">Selected work</span>
+			<h1>Work built for <em>real people and real goals.</em></h1>
+			<p>A selection of web, full-stack, and Android projects — from a live business website to products and concepts in progress.</p>
+		</header>
+		<section aria-labelledby="web-title">
+			<div class="section-heading"><div><span class="section-label">Web projects</span><h2 id="web-title">Websites & digital experiences.</h2></div></div>
+			<div class="web-grid">
+				{webProjects.map((project) => (
+					<article class="web-card">
+						<a class="web-image" href={project.href}><img src={project.image} alt={project.alt} loading="lazy" /><span class:list={['status', project.status === 'In progress' && 'status-progress']}>{project.status}</span></a>
+						<div class="web-copy"><span class="category">{project.category}</span><h3><a href={project.href}>{project.title}</a></h3><p>{project.text}</p><a class="project-link" href={project.href}>View project details <span aria-hidden="true">→</span></a></div>
+					</article>
+				))}
+			</div>
+		</section>
+		<section class="android-section" aria-labelledby="android-title">
+			<div class="section-heading"><div><span class="section-label">Android applications</span><h2 id="android-title">Mobile products with purpose.</h2></div></div>
+			<div class="android-grid">
+				{androidProjects.map((project) => <article class="android-card"><span class="android-mark">AND</span><h3><a href={project.href}>{project.title}</a></h3><p>{project.text}</p><span class="android-stack">{project.stack}</span><a class="project-link" href={project.href}>Read case study <span aria-hidden="true">→</span></a></article>)}
+			</div>
+		</section>
+		<aside class="project-cta"><div><span class="section-label">Have a challenge?</span><h2>Let’s make the next one yours.</h2></div><a href="/contact/">Start a conversation ↗</a></aside>
+	</main>
+</Layout>
+
+<style>
+	.projects-shell { width: min(1120px, calc(100% - 3rem)); margin: 0 auto; padding: 4.2rem 0 5rem; }
+	.section-label { color: #38bdf8; font-size: 0.68rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; }
+	h1, h2, h3, p { margin-top: 0; }
+	.projects-hero { max-width: 780px; margin-bottom: 3.3rem; }
+	.projects-hero h1 { margin: 0.55rem 0 0.9rem; font-size: clamp(3rem, 7vw, 5.3rem); line-height: 1; letter-spacing: -0.06em; }
+	.projects-hero h1 em { color: #38bdf8; font-style: normal; }
+	.projects-hero p { max-width: 650px; color: #9aa9bd; font-size: 0.98rem; }
+	.section-heading { margin-bottom: 1.4rem; }
+	.section-heading h2 { margin: 0.45rem 0 0; font-size: clamp(1.8rem, 4vw, 2.6rem); letter-spacing: -0.045em; }
+	.web-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+	.web-card { overflow: hidden; border: 1px solid #1d2a3c; border-radius: 0.9rem; background: #0e1624; transition: transform 180ms ease, border-color 180ms ease; }
+	.web-card:hover { transform: translateY(-3px); border-color: #3a8cad; }
+	.web-image { position: relative; display: block; overflow: hidden; background: #111827; }
+	.web-image img { display: block; width: 100%; aspect-ratio: 1.65; object-fit: cover; object-position: top; transition: transform 200ms ease; }
+	.web-card:hover .web-image img { transform: scale(1.025); }
+	.status { position: absolute; top: 0.7rem; left: 0.7rem; padding: 0.28rem 0.55rem; border: 1px solid #1a805e88; border-radius: 999px; background: #071b17ef; color: #76e3ba; font-size: 0.65rem; font-weight: 750; }
+	.status-progress { border-color: #a8622888; background: #21140def; color: #ffc27f; }
+	.web-copy { padding: 1.1rem 1.2rem 1.3rem; }
+	.category { color: #8494a9; font-size: 0.64rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
+	.web-copy h3, .android-card h3 { margin: 0.4rem 0; font-size: 1.12rem; }
+	.web-copy h3 a, .android-card h3 a { color: #f1f5f9; text-decoration: none; }
+	.web-copy p, .android-card p { min-height: 4.5rem; margin-bottom: 0.8rem; color: #97a6ba; font-size: 0.8rem; }
+	.project-link { color: #75d6ff; font-size: 0.77rem; font-weight: 700; text-decoration: none; }
+	.android-section { margin-top: 5rem; }
+	.android-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.8rem; }
+	.android-card { display: flex; flex-direction: column; align-items: flex-start; padding: 1.2rem; border: 1px solid #1d2a3c; border-radius: 0.85rem; background: #0e1624; }
+	.android-mark { display: grid; width: 2.25rem; height: 2.25rem; place-items: center; margin-bottom: 0.9rem; border: 1px solid #264159; border-radius: 0.7rem; background: #132234; color: #71d4ff; font-size: 0.57rem; font-weight: 800; }
+	.android-card h3 { margin-top: 0; }
+	.android-card p { min-height: 5rem; margin-bottom: 0.7rem; }
+	.android-stack { margin: auto 0 0.9rem; color: #8293a9; font-size: 0.65rem; }
+	.project-cta { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-top: 4rem; padding: 1.5rem; border: 1px solid #1d3348; border-radius: 0.9rem; background: #0d1724; }
+	.project-cta h2 { margin: 0.35rem 0 0; font-size: 1.4rem; letter-spacing: -0.035em; }
+	.project-cta > a { color: #75d6ff; font-size: 0.82rem; font-weight: 750; text-decoration: none; }
+	@media (max-width: 850px) { .web-grid { grid-template-columns: 1fr 1fr; } .web-card:last-child { grid-column: 1 / -1; } .web-card:last-child .web-image img { aspect-ratio: 2.2; } .android-grid { grid-template-columns: 1fr 1fr; } }
+	@media (max-width: 560px) {
+		.projects-shell { width: calc(100% - 2.5rem); padding-top: 3rem; }
+		.web-grid, .android-grid { grid-template-columns: 1fr; }
+		.web-card:last-child { grid-column: auto; }
+		.web-card:last-child .web-image img { aspect-ratio: 1.65; }
+		.web-copy p, .android-card p { min-height: 0; }
+		.android-section { margin-top: 3.5rem; }
+		.project-cta { align-items: flex-start; flex-direction: column; }
+	}
+</style>
