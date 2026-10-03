@@ -30,10 +30,12 @@ const pathname = Astro.url.pathname.replace(/\/$/, '') || '/';
 	</head>
 	<body>
 		<header class="site-header">
-			<a class="brand" href="/" aria-label="Ali Ansar home">
-				<span class="brand-mark">AA</span>
-				<span>Ali Ansar<small>ANDROID · FULL-STACK WEB</small></span>
-			</a>
+			<div class="brand">
+				<a class="brand-photo-link" href="/images/ali-ansar-profile.png" target="_blank" rel="noreferrer" aria-label="Open full-size photo of Ali Ansar">
+					<img class="brand-photo" src="/images/ali-ansar-profile.png" alt="Ali Ansar" />
+				</a>
+				<a class="brand-name" href="/" aria-label="Ali Ansar home">Ali Ansar<small>ANDROID · FULL-STACK WEB</small></a>
+			</div>
 			<nav aria-label="Main navigation">
 				<a href="/" aria-current={pathname === '/' ? 'page' : undefined}>Home</a>
 				<a href="/services/" aria-current={pathname === '/services' ? 'page' : undefined}>Services</a>
@@ -84,13 +86,22 @@ const pathname = Astro.url.pathname.replace(/\/$/, '') || '/';
 		display: inline-flex;
 		align-items: center;
 		gap: 0.7rem;
+	}
+	.footer-brand {
 		color: #f8fafc;
 		font-size: 0.95rem;
 		font-weight: 750;
 		line-height: 1.1;
 		text-decoration: none;
 	}
-	.brand small {
+	.brand-name {
+		color: #f8fafc;
+		font-size: 0.95rem;
+		font-weight: 750;
+		line-height: 1.1;
+		text-decoration: none;
+	}
+	.brand-name small {
 		display: block;
 		margin-top: 0.3rem;
 		color: #8493aa;
@@ -98,18 +109,29 @@ const pathname = Astro.url.pathname.replace(/\/$/, '') || '/';
 		font-weight: 600;
 		letter-spacing: 0.11em;
 	}
-	.brand-mark {
-		display: grid;
+	.brand-photo-link {
+		display: block;
+		flex: 0 0 2.3rem;
 		width: 2.3rem;
 		height: 2.3rem;
-		place-items: center;
+		min-width: 0;
+		overflow: hidden;
 		border: 1px solid rgba(56, 189, 248, 0.35);
 		border-radius: 0.7rem;
-		background: rgba(56, 189, 248, 0.1);
-		color: #38bdf8;
-		font-size: 0.72rem;
-		font-weight: 800;
-		letter-spacing: -0.04em;
+		background: #101827;
+		transition: border-color 160ms ease, transform 160ms ease;
+	}
+	.brand-photo-link:hover {
+		transform: translateY(-1px);
+		border-color: #38bdf8;
+	}
+	.brand-photo {
+		display: block;
+		width: 100%;
+		height: 100%;
+		min-width: 0;
+		object-fit: cover;
+		object-position: center 24%;
 	}
 	.site-header nav, .footer-links {
 		display: flex;
