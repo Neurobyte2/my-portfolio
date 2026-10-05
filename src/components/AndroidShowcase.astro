@@ -1,0 +1,173 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ScreenshotGallery from './ScreenshotGallery.astro';
+
+interface Props {
+	title: string;
+	description: string;
+	project: string;
+	badge: string;
+	focus: string;
+	problem: string;
+	solution: string;
+	features: { title: string; text: string }[];
+	technologies: string[];
+	architecture: { title: string; text: string }[];
+	learnings: string[];
+	outcome: string;
+	screenshots: { file: string; alt: string; caption: string }[];
+}
+
+const {
+	title, description, project, badge, focus,
+	problem, solution, features, technologies,
+	architecture, learnings, outcome, screenshots,
+} = Astro.props;
+---
+
+<Layout
+	title={`${title} Android App Case Study | Ali Ansar`}
+	description={description}
+>
+	<main class="case-shell">
+		<nav class="breadcrumb" aria-label="Breadcrumb">
+			<a href="/">Home</a>
+			<span aria-hidden="true">/</span>
+			<a href="/projects/">Projects</a>
+			<span aria-hidden="true">/</span>
+			<span aria-current="page">{title}</span>
+		</nav>
+
+		<header class="case-header">
+			<span class="badge">{badge}</span>
+			<h1>{title}</h1>
+			<p>{description}</p>
+			<div class="actions">
+				{screenshots.length > 0 && (
+					<a class="button primary" href={`#${project}-screenshots`}>
+						Explore app screenshots <span aria-hidden="true">↓</span>
+					</a>
+				)}
+				<a class="button secondary" href="/services/android-app-development/">
+					Android development services
+				</a>
+			</div>
+		</header>
+
+		<dl class="project-summary">
+			<div><dt>My role</dt><dd>Android Developer</dd></div>
+			<div><dt>Platform</dt><dd>Native Android</dd></div>
+			<div><dt>Project focus</dt><dd>{focus}</dd></div>
+		</dl>
+
+		<section class="section" aria-labelledby={`${project}-overview`}>
+			<span class="label">Project overview</span>
+			<h2 id={`${project}-overview`}>The problem and the approach.</h2>
+			<div class="grid">
+				<article class="card">
+					<h3>The problem</h3>
+					<p>{problem}</p>
+				</article>
+				<article class="card">
+					<h3>The approach</h3>
+					<p>{solution}</p>
+				</article>
+			</div>
+		</section>
+
+		<ScreenshotGallery project={project} screenshots={screenshots} />
+
+		{features.length > 0 && (
+			<section class="section" aria-labelledby={`${project}-features`}>
+				<span class="label">Application features</span>
+				<h2 id={`${project}-features`}>What the experience includes.</h2>
+				<div class="grid">
+					{features.map((feature) => (
+						<article class="card">
+							<h3>{feature.title}</h3>
+							<p>{feature.text}</p>
+						</article>
+					))}
+				</div>
+			</section>
+		)}
+
+		<section class="section" aria-labelledby={`${project}-architecture`}>
+			<span class="label">Architecture & technology</span>
+			<h2 id={`${project}-architecture`}>Organized code behind the interface.</h2>
+			<div class="grid">
+				{architecture.map((item) => (
+					<article class="card">
+						<h3>{item.title}</h3>
+						<p>{item.text}</p>
+					</article>
+				))}
+			</div>
+			<ul class="technology-list" aria-label={`${title} technologies`}>
+				{technologies.map((technology) => <li>{technology}</li>)}
+			</ul>
+		</section>
+
+		<section class="learning-panel section" aria-labelledby={`${project}-learnings`}>
+			<span class="label">Development learnings</span>
+			<h2 id={`${project}-learnings`}>Practical experience from the project.</h2>
+			<ul class="content-list">
+				{learnings.map((learning) => <li>{learning}</li>)}
+			</ul>
+			<p>{outcome}</p>
+		</section>
+
+		<nav class="project-navigation" aria-label="Project navigation">
+			<a class="text-link" href="/projects/">← All projects</a>
+			<a class="text-link" href="/contact/">Discuss an Android project ↗</a>
+		</nav>
+	</main>
+</Layout>
+
+<style>
+	.case-shell {
+		width: min(1120px, calc(100% - 3rem));
+		margin-inline: auto;
+		padding-block: 2rem 4rem;
+	}
+	h1, h2, h3, p { margin-top: 0; }
+	.breadcrumb { display: flex; flex-wrap: wrap; gap: 0.5rem; color: var(--color-muted); font-size: 0.75rem; }
+	.breadcrumb a, .text-link { color: #75d6ff; text-decoration: none; }
+	.breadcrumb a:hover, .text-link:hover { text-decoration: underline; text-underline-offset: 4px; }
+	.case-header { max-width: 900px; padding-block: 2.5rem; }
+	.badge { display: inline-flex; padding: 0.35rem 0.7rem; border: 1px solid #38bdf84d; border-radius: 999px; background: #38bdf80d; color: #9adeff; font-size: 0.7rem; }
+	.case-header h1 { margin: 1rem 0; font-size: clamp(2.6rem, 5.5vw, 4.6rem); line-height: 1.1; letter-spacing: -0.045em; overflow-wrap: anywhere; }
+	.case-header > p { max-width: 740px; color: var(--color-muted); font-size: 1rem; }
+	.actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.5rem; }
+	.button { display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem; min-height: 48px; padding: 0.75rem 1rem; border: 1px solid transparent; border-radius: 0.7rem; font-size: 0.83rem; font-weight: 750; text-decoration: none; }
+	.primary { background: var(--color-accent); color: #04111d; }
+	.primary:hover { background: #75d6ff; }
+	.secondary { border-color: #2c4058; background: #111a29; color: var(--color-text); }
+	.secondary:hover { border-color: var(--color-accent); }
+	.project-summary { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; margin: 0; padding: 1.5rem; border: 1px solid var(--color-border); border-radius: 0.9rem; background: var(--color-surface); }
+	.project-summary dt { margin-bottom: 0.4rem; color: var(--color-muted); font-size: 0.72rem; }
+	.project-summary dd { margin: 0; font-size: 0.88rem; font-weight: 650; }
+	.section { margin-top: 3.5rem; }
+	.label { color: #75d6ff; font-size: 0.68rem; font-weight: 800; letter-spacing: 0.09em; text-transform: uppercase; }
+	h2 { margin: 0.5rem 0 1.5rem; font-size: clamp(1.8rem, 3.2vw, 2.5rem); line-height: 1.2; letter-spacing: -0.035em; }
+	.grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+	.card { padding: 1.5rem; border: 1px solid var(--color-border); border-radius: 0.9rem; background: var(--color-surface); }
+	.card h3 { margin-bottom: 0.6rem; font-size: 1.08rem; }
+	.card p { margin-bottom: 0; color: var(--color-muted); font-size: 0.86rem; }
+	.technology-list { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1.5rem 0 0; padding: 0; list-style: none; }
+	.technology-list li { padding: 0.35rem 0.65rem; border: 1px solid #2a4057; border-radius: 999px; color: #c5d2e3; font-size: 0.72rem; }
+	.learning-panel { padding: 2rem; border: 1px solid var(--color-border); border-radius: 1rem; background: #0d1725; }
+	.content-list { display: grid; gap: 0.8rem; margin: 0; padding-left: 1.2rem; }
+	.content-list li { color: var(--color-muted); font-size: 0.88rem; }
+	.content-list li::marker { color: var(--color-accent); }
+	.learning-panel > p { margin: 1.5rem 0 0; color: var(--color-muted); font-size: 0.88rem; }
+	.project-navigation { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--color-border); }
+	.text-link { display: inline-flex; align-items: center; min-height: 40px; font-size: 0.8rem; font-weight: 700; }
+	@media (max-width: 560px) {
+		.case-shell { width: calc(100% - 2.5rem); }
+		.actions { flex-direction: column; }
+		.project-summary, .grid { grid-template-columns: 1fr; }
+		.section { margin-top: 3rem; }
+		.learning-panel { padding: 1.3rem; }
+	}
+</style>

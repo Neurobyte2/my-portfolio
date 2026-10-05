@@ -1,151 +1,266 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import ScreenshotGallery from '../../components/ScreenshotGallery.astro';
+
+const technologies = [
+	'Kotlin',
+	'Jetpack Compose',
+	'MVVM',
+	'Clean Architecture',
+	'Coroutines',
+	'StateFlow',
+];
+
+const features = [
+	{
+		title: 'Responsive interfaces',
+		text: 'Compose layouts designed to adapt across screen sizes and device configurations.',
+	},
+	{
+		title: 'Reusable components',
+		text: 'Shared interface components keep visual patterns consistent across screens.',
+	},
+	{
+		title: 'State-driven UI',
+		text: 'Coroutines and StateFlow support state updates and a predictable connection between application logic and the interface.',
+	},
+	{
+		title: 'Modular structure',
+		text: 'Feature responsibilities and shared utilities are organized to support future development.',
+	},
+];
+
+const screenshots = [
+	{
+		file: 'semesta-ss-1.jpeg',
+		alt: 'Semesta Android application interface',
+		caption: 'Explore the Semesta experience',
+	},
+	{
+		file: 'semesta-ss-2.jpeg',
+		alt: 'Semesta Android application interaction screen',
+		caption: 'Focused mobile interaction',
+	},
+];
 ---
 
-<Layout>
-	<main class="case-study-container">
-		<a href="/" class="back-link">&larr; Back to Portfolio</a>
-		
+<Layout
+	title="Semesta Android App Case Study | Ali Ansar"
+	description="Explore Semesta, Ali Ansar’s native Android project focused on Jetpack Compose interfaces, reusable components, MVVM, and state management."
+>
+	<main class="case-shell">
+		<nav class="breadcrumb" aria-label="Breadcrumb">
+			<a href="/">Home</a>
+			<span aria-hidden="true">/</span>
+			<a href="/projects/">Projects</a>
+			<span aria-hidden="true">/</span>
+			<span aria-current="page">Semesta</span>
+		</nav>
+
 		<header class="case-header">
-			<span class="badge">Native Android App</span>
+			<span class="badge">Native Android project</span>
 			<h1>Semesta</h1>
-			<p class="subtitle">An advanced native Android application showcasing modern UI patterns, modular architecture, and robust state management.</p>
+			<p>
+				An Android application exploring reusable Compose interfaces,
+				modular architecture, and predictable state management.
+			</p>
+			<div class="actions">
+				<a class="button primary" href="#semesta-screenshots">
+					Explore app screenshots <span aria-hidden="true">↓</span>
+				</a>
+				<a class="button secondary" href="/services/android-app-development/">
+					Android development services
+				</a>
+			</div>
 		</header>
 
-		<ScreenshotGallery
-			project="semesta"
-			screenshots={[
-				{ file: 'semesta-ss-1.jpeg', alt: 'Semesta application screen one', caption: 'Explore the Semesta experience' },
-				{ file: 'semesta-ss-2.jpeg', alt: 'Semesta application screen two', caption: 'Focused mobile interaction' },
-			]}
-		/>
+		<dl class="project-summary">
+			<div><dt>My role</dt><dd>Android Developer</dd></div>
+			<div><dt>Platform</dt><dd>Native Android</dd></div>
+			<div><dt>Project focus</dt><dd>UI architecture & state management</dd></div>
+		</dl>
 
-		<section class="content-section">
-			<h2>Overview</h2>
-			<p>Semesta is a modern native Android application built to explore polished UI patterns, modular architecture, and predictable state management. The project focuses on delivering a smooth, responsive experience while keeping the underlying codebase organized for future growth.</p>
-		</section>
-
-		<section class="content-section">
-			<h2>The Challenge</h2>
-			<p>The goal was to create an application that feels fluid and intuitive without sacrificing maintainability. That meant balancing responsive layouts and smooth interactions with a clear separation between UI, business logic, and reusable application features.</p>
-			<ul>
-				<li>Designing a consistent modern interface across screens</li>
-				<li>Managing state predictably through lifecycle changes</li>
-				<li>Structuring the project so features can grow independently</li>
-			</ul>
-		</section>
-
-		<section class="content-section">
-			<h2>The Solution</h2>
-			<p>Semesta uses a structured Android architecture built around reusable Compose components, state-driven UI, and clear module boundaries. This approach keeps presentation concerns focused while allowing application logic and shared utilities to evolve independently.</p>
-		</section>
-
-		<section class="content-section">
-			<h2>Architecture & Technical Design</h2>
-			<div class="grid-2">
-				<div class="card">
-					<h3>UI Toolkit</h3>
-					<p>Built fully with <strong>Jetpack Compose</strong>, utilizing custom layout modifiers, dynamic state hoisting, and Material Design components.</p>
-				</div>
-				<div class="card">
-					<h3>Application Architecture</h3>
-					<p>Uses <strong>MVVM and Clean Architecture</strong> principles to separate presentation, domain logic, and data responsibilities for easier testing and maintenance.</p>
-				</div>
+		<section class="section" aria-labelledby="overview-title">
+			<span class="section-label">Project overview</span>
+			<h2 id="overview-title">Interface design with an organized foundation.</h2>
+			<div class="grid">
+				<article class="card">
+					<h3>The challenge</h3>
+					<p>
+						Create consistent interfaces and clear interactions while keeping
+						state, application logic, and reusable features organized.
+					</p>
+				</article>
+				<article class="card">
+					<h3>The approach</h3>
+					<p>
+						Use reusable Compose components, state-driven UI, and clear
+						boundaries between presentation, domain, and data responsibilities.
+					</p>
+				</article>
 			</div>
 		</section>
 
-		<section class="content-section">
-			<h2>Key Features</h2>
-			<ul>
-				<li><strong>Responsive UI:</strong> Layouts adapt cleanly across different screen sizes and device configurations.</li>
-				<li><strong>Reusable Components:</strong> Shared Compose components keep visual patterns consistent throughout the application.</li>
-				<li><strong>State-Driven Experience:</strong> Kotlin Coroutines and StateFlow provide predictable updates and smooth interactions.</li>
-				<li><strong>Modular Structure:</strong> Feature logic and core utilities remain separated for long-term maintainability.</li>
-			</ul>
-		</section>
+		<ScreenshotGallery project="semesta" screenshots={screenshots} />
 
-		<section class="content-section">
-			<h2>Challenges & Learnings</h2>
-			<ul>
-				<li><strong>Declarative UI Patterns:</strong> Learned how to model complex interactions with Compose state and side-effects.</li>
-				<li><strong>Architecture Before Screens:</strong> Designing boundaries early made individual features easier to implement and extend.</li>
-				<li><strong>Performance Awareness:</strong> Reducing unnecessary recompositions helped maintain smooth rendering on lower-end devices.</li>
-			</ul>
-		</section>
-
-		<section class="content-section outcome-section">
-			<h2>Outcome</h2>
-			<p>Semesta resulted in a polished Android experience with a maintainable foundation for future features. The project strengthened practical experience with Kotlin, Jetpack Compose, modular design, and scalable application architecture.</p>
-			<div class="role-details">
-				<p><strong>Role:</strong> Android Developer</p>
-				<p><strong>Focus:</strong> Kotlin &bull; Jetpack Compose &bull; UI/UX &bull; Architecture &bull; State Management</p>
+		<section class="section" aria-labelledby="features-title">
+			<span class="section-label">Implementation focus</span>
+			<h2 id="features-title">Consistent screens and application state.</h2>
+			<div class="grid">
+				{features.map((feature) => (
+					<article class="card">
+						<h3>{feature.title}</h3>
+						<p>{feature.text}</p>
+					</article>
+				))}
 			</div>
 		</section>
+
+		<section class="section" aria-labelledby="architecture-title">
+			<span class="section-label">Technical approach</span>
+			<h2 id="architecture-title">Separate the interface from application logic.</h2>
+			<div class="grid">
+				<article class="card">
+					<h3>Jetpack Compose</h3>
+					<p>
+						Declarative screens, state hoisting, layout modifiers, and
+						Material Design components form the interface layer.
+					</p>
+				</article>
+				<article class="card">
+					<h3>MVVM & Clean Architecture</h3>
+					<p>
+						ViewModels and separate application layers organize UI state,
+						business logic, and data responsibilities.
+					</p>
+				</article>
+			</div>
+			<ul class="technology-list" aria-label="Semesta technologies">
+				{technologies.map((technology) => <li>{technology}</li>)}
+			</ul>
+		</section>
+
+		<section class="learning-panel section" aria-labelledby="learning-title">
+			<span class="section-label">Development learnings</span>
+			<h2 id="learning-title">Working with declarative Android interfaces.</h2>
+			<ul class="content-list">
+				<li>Modeling interactions through Compose state and side effects.</li>
+				<li>Defining architecture boundaries before extending individual screens.</li>
+				<li>Considering recomposition behavior when developing reusable components.</li>
+			</ul>
+			<p>
+				The project strengthened practical experience with Kotlin,
+				Jetpack Compose, modular design, and application state management.
+			</p>
+		</section>
+
+		<nav class="project-navigation" aria-label="Project navigation">
+			<a class="text-link" href="/projects/">← All projects</a>
+			<a class="text-link" href="/contact/">Discuss an Android project ↗</a>
+		</nav>
 	</main>
 </Layout>
 
 <style>
-	body {
-		background-color: #090d16;
-		color: #f1f5f9;
-		font-family: system-ui, sans-serif;
+	.case-shell {
+		width: min(1120px, calc(100% - 3rem));
+		margin-inline: auto;
+		padding-block: 2rem 4rem;
 	}
-	.case-study-container {
-		max-width: 800px;
-		margin: 0 auto;
-		padding: 4rem 2rem;
+	h1, h2, h3, p { margin-top: 0; }
+	.breadcrumb {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+		color: var(--color-muted);
+		font-size: 0.75rem;
 	}
-	.back-link {
-		color: #38bdf8;
-		text-decoration: none;
-		font-weight: 600;
-		display: inline-block;
-		margin-bottom: 2rem;
+	.breadcrumb a, .text-link { color: #75d6ff; text-decoration: none; }
+	.breadcrumb a:hover, .text-link:hover { text-decoration: underline; text-underline-offset: 4px; }
+	.case-header { max-width: 900px; padding-block: 2.5rem; }
+	.badge {
+		display: inline-flex;
+		padding: 0.35rem 0.7rem;
+		border: 1px solid #38bdf84d;
+		border-radius: 999px;
+		background: #38bdf80d;
+		color: #9adeff;
+		font-size: 0.7rem;
 	}
 	.case-header h1 {
-		font-size: 2.5rem;
-		color: #ffffff;
-		margin: 0.5rem 0;
+		margin: 1rem 0;
+		font-size: clamp(2.6rem, 5.5vw, 4.6rem);
+		line-height: 1.1;
+		letter-spacing: -0.045em;
 	}
-	.subtitle {
-		color: #94a3b8;
-		font-size: 1.2rem;
+	.case-header > p { max-width: 740px; color: var(--color-muted); font-size: 1rem; }
+	.actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.5rem; }
+	.button {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		gap: 0.6rem;
+		min-height: 48px;
+		padding: 0.75rem 1rem;
+		border: 1px solid transparent;
+		border-radius: 0.7rem;
+		font-size: 0.83rem;
+		font-weight: 750;
+		text-decoration: none;
 	}
-	.badge {
-		background: rgba(56, 189, 248, 0.1);
-		color: #38bdf8;
-		padding: 0.25rem 0.75rem;
-		border-radius: 50px;
-		font-size: 0.8rem;
-		font-weight: 600;
-		border: 1px solid rgba(56, 189, 248, 0.2);
-	}
-	.content-section {
-		margin-top: 3rem;
-	}
-	.content-section h2 {
-		color: #38bdf8;
-		border-bottom: 1px solid #1e293b;
-		padding-bottom: 0.5rem;
-		margin-bottom: 1rem;
-	}
-	.grid-2 {
+	.primary { background: var(--color-accent); color: #04111d; }
+	.primary:hover { background: #75d6ff; }
+	.secondary { border-color: #2c4058; background: #111a29; color: var(--color-text); }
+	.secondary:hover { border-color: var(--color-accent); }
+	.project-summary {
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+		grid-template-columns: repeat(3, minmax(0, 1fr));
 		gap: 1.5rem;
-	}
-	.card {
-		background: #111827;
+		margin: 0;
 		padding: 1.5rem;
-		border-radius: 0.75rem;
-		border: 1px solid #1f2937;
+		border: 1px solid var(--color-border);
+		border-radius: 0.9rem;
+		background: var(--color-surface);
 	}
-	ul {
-		color: #94a3b8;
-		line-height: 1.6;
+	.project-summary dt { margin-bottom: 0.4rem; color: var(--color-muted); font-size: 0.72rem; }
+	.project-summary dd { margin: 0; font-size: 0.88rem; font-weight: 650; }
+	.section { margin-top: 3.5rem; }
+	.section-label {
+		color: #75d6ff;
+		font-size: 0.68rem;
+		font-weight: 800;
+		letter-spacing: 0.09em;
+		text-transform: uppercase;
 	}
-	ul strong {
-		color: #f1f5f9;
+	h2 {
+		margin: 0.5rem 0 1.5rem;
+		font-size: clamp(1.8rem, 3.2vw, 2.5rem);
+		line-height: 1.2;
+		letter-spacing: -0.035em;
+	}
+	.grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+	.card {
+		padding: 1.5rem;
+		border: 1px solid var(--color-border);
+		border-radius: 0.9rem;
+		background: var(--color-surface);
+	}
+	.card h3 { margin-bottom: 0.6rem; font-size: 1.08rem; }
+	.card p { margin-bottom: 0; color: var(--color-muted); font-size: 0.86rem; }
+	.technology-list { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1.5rem 0 0; padding: 0; list-style: none; }
+	.technology-list li { padding: 0.35rem 0.65rem; border: 1px solid #2a4057; border-radius: 999px; color: #c5d2e3; font-size: 0.72rem; }
+	.learning-panel { padding: 2rem; border: 1px solid var(--color-border); border-radius: 1rem; background: #0d1725; }
+	.content-list { display: grid; gap: 0.8rem; margin: 0; padding-left: 1.2rem; }
+	.content-list li { color: var(--color-muted); font-size: 0.88rem; }
+	.content-list li::marker { color: var(--color-accent); }
+	.learning-panel > p { margin: 1.5rem 0 0; color: var(--color-muted); font-size: 0.88rem; }
+	.project-navigation { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--color-border); }
+	.text-link { display: inline-flex; align-items: center; min-height: 40px; font-size: 0.8rem; font-weight: 700; }
+	@media (max-width: 560px) {
+		.case-shell { width: calc(100% - 2.5rem); }
+		.actions { flex-direction: column; }
+		.project-summary, .grid { grid-template-columns: 1fr; }
+		.section { margin-top: 3rem; }
+		.learning-panel { padding: 1.3rem; }
 	}
 </style>

@@ -1,236 +1,415 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import ScreenshotGallery from '../../components/ScreenshotGallery.astro';
+
+const technologies = [
+	'Kotlin',
+	'Jetpack Compose',
+	'Firebase Authentication',
+	'Cloud Firestore',
+	'Hilt',
+	'MVVM',
+	'Clean Architecture',
+	'Navigation',
+	'Lottie',
+];
+
+const features = [
+	{
+		title: 'Authentication',
+		text: 'Login, registration, password recovery, Google Sign-In, and authentication state management.',
+	},
+	{
+		title: 'Campus information',
+		text: 'A centralized interface for browsing campus events, announcements, and event details.',
+	},
+	{
+		title: 'Onboarding',
+		text: 'An introductory flow that explains the application before users enter the main experience.',
+	},
+	{
+		title: 'Event management',
+		text: 'Admin screens for managing campus updates and creating events.',
+	},
+];
+
+const architecture = [
+	{
+		title: 'Presentation',
+		text: 'Compose screens, ViewModels, UI state, user interactions, and navigation.',
+	},
+	{
+		title: 'Domain',
+		text: 'Use cases, models, business logic, and application rules.',
+	},
+	{
+		title: 'Data',
+		text: 'Firebase authentication, Firestore operations, data sources, and repository implementations.',
+	},
+];
+
+const improvements = [
+	'Real-time push notifications and improved data synchronization',
+	'Event registration, digital tickets, and bookmarking',
+	'Advanced search, filtering, and campus location integration',
+	'Expanded administration, analytics, and department announcements',
+];
+
+const screenshots = [
+	{
+		file: 'campusnotify-ss-1.jpeg',
+		alt: 'CampusNotify campus events feed',
+		caption: 'Browse campus events',
+	},
+	{
+		file: 'campusnotify-ss-2.jpeg',
+		alt: 'CampusNotify event details screen',
+		caption: 'View event details',
+	},
+	{
+		file: 'campusnotify-ss-3.jpeg',
+		alt: 'CampusNotify admin dashboard',
+		caption: 'Manage campus updates',
+	},
+	{
+		file: 'campusnotify-ss-4.jpeg',
+		alt: 'CampusNotify event creation screen',
+		caption: 'Create an event',
+	},
+];
 ---
 
-<Layout>
-	<main class="case-study-container">
-		<a href="/" class="back-link">&larr; Back to Portfolio</a>
-		
+<Layout
+	title="CampusNotify Android App Case Study | Ali Ansar"
+	description="Explore CampusNotify, Ali Ansar’s Android campus event and announcement project built with Kotlin, Jetpack Compose, Firebase, and Clean Architecture."
+>
+	<main class="case-shell">
+		<nav class="breadcrumb" aria-label="Breadcrumb">
+			<a href="/">Home</a>
+			<span aria-hidden="true">/</span>
+			<a href="/projects/">Projects</a>
+			<span aria-hidden="true">/</span>
+			<span aria-current="page">CampusNotify</span>
+		</nav>
+
 		<header class="case-header">
-			<span class="badge">Final Year Project</span>
+			<span class="badge">Android campus communication project</span>
 			<h1>CampusNotify</h1>
-			<p class="subtitle">A campus event and notification platform that keeps students informed through one centralized mobile experience.</p>
+			<p>
+				A campus event and announcement platform that brings student
+				information and admin event management into one mobile experience.
+			</p>
+			<div class="actions">
+				<a class="button primary" href="#campusnotify-screenshots">
+					Explore app screenshots <span aria-hidden="true">↓</span>
+				</a>
+				<a class="button secondary" href="/services/android-app-development/">
+					Android development services
+				</a>
+			</div>
 		</header>
 
-		<ScreenshotGallery
-			project="campusnotify"
-			screenshots={[
-				{ file: 'campusnotify-ss-1.jpeg', alt: 'CampusNotify events feed', caption: 'Browse campus events' },
-				{ file: 'campusnotify-ss-2.jpeg', alt: 'CampusNotify event details', caption: 'View event details' },
-				{ file: 'campusnotify-ss-3.jpeg', alt: 'CampusNotify admin dashboard', caption: 'Manage campus updates' },
-				{ file: 'campusnotify-ss-4.jpeg', alt: 'CampusNotify add event screen', caption: 'Create an event' },
-			]}
-		/>
+		<dl class="project-summary">
+			<div>
+				<dt>My role</dt>
+				<dd>Android Developer</dd>
+			</div>
+			<div>
+				<dt>Platform</dt>
+				<dd>Native Android</dd>
+			</div>
+			<div>
+				<dt>Project focus</dt>
+				<dd>Campus events & communication</dd>
+			</div>
+		</dl>
 
-		<section class="content-section">
-			<h2>Overview</h2>
-			<p>CampusNotify was developed as an FYP-quality Android application focused on modern architecture, Firebase integration, authentication, and a clean user experience. Its goal is simple: keep students informed about what is happening on campus.</p>
-		</section>
-
-		<section class="content-section">
-			<h2>The Problem</h2>
-			<p>University students often receive information about events and announcements through notice boards, social media groups, messaging applications, and informal communication. This makes it difficult to discover upcoming activities, track important announcements, and find event information quickly.</p>
-			<p>CampusNotify addresses this fragmentation by providing a centralized digital platform for campus communication.</p>
-		</section>
-
-		<section class="content-section">
-			<h2>The Solution</h2>
-			<p>The application gives users a structured mobile experience for accessing campus-related information in one place. It combines Android development, Firebase services, authentication, navigation, and cloud-based data management into a scalable foundation for university communication.</p>
-		</section>
-
-		<section class="content-section">
-			<h2>Key Features</h2>
-			<div class="feature-list">
-				<div class="feature-item">
-					<h3>Authentication</h3>
-					<p>User login, registration, forgot password, Google Sign-In, authentication state management, and persistent sessions.</p>
-				</div>
-				<div class="feature-item">
-					<h3>Campus Events & Notifications</h3>
-					<p>A centralized place for students to discover campus activities, announcements, and university information without relying on multiple external channels.</p>
-				</div>
-				<div class="feature-item">
-					<h3>Onboarding Experience</h3>
-					<p>A dedicated onboarding flow introduces new users to the application's purpose before they enter authentication and the main experience.</p>
-				</div>
-				<div class="feature-item">
-					<h3>Structured Navigation</h3>
-					<p>Predictable navigation architecture provides clear transitions between application sections and keeps user flows easy to understand.</p>
-				</div>
+		<section class="section" aria-labelledby="overview-title">
+			<span class="section-label">Project overview</span>
+			<h2 id="overview-title">Campus updates in one place.</h2>
+			<div class="overview-grid">
+				<article class="card">
+					<h3>The problem</h3>
+					<p>
+						Event information and announcements can be spread across notice
+						boards, messaging apps, and social groups. Students need a clearer
+						way to find relevant campus updates and event details.
+					</p>
+				</article>
+				<article class="card">
+					<h3>The approach</h3>
+					<p>
+						CampusNotify provides an Android interface for browsing campus
+						information alongside admin screens for managing events. Firebase
+						supports authentication and cloud data management.
+					</p>
+				</article>
 			</div>
 		</section>
 
-		<section class="content-section">
-			<h2>Architecture & Technology</h2>
-			<div class="grid-2">
-				<div class="card">
-					<h3>Clean Architecture + MVVM</h3>
-					<p>The presentation layer owns Compose screens, ViewModels, UI state, user interactions, and navigation. The domain layer contains business logic, use cases, models, and application rules.</p>
-				</div>
-				<div class="card">
-					<h3>Data & Dependency Management</h3>
-					<p>The data layer manages Firebase data sources, Firestore operations, authentication, repositories, and remote data management. Hilt reduces coupling and keeps dependencies easier to provide and maintain.</p>
-				</div>
-			</div>
-			<div class="tech-stack">
-				<span>Kotlin</span><span>Jetpack Compose</span><span>Firebase Authentication</span><span>Cloud Firestore</span><span>Hilt</span><span>MVVM</span><span>Navigation</span><span>Lottie Animations</span>
+		<ScreenshotGallery project="campusnotify" screenshots={screenshots} />
+
+		<section class="section" aria-labelledby="features-title">
+			<span class="section-label">Application features</span>
+			<h2 id="features-title">Student and admin experiences.</h2>
+			<div class="feature-grid">
+				{features.map((feature) => (
+					<article class="card">
+						<h3>{feature.title}</h3>
+						<p>{feature.text}</p>
+					</article>
+				))}
 			</div>
 		</section>
 
-		<section class="content-section">
-			<h2>Authentication Flow</h2>
-			<p class="flow">Splash <span>&rarr;</span> Onboarding <span>&rarr;</span> Login / Signup <span>&rarr;</span> Authentication <span>&rarr;</span> Main Application</p>
-			<p>The application maintains authentication state so returning users can avoid unnecessary authentication steps while first-time users receive the full onboarding experience.</p>
-		</section>
-
-		<section class="content-section">
-			<h2>Development Challenges</h2>
-			<ul>
-				<li>Coordinating Compose UI, ViewModels, navigation, Hilt, Firebase Authentication, and Firestore.</li>
-				<li>Ensuring authentication and navigation behave correctly for first-time, authenticated, and returning users.</li>
-				<li>Maintaining clean boundaries while integrating multiple application layers.</li>
+		<section class="section" aria-labelledby="architecture-title">
+			<span class="section-label">Architecture & technology</span>
+			<h2 id="architecture-title">Clear responsibilities across the app.</h2>
+			<p class="section-intro">
+				Clean Architecture and MVVM organize the interface, business logic,
+				and Firebase integration. Hilt provides dependencies across these layers.
+			</p>
+			<div class="architecture-grid">
+				{architecture.map((layer) => (
+					<article class="card">
+						<h3>{layer.title}</h3>
+						<p>{layer.text}</p>
+					</article>
+				))}
+			</div>
+			<ul class="technology-list" aria-label="CampusNotify technologies">
+				{technologies.map((technology) => <li>{technology}</li>)}
 			</ul>
 		</section>
 
-		<section class="content-section">
-			<h2>Engineering Approach</h2>
-			<p>Rather than building the application as a collection of tightly coupled screens, CampusNotify was structured around reusable components and clear separation of responsibilities. This makes it easier to add features, replace data sources, modify UI components, maintain authentication logic, and expand the Firestore data model.</p>
+		<section class="section" aria-labelledby="authentication-title">
+			<span class="section-label">User journey</span>
+			<h2 id="authentication-title">Onboarding and account access.</h2>
+			<p class="section-intro">
+				First-time users are introduced to the app before authentication.
+				Returning users follow a route based on their onboarding and
+				authentication state.
+			</p>
+			<ol class="journey">
+				<li>App startup</li>
+				<li>Onboarding when needed</li>
+				<li>Login or registration when needed</li>
+				<li>Main application</li>
+			</ol>
 		</section>
 
-		<section class="content-section">
-			<h2>Future Improvements</h2>
-			<ul>
-				<li>Real-time push notifications and improved Firestore synchronization</li>
-				<li>Event registration, digital tickets, and event bookmarking</li>
-				<li>Advanced event search, filtering, and campus location integration</li>
-				<li>Role-based administration, analytics, and department-specific announcements</li>
+		<section class="section" aria-labelledby="challenges-title">
+			<span class="section-label">Development considerations</span>
+			<h2 id="challenges-title">Connecting the application layers.</h2>
+			<ul class="content-list">
+				<li>
+					Coordinating Compose screens, ViewModels, navigation,
+					dependency injection, and Firebase services.
+				</li>
+				<li>
+					Handling first-time, signed-in, and returning users
+					through the appropriate navigation flow.
+				</li>
+				<li>
+					Keeping authentication and data access separate
+					from interface responsibilities.
+				</li>
 			</ul>
 		</section>
 
-		<section class="content-section outcome-section">
-			<h2>Outcome</h2>
-			<p>CampusNotify demonstrates the ability to build a complete, production-oriented Android application rather than focusing only on individual UI screens. It combines modern Android UI, Clean Architecture, MVVM, Firebase, authentication, cloud data, and dependency injection into a practical solution for improving communication between universities and students.</p>
-			<div class="role-details">
-				<p><strong>Role:</strong> Android Developer</p>
-				<p><strong>Project Type:</strong> Final Year Project / Academic Campus Management Application</p>
-				<p><strong>Focus:</strong> Kotlin &bull; Jetpack Compose &bull; Clean Architecture &bull; MVVM &bull; Firebase &bull; Firestore &bull; Hilt &bull; Authentication</p>
-			</div>
+		<section class="future-panel section" aria-labelledby="future-title">
+			<span class="section-label">Planned improvements</span>
+			<h2 id="future-title">Possible next steps.</h2>
+			<p>
+				These are future development ideas, separate from the features
+				presented above.
+			</p>
+			<ul class="content-list">
+				{improvements.map((improvement) => <li>{improvement}</li>)}
+			</ul>
 		</section>
+
+		<nav class="project-navigation" aria-label="Project navigation">
+			<a class="text-link" href="/projects/">
+				<span aria-hidden="true">←</span> All projects
+			</a>
+			<a class="text-link" href="/contact/">
+				Discuss an Android project <span aria-hidden="true">↗</span>
+			</a>
+		</nav>
 	</main>
 </Layout>
 
 <style>
-	body {
-		background-color: #090d16;
-		color: #f1f5f9;
-		font-family: system-ui, sans-serif;
+	.case-shell {
+		width: min(1120px, calc(100% - 3rem));
+		margin-inline: auto;
+		padding-block: 2rem 4rem;
 	}
-	.case-study-container {
-		max-width: 800px;
-		margin: 0 auto;
-		padding: 4rem 2rem;
+	h1, h2, h3, p { margin-top: 0; }
+	.breadcrumb {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+		color: var(--color-muted);
+		font-size: 0.75rem;
 	}
-	.back-link {
-		color: #38bdf8;
-		text-decoration: none;
-		font-weight: 600;
-		display: inline-block;
-		margin-bottom: 2rem;
+	.breadcrumb a { color: #75d6ff; text-decoration: none; }
+	.breadcrumb a:hover { text-decoration: underline; }
+	.case-header { max-width: 900px; padding-block: 2.5rem; }
+	.badge {
+		display: inline-flex;
+		padding: 0.35rem 0.7rem;
+		border: 1px solid #38bdf84d;
+		border-radius: 999px;
+		background: #38bdf80d;
+		color: #9adeff;
+		font-size: 0.7rem;
 	}
 	.case-header h1 {
-		font-size: 2.5rem;
-		color: #ffffff;
-		margin: 0.5rem 0;
+		margin: 1rem 0;
+		font-size: clamp(2.6rem, 5.5vw, 4.6rem);
+		line-height: 1.1;
+		letter-spacing: -0.045em;
+		overflow-wrap: anywhere;
 	}
-	.subtitle {
-		color: #94a3b8;
-		font-size: 1.2rem;
+	.case-header > p {
+		max-width: 740px;
+		color: var(--color-muted);
+		font-size: 1rem;
 	}
-	.content-section {
-		margin-top: 3rem;
+	.actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.5rem; }
+	.button {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		gap: 0.6rem;
+		min-height: 48px;
+		padding: 0.75rem 1rem;
+		border: 1px solid transparent;
+		border-radius: 0.7rem;
+		font-size: 0.83rem;
+		font-weight: 750;
+		text-decoration: none;
 	}
-	.content-section h2 {
-		color: #38bdf8;
-		border-bottom: 1px solid #1e293b;
-		padding-bottom: 0.5rem;
-		margin-bottom: 1rem;
-	}
-	.grid-2 {
+	.primary { background: var(--color-accent); color: #04111d; }
+	.primary:hover { background: #75d6ff; }
+	.secondary { border-color: #2c4058; background: #111a29; color: var(--color-text); }
+	.secondary:hover { border-color: var(--color-accent); }
+	.project-summary {
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+		grid-template-columns: repeat(3, minmax(0, 1fr));
 		gap: 1.5rem;
-	}
-	.card {
-		background: #111827;
+		margin: 0;
 		padding: 1.5rem;
-		border-radius: 0.75rem;
-		border: 1px solid #1f2937;
+		border: 1px solid var(--color-border);
+		border-radius: 0.9rem;
+		background: var(--color-surface);
 	}
-	.feature-list {
+	.project-summary dt { margin-bottom: 0.4rem; color: var(--color-muted); font-size: 0.72rem; }
+	.project-summary dd { margin: 0; font-size: 0.88rem; font-weight: 650; }
+	.section { margin-top: 3.5rem; }
+	.section-label {
+		color: #75d6ff;
+		font-size: 0.68rem;
+		font-weight: 800;
+		letter-spacing: 0.09em;
+		text-transform: uppercase;
+	}
+	h2 {
+		margin: 0.5rem 0 1.5rem;
+		font-size: clamp(1.8rem, 3.2vw, 2.5rem);
+		line-height: 1.2;
+		letter-spacing: -0.035em;
+	}
+	.overview-grid, .feature-grid {
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+		grid-template-columns: repeat(2, minmax(0, 1fr));
 		gap: 1rem;
 	}
-	.feature-item {
-		background: #111827;
-		padding: 1.25rem;
-		border-radius: 0.75rem;
-		border: 1px solid #1f2937;
+	.architecture-grid {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 1rem;
 	}
-	.feature-item h3 {
-		color: #f1f5f9;
-		margin-top: 0;
+	.card {
+		padding: 1.5rem;
+		border: 1px solid var(--color-border);
+		border-radius: 0.9rem;
+		background: var(--color-surface);
 	}
-	.feature-item p,
-	.flow {
-		color: #94a3b8;
+	.card h3 { margin-bottom: 0.6rem; font-size: 1.08rem; }
+	.card p { margin-bottom: 0; color: var(--color-muted); font-size: 0.86rem; }
+	.section-intro {
+		max-width: 850px;
+		margin-bottom: 1.5rem;
+		color: var(--color-muted);
+		font-size: 0.9rem;
 	}
-	.tech-stack {
+	.technology-list {
 		display: flex;
-		gap: 0.5rem;
 		flex-wrap: wrap;
-		margin-top: 1.5rem;
+		gap: 0.5rem;
+		margin: 1.5rem 0 0;
+		padding: 0;
+		list-style: none;
 	}
-	.tech-stack span {
-		background: #1f2937;
-		color: #cbd5e1;
-		font-size: 0.8rem;
-		padding: 0.25rem 0.75rem;
+	.technology-list li {
+		padding: 0.35rem 0.65rem;
+		border: 1px solid #2a4057;
 		border-radius: 999px;
+		color: #c5d2e3;
+		font-size: 0.72rem;
 	}
-	.flow {
-		background: #111827;
-		border: 1px solid #1f2937;
-		border-radius: 0.75rem;
-		padding: 1rem;
-		line-height: 1.8;
+	.journey {
+		display: grid;
+		grid-template-columns: repeat(4, minmax(0, 1fr));
+		gap: 1rem;
+		margin: 0;
+		padding-left: 1.5rem;
 	}
-	.flow span {
-		color: #38bdf8;
-		padding: 0 0.35rem;
+	.journey li { padding: 0.75rem 0.5rem; color: #d0dbea; font-size: 0.85rem; }
+	.journey li::marker { color: #75d6ff; font-weight: 750; }
+	.content-list { display: grid; gap: 0.8rem; margin: 0; padding-left: 1.2rem; }
+	.content-list li { color: var(--color-muted); font-size: 0.88rem; }
+	.content-list li::marker { color: var(--color-accent); }
+	.future-panel {
+		padding: 2rem;
+		border: 1px solid var(--color-border);
+		border-radius: 1rem;
+		background: #0d1725;
 	}
-	ul {
-		color: #94a3b8;
-		line-height: 1.6;
+	.future-panel > p { color: var(--color-muted); font-size: 0.85rem; }
+	.project-navigation {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 1rem;
+		margin-top: 3rem;
+		padding-top: 1.5rem;
+		border-top: 1px solid var(--color-border);
 	}
-	ul strong,
-	.role-details strong {
-		color: #f1f5f9;
+	.text-link {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.4rem;
+		min-height: 40px;
+		color: #75d6ff;
+		font-size: 0.8rem;
+		font-weight: 700;
+		text-decoration: none;
 	}
-	.role-details {
-		border-top: 1px solid #1e293b;
-		margin-top: 1.5rem;
-		padding-top: 1rem;
-		color: #94a3b8;
-	}
-	.role-details p {
-		margin: 0.5rem 0;
+	.text-link:hover { text-decoration: underline; text-underline-offset: 4px; }
+	@media (max-width: 760px) {
+		.architecture-grid { grid-template-columns: 1fr; }
+		.journey { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 	}
 	@media (max-width: 560px) {
-		.case-study-container { padding: 2.5rem 1.25rem; }
-		.case-header h1 { font-size: 2.25rem; }
-		.subtitle { font-size: 1rem; }
-		.flow span { padding: 0 0.1rem; }
+		.case-shell { width: calc(100% - 2.5rem); }
+		.actions { flex-direction: column; }
+		.project-summary, .overview-grid, .feature-grid, .journey { grid-template-columns: 1fr; }
+		.section { margin-top: 3rem; }
+		.future-panel { padding: 1.3rem; }
+		.project-navigation { align-items: flex-start; flex-direction: column; }
 	}
 </style>

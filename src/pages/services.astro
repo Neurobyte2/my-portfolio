@@ -2,109 +2,427 @@
 import Layout from '../layouts/Layout.astro';
 
 const offerings = [
-	{ number: '01', title: 'Business websites', text: 'A polished, responsive home for your business that explains what you do and makes the next step obvious.', deliverables: ['Responsive multi-page website', 'Clear service and contact journeys', 'Search-friendly page structure', 'Launch-ready performance basics'] },
-	{ number: '02', title: 'Full-stack web applications', text: 'Purpose-built web products that pair thoughtful interfaces with dependable server-side features.', deliverables: ['React and Next.js interfaces', 'Node.js and Express APIs', 'MongoDB data models and integration', 'Authentication and product workflows'] },
-	{ number: '03', title: 'Android applications', text: 'Native Android experiences designed to feel intuitive and supported by maintainable architecture.', deliverables: ['Kotlin and Jetpack Compose UI', 'MVVM and Clean Architecture', 'Firebase-connected features', 'Reliable state and data handling'] },
-	{ number: '04', title: 'Website improvements', text: 'Targeted upgrades for an existing website, from responsive polish to clearer content and integrations.', deliverables: ['Mobile and layout refinements', 'UI implementation from designs', 'API and database integrations', 'Technical SEO foundations'] },
+	{
+		number: '01',
+		title: 'Business website development',
+		text: 'A website that explains your business, presents your services, and gives customers a clear way to contact you.',
+		deliverables: [
+			'Responsive layouts for mobile and desktop',
+			'Service, project, about, and contact pages',
+			'Page titles, descriptions, and technical SEO setup',
+			'Deployment and domain connection',
+		],
+		projectLabel: 'Explore web development',
+projectHref: '/services/web-development/',
+	},
+	{
+		number: '02',
+		title: 'Full-stack web application development',
+		text: 'Custom web applications for workflows that need more than a brochure website, such as dashboards, accounts, and data management.',
+		deliverables: [
+			'React or Next.js user interfaces',
+			'Node.js and Express REST APIs',
+			'Authentication and database integration',
+			'Loading states, validation, and error handling',
+		],
+		projectLabel: 'Discuss your web application',
+		projectHref: '/contact/',
+	},
+	{
+		number: '03',
+		title: 'Native Android app development',
+		text: 'Android applications built with Kotlin and Jetpack Compose, with features and architecture chosen around your users and project requirements.',
+		deliverables: [
+			'Jetpack Compose screens and navigation',
+			'MVVM and Clean Architecture',
+			'Room storage or Firebase integration',
+			'Loading, empty, and error states',
+		],
+		projectLabel: 'Explore Android app development',
+projectHref: '/services/android-app-development/',
+	},
+	{
+		number: '04',
+		title: 'Website improvements & integrations',
+		text: 'Focused improvements to an existing website, whether you need a better mobile layout, clearer service pages, or connected application features.',
+		deliverables: [
+			'Responsive layout and UI fixes',
+			'Implementation from supplied designs',
+			'API and database integration',
+			'Technical SEO and image optimization',
+		],
+		projectLabel: 'Discuss your website improvements',
+		projectHref: '/contact/',
+	},
 ];
 
 const stack = [
-	{ group: 'Web interface', tools: ['React', 'Next.js', 'Responsive UI'] },
-	{ group: 'Backend', tools: ['Node.js', 'Express.js', 'REST APIs'] },
-	{ group: 'Data', tools: ['MongoDB', 'Firebase', 'Firestore'] },
-	{ group: 'Android', tools: ['Kotlin', 'Jetpack Compose', 'MVVM'] },
-	{ group: 'Workflow', tools: ['Git', 'GitHub', 'API integration'] },
+	{ group: 'Web interfaces', tools: ['React', 'Next.js', 'Astro', 'Responsive UI'] },
+	{ group: 'Backend & data', tools: ['Node.js', 'Express', 'REST APIs', 'MongoDB'] },
+	{ group: 'Android', tools: ['Kotlin', 'Jetpack Compose', 'MVVM', 'Room'] },
+	{ group: 'Cloud & workflow', tools: ['Firebase', 'Firestore', 'Git', 'GitHub'] },
+];
+
+const process = [
+	{
+		number: '01',
+		title: 'Define the scope',
+		text: 'We discuss your audience, required features, existing resources, timeline, and budget before agreeing on the work.',
+	},
+	{
+		number: '02',
+		title: 'Design & develop',
+		text: 'I plan the pages or screens, develop the features, and share progress so you can review the work as it takes shape.',
+	},
+	{
+		number: '03',
+		title: 'Review & hand over',
+		text: 'We check the agreed features, refine the important details, and prepare deployment or app delivery according to the project scope.',
+	},
+];
+
+const questions = [
+	{
+		question: 'What should I share before starting?',
+		answer: 'Share a short description of your project, the pages or features you need, any reference designs, and your expected timeline. An approximate budget also helps define a practical scope.',
+	},
+	{
+		question: 'Can you improve an existing website or Android app?',
+		answer: 'Yes. Share the current project and explain the changes you need. I will review the code and requirements before confirming the work I can take on.',
+	},
+	{
+		question: 'How is the project price decided?',
+		answer: 'The price depends on the features, design requirements, integrations, and delivery scope. We agree on the scope and price before development begins.',
+	},
+	{
+		question: 'Does technical SEO guarantee Google rankings?',
+		answer: 'No. Technical SEO helps search engines access and understand a website. Rankings also depend on the content, competition, and other factors, so I do not promise a specific Google position.',
+	},
 ];
 ---
 
-<Layout title="Web & Android Development Services | Ali Ansar" description="Full-stack web development, business websites, backend APIs, and native Android app services by Ali Ansar. React, Next.js, Node.js, Express, MongoDB, Kotlin, and Firebase.">
+<Layout
+	title="Website & Android App Development Services | Ali Ansar"
+	description="Explore Ali Ansar’s business website, full-stack web application, native Android app, and website improvement services. Discuss your project requirements."
+>
 	<main class="page-shell">
 		<header class="page-hero">
-			<span class="section-label">Services</span>
-			<h1>Good software starts with understanding <em>what you need.</em></h1>
-			<p>I work with businesses and teams to design and build websites, web applications, and Android products — with practical engineering from the first conversation to launch.</p>
-			<a class="button" href="/contact/">Tell me what you’re building <span aria-hidden="true">↗</span></a>
+			<span class="section-label">Development services</span>
+			<h1>
+				Website & Android app development
+				<em>built around your requirements.</em>
+			</h1>
+			<p>
+				I’m Ali Ansar. I help businesses and teams build responsive websites,
+				custom web applications, and native Android apps—from defining the
+				features to preparing the finished project for delivery.
+			</p>
+			<div class="hero-actions">
+				<a class="button" href="/contact/">
+					Discuss your project <span aria-hidden="true">↗</span>
+				</a>
+				<a class="button button-secondary" href="/projects/">
+					View project case studies
+				</a>
+			</div>
 		</header>
 
-		<section class="offerings" aria-labelledby="offerings-title">
-			<div class="section-heading"><div><span class="section-label">Ways we can work together</span><h2 id="offerings-title">Services built around your next step.</h2></div></div>
+		<section aria-labelledby="offerings-title">
+			<div class="section-heading">
+				<span class="section-label">How I can help</span>
+				<h2 id="offerings-title">Choose the service your project needs.</h2>
+				<p class="section-description">
+					The final features and deliverables are agreed as part of your project scope.
+				</p>
+			</div>
+
 			<div class="offering-grid">
 				{offerings.map((offering) => (
 					<article class="offering-card">
-						<span class="number">{offering.number}</span>
+						<span class="number" aria-hidden="true">{offering.number}</span>
 						<h3>{offering.title}</h3>
 						<p>{offering.text}</p>
-						<ul>{offering.deliverables.map((deliverable) => <li>{deliverable}</li>)}</ul>
+						<ul>
+							{offering.deliverables.map((deliverable) => (
+								<li>{deliverable}</li>
+							))}
+						</ul>
+						<a class="text-link" href={offering.projectHref}>
+							{offering.projectLabel} <span aria-hidden="true">→</span>
+						</a>
 					</article>
 				))}
 			</div>
 		</section>
 
 		<section class="toolkit" aria-labelledby="toolkit-title">
-			<div><span class="section-label">Tools & technologies</span><h2 id="toolkit-title">A practical, modern toolkit.</h2><p>I choose tools to fit the product, with an emphasis on maintainable code and dependable delivery.</p></div>
+			<div>
+				<span class="section-label">Tools & technologies</span>
+				<h2 id="toolkit-title">Tools chosen to fit the project.</h2>
+				<p>
+					A business website, an application dashboard, and an Android app have
+					different needs. I choose the stack around the features and maintenance
+					requirements rather than using every tool on every project.
+				</p>
+			</div>
 			<div class="stack-grid">
-				{stack.map((item) => <div class="stack-card"><h3>{item.group}</h3><div>{item.tools.map((tool) => <span>{tool}</span>)}</div></div>)}
+				{stack.map((item) => (
+					<div class="stack-card">
+						<h3>{item.group}</h3>
+						<ul>
+							{item.tools.map((tool) => <li>{tool}</li>)}
+						</ul>
+					</div>
+				))}
 			</div>
 		</section>
 
 		<section class="process" aria-labelledby="process-title">
-			<span class="section-label">The process</span><h2 id="process-title">Clear steps. No mystery.</h2>
+			<span class="section-label">Working together</span>
+			<h2 id="process-title">From requirements to delivery.</h2>
 			<div class="process-grid">
-				<div><b>01</b><h3>Understand</h3><p>We align on the audience, goals, scope, and what success should look like.</p></div>
-				<div><b>02</b><h3>Plan & build</h3><p>I shape the structure, implement the experience, and share progress as the work takes form.</p></div>
-				<div><b>03</b><h3>Refine & launch</h3><p>We test the important details, make final refinements, and prepare a confident handoff.</p></div>
+				{process.map((step) => (
+					<div class="process-card">
+						<span class="number" aria-hidden="true">{step.number}</span>
+						<h3>{step.title}</h3>
+						<p>{step.text}</p>
+					</div>
+				))}
 			</div>
 		</section>
 
-		<aside class="bottom-cta"><div><span class="section-label">Ready to start?</span><h2>Let’s make your next idea real.</h2><p>Tell me where you are and what you need help with.</p></div><a class="button" href="/contact/">Start a conversation <span aria-hidden="true">↗</span></a></aside>
+		<section class="faq" aria-labelledby="faq-title">
+			<span class="section-label">Before we start</span>
+			<h2 id="faq-title">Common project questions.</h2>
+			<div class="faq-list">
+				{questions.map((item) => (
+					<details>
+						<summary>{item.question}</summary>
+						<p>{item.answer}</p>
+					</details>
+				))}
+			</div>
+		</section>
+
+		<aside class="bottom-cta" aria-labelledby="contact-title">
+			<div>
+				<span class="section-label">Have a project in mind?</span>
+				<h2 id="contact-title">Tell me what you want to build.</h2>
+				<p>
+					Share your idea, required features, and timeline so we can discuss the
+					next step.
+				</p>
+			</div>
+			<a class="button" href="/contact/">
+				Contact Ali Ansar <span aria-hidden="true">↗</span>
+			</a>
+		</aside>
 	</main>
 </Layout>
 
 <style>
-	.page-shell { width: min(1050px, calc(100% - 3rem)); margin: 0 auto; padding: 4.5rem 0 5rem; }
-	.page-hero { max-width: 790px; padding: 1.5rem 0 4.5rem; }
-	.section-label { color: #38bdf8; font-size: 0.68rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; }
+	.page-shell {
+		width: min(1050px, calc(100% - 3rem));
+		margin: 0 auto;
+		padding: 4rem 0 5rem;
+	}
 	h1, h2, h3, p { margin-top: 0; }
-	.page-hero h1 { margin: 0.7rem 0 1rem; font-size: clamp(3rem, 7vw, 5.2rem); line-height: 1; letter-spacing: -0.06em; }
-	.page-hero h1 em { color: #38bdf8; font-style: normal; }
-	.page-hero > p { max-width: 670px; margin-bottom: 1.5rem; color: #9aa9bd; font-size: 1rem; }
-	.button { display: inline-flex; align-items: center; gap: 0.65rem; min-height: 47px; padding: 0.72rem 1rem; border-radius: 0.65rem; background: #38bdf8; color: #04111d; font-size: 0.82rem; font-weight: 750; text-decoration: none; }
+	.page-hero { max-width: 950px; padding-bottom: 4rem; }
+	.section-label {
+		color: #38bdf8;
+		font-size: 0.68rem;
+		font-weight: 800;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+	}
+	.page-hero h1 {
+		margin: 0.7rem 0 1rem;
+		font-size: clamp(2.6rem, 5.5vw, 4.6rem);
+		line-height: 1.1;
+		letter-spacing: -0.05em;
+	}
+	.page-hero h1 em {
+		display: block;
+		color: #38bdf8;
+		font-style: normal;
+	}
+	.page-hero > p {
+		max-width: 700px;
+		margin-bottom: 1.5rem;
+		color: #a8b6c9;
+		font-size: 1rem;
+	}
+	.hero-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+	.button {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		gap: 0.65rem;
+		min-height: 48px;
+		padding: 0.72rem 1rem;
+		border: 1px solid transparent;
+		border-radius: 0.65rem;
+		background: #38bdf8;
+		color: #04111d;
+		font-size: 0.82rem;
+		font-weight: 750;
+		text-decoration: none;
+	}
 	.button:hover { background: #75d6ff; }
+	.button-secondary {
+		border-color: #26364a;
+		background: #111a29;
+		color: #e2eaf5;
+	}
+	.button-secondary:hover { border-color: #38bdf8; background: #152235; }
 	.section-heading { margin-bottom: 1.5rem; }
-	.section-heading h2, .toolkit h2, .process h2 { margin: 0.45rem 0 0; font-size: clamp(1.9rem, 4vw, 2.8rem); line-height: 1.15; letter-spacing: -0.045em; }
-	.offering-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
-	.offering-card { padding: 1.6rem; border: 1px solid #1d2a3c; border-radius: 0.9rem; background: #0e1624; }
-	.number, .process-grid b { color: #38bdf8; font-size: 0.7rem; font-weight: 800; }
-	.offering-card h3, .process-grid h3 { margin: 0.9rem 0 0.5rem; font-size: 1.15rem; }
-	.offering-card p, .process-grid p, .toolkit p, .bottom-cta p { color: #94a3b8; font-size: 0.85rem; }
-	.offering-card ul { display: grid; gap: 0.45rem; margin: 1rem 0 0; padding: 0; list-style: none; }
+	.section-heading h2, .toolkit h2, .process h2, .faq h2 {
+		margin: 0.45rem 0 0;
+		font-size: clamp(1.9rem, 3.8vw, 2.6rem);
+		line-height: 1.18;
+		letter-spacing: -0.04em;
+	}
+	.section-description {
+		margin: 0.75rem 0 0;
+		color: #a1b1c7;
+		font-size: 0.85rem;
+	}
+	.offering-grid {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 1rem;
+	}
+	.offering-card {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		padding: 1.6rem;
+		border: 1px solid #1d2a3c;
+		border-radius: 0.9rem;
+		background: #0e1624;
+	}
+	.number { color: #38bdf8; font-size: 0.7rem; font-weight: 800; }
+	.offering-card h3, .process-card h3 {
+		margin: 0.9rem 0 0.5rem;
+		font-size: 1.15rem;
+		line-height: 1.4;
+	}
+	.offering-card p, .process-card p, .toolkit p, .bottom-cta p {
+		color: #a1b1c7;
+		font-size: 0.85rem;
+	}
+	.offering-card ul {
+		display: grid;
+		gap: 0.5rem;
+		margin: 0.5rem 0 1.5rem;
+		padding: 0;
+		list-style: none;
+	}
 	.offering-card li { color: #bdc9d9; font-size: 0.79rem; }
-	.offering-card li::before { content: "✓"; margin-right: 0.55rem; color: #38bdf8; }
-	.toolkit { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 2.5rem; margin-top: 5rem; padding: 2.2rem; border: 1px solid #1d2a3c; border-radius: 1rem; background: linear-gradient(135deg, #101827, #0b1320); }
-	.toolkit h2 { margin-bottom: 0.7rem; }
+	.offering-card li::before {
+		content: '✓';
+		margin-right: 0.55rem;
+		color: #38bdf8;
+	}
+	.text-link {
+		margin-top: auto;
+		color: #75d6ff;
+		font-size: 0.8rem;
+		font-weight: 700;
+		text-decoration: none;
+	}
+	.text-link:hover { text-decoration: underline; text-underline-offset: 4px; }
+	.toolkit {
+		display: grid;
+		grid-template-columns: 0.9fr 1.1fr;
+		gap: 2rem;
+		margin-top: 4rem;
+		padding: 2rem;
+		border: 1px solid #1d2a3c;
+		border-radius: 1rem;
+		background: linear-gradient(135deg, #101827, #0b1320);
+	}
+	.toolkit h2 { margin-bottom: 0.8rem; }
 	.toolkit p { margin-bottom: 0; }
-	.stack-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
-	.stack-card { padding: 0.9rem; border: 1px solid #223147; border-radius: 0.7rem; background: #0b1320; }
-	.stack-card h3 { margin: 0 0 0.55rem; color: #91a0b5; font-size: 0.72rem; font-weight: 650; }
-	.stack-card div { display: flex; flex-wrap: wrap; gap: 0.4rem; }
-	.stack-card span { padding: 0.28rem 0.5rem; border-radius: 999px; background: #172438; color: #d0dbea; font-size: 0.68rem; }
-	.process { margin-top: 5rem; }
-	.process-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 1.5rem; }
-	.process-grid > div { padding: 1.2rem 1.3rem; border-left: 1px solid #294057; }
-	.process-grid h3 { margin-top: 0.65rem; }
-	.process-grid p { margin-bottom: 0; }
-	.bottom-cta { display: flex; align-items: center; justify-content: space-between; gap: 2rem; margin-top: 5rem; padding: 2rem; border: 1px solid #1e3a50; border-radius: 1rem; background: radial-gradient(ellipse at 20% 20%, #0d2634, #0e1624 72%); }
-	.bottom-cta h2 { margin: 0.4rem 0; font-size: 1.7rem; letter-spacing: -0.04em; }
+	.stack-grid {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 0.75rem;
+	}
+	.stack-card {
+		padding: 1rem;
+		border: 1px solid #223147;
+		border-radius: 0.7rem;
+		background: #0b1320;
+	}
+	.stack-card h3 {
+		margin: 0 0 0.65rem;
+		color: #a8b6c9;
+		font-size: 0.75rem;
+	}
+	.stack-card ul {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.4rem;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+	.stack-card li {
+		padding: 0.28rem 0.5rem;
+		border-radius: 999px;
+		background: #172438;
+		color: #d0dbea;
+		font-size: 0.68rem;
+	}
+	.process, .faq { margin-top: 4rem; }
+	.process-grid {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 1rem;
+		margin-top: 1.5rem;
+	}
+	.process-card { padding: 1.2rem; border-left: 1px solid #294057; }
+	.process-card p { margin-bottom: 0; }
+	.faq-list { display: grid; gap: 0.75rem; margin-top: 1.5rem; }
+	.faq-list details {
+		padding: 1rem 1.2rem;
+		border: 1px solid #223147;
+		border-radius: 0.75rem;
+		background: #0e1624;
+	}
+	.faq-list summary { color: #e2eaf5; font-size: 0.9rem; font-weight: 650; cursor: pointer; }
+	.faq-list summary:focus-visible { outline: 2px solid #38bdf8; outline-offset: 4px; }
+	.faq-list p { max-width: 800px; margin: 0.8rem 0 0; color: #a8b6c9; font-size: 0.85rem; }
+	.bottom-cta {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 2rem;
+		margin-top: 4rem;
+		padding: 2rem;
+		border: 1px solid #1e3a50;
+		border-radius: 1rem;
+		background: #0d1d2b;
+	}
+	.bottom-cta > div { max-width: 600px; }
+	.bottom-cta h2 { margin: 0.4rem 0; font-size: 1.7rem; line-height: 1.3; letter-spacing: -0.035em; }
 	.bottom-cta p { margin-bottom: 0; }
+	.bottom-cta .button { flex-shrink: 0; }
+
 	@media (max-width: 760px) {
 		.page-shell { padding-top: 3rem; }
 		.toolkit { grid-template-columns: 1fr; gap: 1.5rem; }
+		.bottom-cta { align-items: flex-start; flex-direction: column; }
 	}
 	@media (max-width: 560px) {
 		.page-shell { width: calc(100% - 2.5rem); }
-		.page-hero { padding-bottom: 3.3rem; }
-		.offering-grid, .process-grid { grid-template-columns: 1fr; }
+		.page-hero { padding-bottom: 3rem; }
+		.hero-actions { flex-direction: column; }
+		.offering-grid, .process-grid, .stack-grid { grid-template-columns: 1fr; }
+		.offering-card { padding: 1.3rem; }
 		.toolkit { padding: 1.3rem; }
-		.bottom-cta { align-items: flex-start; flex-direction: column; margin-top: 3.5rem; padding: 1.4rem; }
+		.toolkit, .process, .faq, .bottom-cta { margin-top: 3rem; }
+		.bottom-cta { padding: 1.4rem; }
 	}
 </style>

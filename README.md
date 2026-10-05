@@ -2,6 +2,8 @@
 
 A multi-page portfolio for Ali Ansar, showcasing full-stack web development, native Android development, selected projects, and contact details. Built with Astro and rendered as a static site.
 
+For the architecture, route/file map, asset locations, maintenance instructions, current SEO status, and a reusable future SEO-assistant prompt, see [PROJECT_GUIDE.md](./PROJECT_GUIDE.md).
+
 ## Pages
 
 - `/` — Services overview and featured projects

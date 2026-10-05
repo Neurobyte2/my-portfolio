@@ -2,13 +2,65 @@
 interface Props {
 	title?: string;
 	description?: string;
+	image?: string;
+	imageAlt?: string;
+	noindex?: boolean;
 }
 
 const {
 	title = 'Ali Ansar | Android & Full-Stack Web Developer',
-	description = 'Ali Ansar builds polished Android apps and fast, responsive full-stack websites for growing businesses.',
+	description = 'Hire Ali Ansar for responsive business websites, full-stack web applications, and native Android apps built with Kotlin and Jetpack Compose.',
+	image = '/projects/portfolio-preview.png',
+	imageAlt = 'Ali Ansar — Android and full-stack web developer portfolio',
+	noindex = false,
 } = Astro.props;
-const pathname = Astro.url.pathname.replace(/\/$/, '') || '/';
+
+if (!Astro.site) {
+	throw new Error('Set the production site URL in astro.config.mjs.');
+}
+
+const pathname = Astro.url.pathname.replace(/\/+$/, '') || '/';
+const canonicalURL = new URL(
+	pathname === '/' ? '/' : `${pathname}/`,
+	Astro.site,
+).href;
+const socialImageURL = new URL(image, Astro.site).href;
+const sitemapURL = new URL('/sitemap-index.xml', Astro.site).href;
+const year = new Date().getFullYear();
+const servicesActive =
+	pathname === '/services' || pathname.startsWith('/services/');
+
+const navigation = [
+	{ label: 'Home', href: '/', active: pathname === '/' },
+	{
+		label: 'Projects',
+		href: '/projects/',
+		active: pathname === '/projects' || pathname.startsWith('/projects/'),
+	},
+	{ label: 'About', href: '/about/', active: pathname === '/about' },
+	{ label: 'Contact', href: '/contact/', active: pathname === '/contact' },
+];
+
+const serviceLinks = [
+	{
+		label: 'All Services',
+		description: 'Explore ways we can work together',
+		href: '/services/',
+		active: pathname === '/services',
+	},
+	{
+		label: 'Web Development',
+		description: 'Business websites & web applications',
+		href: '/services/web-development/',
+		active: pathname === '/services/web-development',
+	},
+	{
+		label: 'Android App Development',
+		description: 'Native apps with Kotlin & Jetpack Compose',
+		href: '/services/android-app-development/',
+		active: pathname === '/services/android-app-development',
+	},
+];
 ---
 
 <!doctype html>
@@ -16,156 +68,512 @@ const pathname = Astro.url.pathname.replace(/\/$/, '') || '/';
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
 		<meta name="description" content={description} />
 		<meta name="theme-color" content="#080d17" />
+		<meta name="generator" content={Astro.generator} />
+		{noindex && <meta name="robots" content="noindex, follow" />}
+		<link rel="canonical" href={canonicalURL} />
+		<link rel="sitemap" type="application/xml" href={sitemapURL} />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
 		<meta property="og:type" content="website" />
+		<meta property="og:site_name" content="Ali Ansar" />
+		<meta property="og:url" content={canonicalURL} />
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
-		<meta property="og:image" content="/projects/portfolio-preview.png" />
+		<meta property="og:image" content={socialImageURL} />
+		<meta property="og:image:alt" content={imageAlt} />
 		<meta name="twitter:card" content="summary_large_image" />
-		<title>{title}</title>
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content={socialImageURL} />
+		<meta name="twitter:image:alt" content={imageAlt} />
 	</head>
+
 	<body>
+		<a class="skip-link" href="#page-content">Skip to content</a>
+
 		<header class="site-header">
-			<div class="brand">
-				<a class="brand-mark" href="/" aria-label="Ali Ansar home">AA</a>
-				<a class="brand-name" href="/" aria-label="Ali Ansar home">Ali Ansar<small>ANDROID · FULL-STACK WEB</small></a>
+			<div class="header-inner">
+				<a class="brand" href="/" aria-label="Ali Ansar — Home">
+					<span class="brand-mark" aria-hidden="true">AA<span>.</span></span>
+					<span class="brand-name">
+						Ali Ansar
+						<small>WEB & ANDROID DEVELOPER</small>
+					</span>
+				</a>
+
+				<nav class="desktop-nav" aria-label="Main navigation">
+					<a href="/" aria-current={pathname === '/' ? 'page' : undefined}>
+						Home
+					</a>
+
+					<details class="services-dropdown" data-nav-disclosure>
+						<summary class:list={['nav-trigger', servicesActive && 'active']}>
+							Services <span class="chevron" aria-hidden="true"></span>
+						</summary>
+						<div class="dropdown-panel">
+							{serviceLinks.map((service) => (
+								<a
+									href={service.href}
+									aria-current={service.active ? 'page' : undefined}
+								>
+									<span>
+										<strong>{service.label}</strong>
+										<small>{service.description}</small>
+									</span>
+									<span class="link-arrow" aria-hidden="true">↗</span>
+								</a>
+							))}
+						</div>
+					</details>
+
+					{navigation.slice(1).map((item) => (
+						<a href={item.href} aria-current={item.active ? 'page' : undefined}>
+							{item.label}
+						</a>
+					))}
+				</nav>
+
+				<a class="header-cta" href="/contact/">
+					Discuss a project <span aria-hidden="true">↗</span>
+				</a>
+
+				<details class="mobile-menu" data-nav-disclosure>
+					<summary>
+						<span class="menu-icon" aria-hidden="true">
+							<span></span><span></span><span></span>
+						</span>
+						Menu
+					</summary>
+					<nav class="mobile-panel" aria-label="Mobile navigation">
+						<a href="/" aria-current={pathname === '/' ? 'page' : undefined}>
+							Home <span aria-hidden="true">↗</span>
+						</a>
+						<div class="mobile-services">
+							<span class="menu-label">Services</span>
+							{serviceLinks.map((service) => (
+								<a
+									href={service.href}
+									aria-current={service.active ? 'page' : undefined}
+								>
+									{service.label} <span aria-hidden="true">→</span>
+								</a>
+							))}
+						</div>
+						{navigation.slice(1).map((item) => (
+							<a href={item.href} aria-current={item.active ? 'page' : undefined}>
+								{item.label} <span aria-hidden="true">↗</span>
+							</a>
+						))}
+					</nav>
+				</details>
 			</div>
-			<nav aria-label="Main navigation">
-				<a href="/" aria-current={pathname === '/' ? 'page' : undefined}>Home</a>
-				<a href="/services/" aria-current={pathname === '/services' ? 'page' : undefined}>Services</a>
-				<a href="/projects/" aria-current={pathname.startsWith('/projects') ? 'page' : undefined}>Projects</a>
-				<a href="/about/" aria-current={pathname === '/about' ? 'page' : undefined}>About</a>
-			</nav>
-			<a href="/contact/" class="header-cta">Let’s talk <span aria-hidden="true">↗</span></a>
 		</header>
-		<slot />
+
+		<div id="page-content" tabindex="-1">
+			<slot />
+		</div>
+
 		<footer class="site-footer">
-			<a class="footer-brand" href="/">Ali Ansar <span>·</span> Software Developer</a>
-			<p>Thoughtful digital products, from the first screen to the systems behind it.</p>
-			<div class="footer-links">
-				<a href="/services/">Services</a>
-				<a href="/projects/">Projects</a>
-				<a href="/contact/">Contact</a>
-				<a href="https://github.com/Neurobyte2" target="_blank" rel="noreferrer">GitHub ↗</a>
+			<div class="footer-inner">
+				<div class="footer-invitation">
+					<div>
+						<span class="eyebrow">Have a project in mind?</span>
+						<h2>Let’s build your next website or app.</h2>
+						<p>Share your idea, requirements, and timeline. Let’s discuss the next step.</p>
+					</div>
+					<a class="footer-cta" href="/contact/">
+						Discuss your project <span aria-hidden="true">↗</span>
+					</a>
+				</div>
+
+				<div class="footer-grid">
+					<div class="footer-about">
+						<a class="brand" href="/" aria-label="Ali Ansar — Home">
+							<span class="brand-mark" aria-hidden="true">AA<span>.</span></span>
+							<span class="brand-name">
+								Ali Ansar
+								<small>WEB & ANDROID DEVELOPER</small>
+							</span>
+						</a>
+						<p>
+							Business websites, full-stack web applications, and native
+							Android apps built around your requirements.
+						</p>
+						<a
+							class="github-link"
+							href="https://github.com/Neurobyte2"
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							View GitHub <span aria-hidden="true">↗</span>
+							<span class="sr-only"> (opens in a new tab)</span>
+						</a>
+					</div>
+
+					<nav class="footer-column" aria-label="Footer navigation">
+						<h3>Explore</h3>
+						<a href="/">Home</a>
+						<a href="/services/">Services</a>
+						<a href="/projects/">Projects</a>
+						<a href="/about/">About Ali</a>
+						<a href="/contact/">Contact</a>
+					</nav>
+
+					<nav class="footer-column" aria-label="Development services">
+						<h3>Development</h3>
+						<a href="/services/android-app-development/">Android app development</a>
+						<a href="/services/web-development/">Website & web app services</a>
+						<a href="/services/">Backend & integrations</a>
+						<a href="/contact/">Discuss your requirements</a>
+					</nav>
+
+					<nav class="footer-column" aria-label="Featured project case studies">
+						<h3>Selected work</h3>
+						<a href="/projects/nexvion/">NexVion Sportswear</a>
+						<a href="/projects/dubaiad/">DubaiAd</a>
+						<a href="/projects/flashcard-quiz/">Flashcard Quiz</a>
+						<a href="/projects/">All project case studies</a>
+					</nav>
+				</div>
+
+				<div class="footer-bottom">
+					<p>© {year} Ali Ansar. All rights reserved.</p>
+					<a href="#page-content">Back to top <span aria-hidden="true">↑</span></a>
+				</div>
 			</div>
 		</footer>
+
+		<script>
+			const disclosures = Array.from(
+				document.querySelectorAll<HTMLDetailsElement>('[data-nav-disclosure]'),
+			);
+
+			function closeDisclosure(
+				disclosure: HTMLDetailsElement,
+				restoreFocus = false,
+			) {
+				disclosure.open = false;
+				if (restoreFocus) {
+					disclosure.querySelector('summary')?.focus();
+				}
+			}
+
+			disclosures.forEach((disclosure) => {
+				disclosure.addEventListener('toggle', () => {
+					if (!disclosure.open) return;
+					disclosures.forEach((other) => {
+						if (other !== disclosure) closeDisclosure(other);
+					});
+				});
+
+				disclosure.addEventListener('keydown', (event) => {
+					if (event.key === 'Escape' && disclosure.open) {
+						event.preventDefault();
+						closeDisclosure(disclosure, true);
+					}
+				});
+
+				disclosure.addEventListener('focusout', (event) => {
+					if (
+						event.relatedTarget instanceof Node &&
+						!disclosure.contains(event.relatedTarget)
+					) {
+						closeDisclosure(disclosure);
+					}
+				});
+
+				disclosure.querySelectorAll('a').forEach((link) => {
+					link.addEventListener('click', () => closeDisclosure(disclosure));
+				});
+			});
+
+			document.addEventListener('click', (event) => {
+				if (!(event.target instanceof Node)) return;
+				const target = event.target;
+				disclosures.forEach((disclosure) => {
+					if (!disclosure.contains(target)) closeDisclosure(disclosure);
+				});
+			});
+
+			window.matchMedia('(min-width: 961px)').addEventListener('change', () => {
+				disclosures.forEach((disclosure) => closeDisclosure(disclosure));
+			});
+		</script>
 	</body>
 </html>
 
 <style>
+	:global(:root) {
+		--color-background: #080d17;
+		--color-surface: #0e1624;
+		--color-text: #eff5ff;
+		--color-muted: #a8b6c9;
+		--color-accent: #38bdf8;
+		--color-border: #223147;
+	}
 	:global(*) { box-sizing: border-box; }
-	:global(html) { overflow-x: hidden; scroll-behavior: smooth; }
+	:global(html) { scroll-behavior: smooth; scroll-padding-top: 100px; }
 	:global(body) {
 		margin: 0;
 		min-width: 320px;
-		background: #080d17;
-		color: #eff5ff;
+		background: var(--color-background);
+		color: var(--color-text);
 		font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 		line-height: 1.65;
 	}
-	:global(a:focus-visible) { outline: 2px solid #38bdf8; outline-offset: 4px; }
+	:global(img) { max-width: 100%; }
+	:global(a:focus-visible), :global(button:focus-visible), :global(summary:focus-visible) {
+		outline: 2px solid var(--color-accent);
+		outline-offset: 5px;
+	}
+	:global(::selection) { background: #38bdf8; color: #04111d; }
+	#page-content { min-width: 0; }
+	#page-content:focus { outline: none; }
+	.sr-only {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		padding: 0;
+		margin: -1px;
+		overflow: hidden;
+		clip-path: inset(50%);
+		white-space: nowrap;
+		border: 0;
+	}
+	.skip-link {
+		position: fixed;
+		top: 0.75rem;
+		left: 1rem;
+		z-index: 100;
+		padding: 0.7rem 1rem;
+		border-radius: 0.6rem;
+		background: #38bdf8;
+		color: #04111d;
+		font-weight: 700;
+		text-decoration: none;
+		transform: translateY(-200%);
+	}
+	.skip-link:focus { transform: translateY(0); }
 	.site-header {
+		position: sticky;
+		top: 0;
+		z-index: 50;
+		border-bottom: 1px solid #223147;
+		background: #080d17f5;
+		backdrop-filter: blur(16px);
+	}
+	.header-inner {
 		position: relative;
-		z-index: 2;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 1.5rem;
+		width: min(1160px, calc(100% - 3rem));
+		min-height: 82px;
+		margin-inline: auto;
+	}
+	.brand {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.75rem;
+		flex-shrink: 0;
+		color: #eff5ff;
+		text-decoration: none;
+	}
+	.brand-mark {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 44px;
+		height: 44px;
+		border: 1px solid #38bdf84d;
+		border-radius: 13px;
+		background: linear-gradient(145deg, #153347, #0c1827);
+		font-size: 0.95rem;
+		font-weight: 800;
+		letter-spacing: -0.06em;
+	}
+	.brand-mark > span { color: #38bdf8; }
+	.brand-name { font-size: 1rem; font-weight: 750; line-height: 1.25; }
+	.brand-name small {
+		display: block;
+		margin-top: 0.3rem;
+		color: #a8b6c9;
+		font-size: 0.57rem;
+		font-weight: 600;
+		letter-spacing: 0.08em;
+	}
+	.desktop-nav { display: flex; align-items: center; gap: 0.3rem; }
+	.desktop-nav > a, .nav-trigger {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.55rem;
+		min-height: 44px;
+		padding: 0.55rem 0.8rem;
+		border-radius: 0.55rem;
+		color: #a8b6c9;
+		font-size: 0.83rem;
+		font-weight: 600;
+		text-decoration: none;
+		cursor: pointer;
+	}
+	.desktop-nav > a:hover, .nav-trigger:hover { color: #eff5ff; background: #142033; }
+	.desktop-nav > a[aria-current="page"], .nav-trigger.active,
+	.services-dropdown[open] > summary { color: #75d6ff; background: #38bdf812; }
+	summary { list-style: none; }
+	summary::-webkit-details-marker { display: none; }
+	.services-dropdown { position: relative; }
+	.chevron {
+		width: 7px;
+		height: 7px;
+		border-right: 1.5px solid currentColor;
+		border-bottom: 1.5px solid currentColor;
+		transform: rotate(45deg);
+		margin-top: -3px;
+	}
+	.services-dropdown[open] .chevron { transform: rotate(225deg); margin-top: 3px; }
+	.dropdown-panel {
+		position: absolute;
+		top: calc(100% + 0.75rem);
+		left: -0.5rem;
+		width: 350px;
+		max-height: calc(100dvh - 120px);
+		overflow-y: auto;
+		padding: 0.55rem;
+		border: 1px solid #2c4058;
+		border-radius: 0.9rem;
+		background: #0e1624;
+		box-shadow: 0 20px 50px #00000066;
+	}
+	.dropdown-panel a {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 1rem;
+		padding: 0.9rem;
+		border-radius: 0.6rem;
+		color: #eff5ff;
+		text-decoration: none;
+	}
+	.dropdown-panel a:hover, .dropdown-panel a[aria-current="page"] { background: #172438; }
+	.dropdown-panel strong { display: block; font-size: 0.85rem; font-weight: 700; }
+	.dropdown-panel small { display: block; margin-top: 0.25rem; color: #a8b6c9; font-size: 0.72rem; }
+	.link-arrow { color: #75d6ff; }
+	.header-cta, .footer-cta {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		gap: 0.65rem;
+		min-height: 46px;
+		padding: 0.7rem 1rem;
+		border: 1px solid #38bdf8;
+		border-radius: 0.7rem;
+		background: #38bdf8;
+		color: #04111d;
+		font-size: 0.83rem;
+		font-weight: 750;
+		text-decoration: none;
+		white-space: nowrap;
+	}
+	.header-cta:hover, .footer-cta:hover { background: #75d6ff; border-color: #75d6ff; }
+	.mobile-menu { display: none; }
+	.mobile-menu > summary {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 0.55rem;
+		min-height: 44px;
+		padding: 0.55rem 0.75rem;
+		border: 1px solid #2c4058;
+		border-radius: 0.65rem;
+		color: #eff5ff;
+		font-size: 0.8rem;
+		font-weight: 650;
+		cursor: pointer;
+	}
+	.menu-icon { display: grid; gap: 4px; }
+	.menu-icon span { width: 17px; height: 2px; border-radius: 2px; background: #75d6ff; }
+	.mobile-menu[open] > summary { background: #142033; border-color: #38bdf8; }
+	.mobile-panel {
+		position: absolute;
+		top: calc(100% + 0.5rem);
+		right: 0;
+		left: 0;
+		max-height: calc(100dvh - 105px);
+		overflow-y: auto;
+		padding: 0.75rem;
+		border: 1px solid #2c4058;
+		border-radius: 0.9rem;
+		background: #0e1624;
+		box-shadow: 0 20px 50px #00000066;
+	}
+	.mobile-panel a {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 1rem;
+		min-height: 48px;
+		padding: 0.7rem 0.85rem;
+		border-radius: 0.55rem;
+		color: #d0dbea;
+		font-size: 0.9rem;
+		text-decoration: none;
+	}
+	.mobile-panel a:hover, .mobile-panel a[aria-current="page"] { background: #172438; color: #75d6ff; }
+	.mobile-panel a > span { color: #75d6ff; }
+	.mobile-services { margin-block: 0.4rem; padding-block: 0.7rem; border-block: 1px solid #223147; }
+	.menu-label { display: block; padding: 0 0.85rem 0.4rem; color: #a8b6c9; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; }
+	.site-footer { margin-top: 2rem; border-top: 1px solid #223147; background: linear-gradient(180deg, #0d1725, #080d17); }
+	.footer-inner { width: min(1120px, calc(100% - 3rem)); margin-inline: auto; }
+	.footer-invitation {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
 		gap: 2rem;
-		max-width: 1200px;
-		margin: 0 auto;
-		padding: 1.1rem 2rem;
-		border-bottom: 1px solid rgba(148, 163, 184, 0.12);
+		padding-block: 3rem;
+		border-bottom: 1px solid #223147;
 	}
-	.brand, .footer-brand {
-		display: inline-flex;
-		align-items: center;
-		gap: 0.7rem;
-	}
-	.footer-brand {
-		color: #f8fafc;
-		font-size: 0.95rem;
-		font-weight: 750;
-		line-height: 1.1;
-		text-decoration: none;
-	}
-	.brand-name {
-		color: #f8fafc;
-		font-size: 0.95rem;
-		font-weight: 750;
-		line-height: 1.1;
-		text-decoration: none;
-	}
-	.brand-name small {
-		display: block;
-		margin-top: 0.3rem;
-		color: #8493aa;
-		font-size: 0.58rem;
-		font-weight: 600;
-		letter-spacing: 0.11em;
-	}
-	.brand-mark {
-		display: grid;
-		flex: 0 0 2.3rem;
-		width: 2.3rem;
-		height: 2.3rem;
-		place-items: center;
-		border: 1px solid rgba(56, 189, 248, 0.35);
-		border-radius: 0.7rem;
-		background: rgba(56, 189, 248, 0.1);
-		color: #38bdf8;
-		font-size: 0.72rem;
-		font-weight: 800;
-		letter-spacing: -0.04em;
-		text-decoration: none;
-	}
-	.site-header nav, .footer-links {
-		display: flex;
-		align-items: center;
-		gap: clamp(1rem, 2.5vw, 2rem);
-	}
-	.site-header nav a, .footer-links a {
-		color: #a9b5c8;
-		font-size: 0.84rem;
-		font-weight: 550;
-		text-decoration: none;
-		transition: color 160ms ease;
-	}
-	.site-header nav a:hover, .site-header nav a[aria-current="page"], .footer-links a:hover { color: #38bdf8; }
-	.header-cta {
-		padding: 0.65rem 1rem;
-		border: 1px solid rgba(56, 189, 248, 0.35);
-		border-radius: 0.65rem;
-		color: #dff6ff;
-		font-size: 0.82rem;
-		font-weight: 700;
-		text-decoration: none;
-	}
-	.header-cta span { margin-left: 0.45rem; color: #38bdf8; }
-	.site-footer {
-		display: grid;
-		grid-template-columns: 1fr auto;
-		gap: 0.5rem 2rem;
-		max-width: 1200px;
-		margin: 2rem auto 0;
-		padding: 2.25rem 2rem 2.75rem;
-		border-top: 1px solid rgba(148, 163, 184, 0.12);
-	}
-	.footer-brand { width: fit-content; }
-	.footer-brand span { color: #38bdf8; }
-	.site-footer p { grid-column: 1; margin: 0; color: #8290a6; font-size: 0.8rem; }
-	.footer-links { grid-column: 2; grid-row: 1 / span 2; gap: 1.3rem; }
-	.footer-links a { font-size: 0.78rem; }
-	@media (max-width: 700px) {
-		.site-header { flex-wrap: wrap; gap: 1rem; padding: 1rem 1.25rem; }
-		.site-header nav { order: 3; width: 100%; justify-content: space-between; gap: 0.6rem; }
-		.site-header nav a { font-size: 0.76rem; }
+	.eyebrow { color: #75d6ff; font-size: 0.7rem; font-weight: 750; letter-spacing: 0.08em; text-transform: uppercase; }
+	.footer-invitation h2 { max-width: 660px; margin: 0.6rem 0; font-size: clamp(1.7rem, 3vw, 2.4rem); line-height: 1.25; letter-spacing: -0.035em; }
+	.footer-invitation p { margin: 0; color: #a8b6c9; font-size: 0.88rem; }
+	.footer-grid { display: grid; grid-template-columns: 1.5fr 0.8fr 1.1fr 1fr; gap: 2rem; padding-block: 3rem; }
+	.footer-about p { max-width: 310px; margin: 1rem 0; color: #a8b6c9; font-size: 0.83rem; }
+	.github-link { display: inline-flex; gap: 0.5rem; padding-block: 0.5rem; color: #75d6ff; font-size: 0.82rem; font-weight: 650; text-decoration: none; }
+	.footer-column { display: flex; flex-direction: column; align-items: flex-start; }
+	.footer-column h3 { margin: 0 0 0.8rem; color: #eff5ff; font-size: 0.85rem; font-weight: 750; }
+	.footer-column a { display: inline-flex; align-items: center; min-height: 40px; color: #a8b6c9; font-size: 0.8rem; text-decoration: none; }
+	.footer-column a:hover, .github-link:hover { color: #75d6ff; text-decoration: underline; text-underline-offset: 4px; }
+	.footer-bottom { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-block: 1.25rem; border-top: 1px solid #223147; }
+	.footer-bottom p { margin: 0; color: #a8b6c9; font-size: 0.75rem; }
+	.footer-bottom a { padding-block: 0.5rem; color: #a8b6c9; font-size: 0.75rem; text-decoration: none; }
+	.footer-bottom a:hover { color: #75d6ff; }
+
+	@media (max-width: 960px) {
+		.desktop-nav { display: none; }
+		.mobile-menu { display: block; }
 		.header-cta { margin-left: auto; }
-		.site-footer { grid-template-columns: 1fr; padding: 2rem 1.25rem; }
-		.site-footer p, .footer-links { grid-column: 1; grid-row: auto; }
-		.footer-links { flex-wrap: wrap; gap: 0.8rem 1.2rem; margin-top: 0.6rem; }
+		.footer-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+	}
+	@media (max-width: 640px) {
+		.header-inner, .footer-inner { width: calc(100% - 2.5rem); }
+		.header-inner { min-height: 74px; gap: 0.75rem; }
+		.header-cta { display: none; }
+		.brand-mark { width: 40px; height: 40px; }
+		.brand-name { font-size: 0.95rem; }
+		.brand-name small { font-size: 0.52rem; }
+		.footer-invitation { align-items: flex-start; flex-direction: column; gap: 1.25rem; padding-block: 2.5rem; }
+		.footer-grid { gap: 2rem 1rem; padding-block: 2.5rem; }
+		.footer-about { grid-column: 1 / -1; }
+		.footer-bottom { align-items: flex-start; flex-direction: column; gap: 0.25rem; }
+	}
+	@media (max-width: 380px) {
+		.footer-grid { grid-template-columns: 1fr; }
+		.brand-name small { letter-spacing: 0; }
+	}
+	@media (prefers-reduced-motion: reduce) {
+		:global(html) { scroll-behavior: auto; }
 	}
 </style>
