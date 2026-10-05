@@ -1,4 +1,6 @@
 ---
+import Analytics from '@vercel/analytics/astro';
+
 interface Props {
     title?: string;
     description?: string;
@@ -131,6 +133,7 @@ const serviceLinks = [
         <meta name="twitter:image" content={socialImageURL} />
         <meta name="twitter:image:alt" content={imageAlt} />
         {!noindex && <script is:inline type="application/ld+json" set:html={structuredDataJSON} />}
+        <Analytics />
     </head>
     <body>
         <a class="skip-link" href="#page-content">Skip to content</a>
