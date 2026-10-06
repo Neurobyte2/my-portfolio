@@ -1,339 +1,393 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-
 const features = [
-	{
-		title: 'App screens & navigation',
-		text: 'Jetpack Compose interfaces with responsive layouts, clear navigation, and reusable components.',
-	},
-	{
-		title: 'Accounts & cloud data',
-		text: 'Firebase Authentication and Firestore integration for projects that need user accounts and cloud data.',
-	},
-	{
-		title: 'Local data storage',
-		text: 'Room database integration for structured local data and features that need to work without a connection.',
-	},
-	{
-		title: 'APIs & integrations',
-		text: 'Connect the app to your existing backend or external APIs, with loading states and error handling.',
-	},
-	{
-		title: 'Maintainable architecture',
-		text: 'MVVM, repositories, and Clean Architecture where appropriate to keep UI and business logic organized.',
-	},
-	{
-		title: 'Existing app improvements',
-		text: 'Review and improve screens, navigation, state handling, or integrations in an existing Kotlin project.',
-	},
+    {
+        title: 'App screens & navigation',
+        text: 'Jetpack Compose interfaces with responsive layouts, clear navigation, and reusable components.',
+    },
+    {
+        title: 'Accounts & cloud data',
+        text: 'Firebase Authentication and Firestore integration for projects that need user accounts and cloud data.',
+    },
+    {
+        title: 'Local data storage',
+        text: 'Room database integration for structured local data and features that need to work without a connection.',
+    },
+    {
+        title: 'APIs & integrations',
+        text: 'Connect the app to your existing backend or external APIs, with loading states and error handling.',
+    },
+    {
+        title: 'Maintainable architecture',
+        text: 'MVVM, repositories, and Clean Architecture where appropriate to keep UI and business logic organized.',
+    },
+    {
+        title: 'Existing app improvements',
+        text: 'Review and improve screens, navigation, state handling, or integrations in an existing Kotlin project.',
+    },
 ];
-
 const projects = [
-	{
-		name: 'CampusNotify',
-		text: 'Explore the campus communication project and its screenshots.',
-		href: '/projects/campusnotify/',
-	},
-	{
-		name: 'Semesta',
-		text: 'See the Android project’s interface and development details.',
-		href: '/projects/semesta/',
-	},
-	{
-		name: 'Flashcard Quiz',
-		text: 'Explore a study app for creating and reviewing flashcards.',
-		href: '/projects/flashcard-quiz/',
-	},
-	{
-		name: 'Asterloom',
-		text: 'View the Android project’s screens and interface patterns.',
-		href: '/projects/asterloom/',
-	},
+    {
+        name: 'CampusNotify',
+        text: 'A campus communication app with student and admin screens, Firebase Authentication, and cloud data integration.',
+        href: '/projects/campusnotify/',
+    },
+    {
+        name: 'Semesta',
+        text: 'An Android project exploring Jetpack Compose interfaces, modular structure, and predictable UI state.',
+        href: '/projects/semesta/',
+    },
+    {
+        name: 'Flashcard Quiz',
+        text: 'An offline study app for creating and reviewing flashcards, with Room storage and a quiz workflow.',
+        href: '/projects/flashcard-quiz/',
+    },
+    {
+        name: 'Asterloom',
+        text: 'Explore focus timer and theme customization screens alongside reusable Android interface patterns.',
+        href: '/projects/asterloom/',
+    },
 ];
-
 const questions = [
-	{
-		question: 'What do you need to estimate my Android app?',
-		answer: 'Share the app’s purpose, who will use it, required screens and features, any design references, and your expected timeline. Mention whether you already have a backend or an existing app.',
-	},
-	{
-		question: 'Can my app work offline?',
-		answer: 'Depending on the features, local storage can support offline use. Cloud synchronization needs additional planning, including what happens when local and remote data differ.',
-	},
-	{
-		question: 'Can you connect the app to Firebase or my API?',
-		answer: 'Yes. The integration depends on your authentication, data, and access requirements. Existing API documentation helps define the work.',
-	},
-	{
-		question: 'Is Google Play publishing included?',
-		answer: 'Release preparation and publishing assistance can be agreed as part of the scope. Your developer account, store assets, and policy requirements also need to be ready. Store approval is decided by Google.',
-	},
+    {
+        question: 'Do you work with clients outside Pakistan?',
+        answer: 'Yes. I work remotely with clients in Pakistan and internationally. We agree on communication, review milestones, and delivery requirements before development begins.',
+    },
+    {
+        question: 'How much does Android app development cost?',
+        answer: 'The cost depends on the screens, features, design readiness, backend integration, and release requirements. Share a brief so I can propose a scope and estimate for your app.',
+    },
+    {
+        question: 'How long will it take to build my Android app?',
+        answer: 'The timeline depends on the agreed scope, available designs and APIs, and review cycles. We define milestones after reviewing the requirements rather than promising a fixed timeline for every app.',
+    },
+    {
+        question: 'Can you improve an existing Kotlin Android app?',
+        answer: 'Yes. I can help with Jetpack Compose screens, navigation, UI state, Room storage, Firebase, and API integration. Reviewing the existing code and the issue helps determine the scope.',
+    },
+    {
+        question: 'What do you need to estimate my Android app?',
+        answer: 'Share the app’s purpose, who will use it, required screens and features, any design references, and your expected timeline. Mention whether you already have a backend or an existing app.',
+    },
+    {
+        question: 'Can my app work offline?',
+        answer: 'Depending on the features, local storage can support offline use. Cloud synchronization needs additional planning, including what happens when local and remote data differ.',
+    },
+    {
+        question: 'Can you connect the app to Firebase or my API?',
+        answer: 'Yes. The integration depends on your authentication, data, and access requirements. Existing API documentation helps define the work.',
+    },
+    {
+        question: 'Is Google Play publishing included?',
+        answer: 'Release preparation and publishing assistance can be agreed as part of the scope. Your developer account, store assets, and policy requirements also need to be ready. Store approval is decided by Google.',
+    },
 ];
 ---
-
 <Layout
-	title="Android App Development with Kotlin | Ali Ansar"
-	description="Hire Ali Ansar for native Android app development with Kotlin and Jetpack Compose, including Firebase, Room, API integration, and existing app improvements."
+    title="Freelance Android App Developer | Kotlin & Compose | Ali Ansar"
+    description="Hire Ali Ansar for freelance Android app development with Kotlin and Jetpack Compose. Firebase, offline apps, and API integration for Pakistan and remote clients."
 >
-	<main class="page-shell">
-		<nav class="breadcrumb" aria-label="Breadcrumb">
-			<a href="/">Home</a>
-			<span aria-hidden="true">/</span>
-			<a href="/services/">Services</a>
-			<span aria-hidden="true">/</span>
-			<span aria-current="page">Android development</span>
-		</nav>
-
-		<header class="hero">
-			<span class="section-label">Native Android development</span>
-			<h1>
-				Android app development
-				<em>with Kotlin & Jetpack Compose.</em>
-			</h1>
-			<p>
-				I’m Ali Ansar. I build native Android applications with clear interfaces,
-				organized code, and data handling designed around your requirements.
-				I can help with a new app or improvements to an existing Kotlin project.
-			</p>
-			<div class="actions">
-				<a class="button" href="/contact/">
-					Discuss your Android app <span aria-hidden="true">↗</span>
-				</a>
-				<a class="button secondary" href="#android-projects">
-					View Android projects
-				</a>
-			</div>
-		</header>
-
-		<section aria-labelledby="features-title">
-			<span class="section-label">Development scope</span>
-			<h2 id="features-title">Features your app may need.</h2>
-			<p class="intro">
-				We choose the features and tools around your app’s purpose, budget,
-				and maintenance needs.
-			</p>
-			<div class="feature-grid">
-				{features.map((feature) => (
-					<article class="card">
-						<h3>{feature.title}</h3>
-						<p>{feature.text}</p>
-					</article>
-				))}
-			</div>
-		</section>
-
-		<section class="section" aria-labelledby="process-title">
-			<span class="section-label">How we work</span>
-			<h2 id="process-title">From your idea to an agreed delivery.</h2>
-			<ol class="process">
-				<li>
-					<h3>Define the requirements</h3>
-					<p>
-						We identify the users, screens, features, data sources, and expected
-						timeline before agreeing on the scope.
-					</p>
-				</li>
-				<li>
-					<h3>Build & review</h3>
-					<p>
-						I develop the interface and application logic, then share progress
-						for feedback on the agreed features.
-					</p>
-				</li>
-				<li>
-					<h3>Check & deliver</h3>
-					<p>
-						We review key flows, loading and error states, and prepare the
-						source code and agreed release deliverables.
-					</p>
-				</li>
-			</ol>
-		</section>
-
-		<section
-			id="android-projects"
-			class="section"
-			aria-labelledby="projects-title"
-		>
-			<span class="section-label">Project examples</span>
-			<h2 id="projects-title">Explore my Android portfolio.</h2>
-			<div class="project-grid">
-				{projects.map((project) => (
-					<article class="card project-card">
-						<h3><a href={project.href}>{project.name}</a></h3>
-						<p>{project.text}</p>
-						<a
-							class="text-link"
-							href={project.href}
-							aria-label={`Read the ${project.name} case study`}
-						>
-							View case study <span aria-hidden="true">→</span>
-						</a>
-					</article>
-				))}
-			</div>
-		</section>
-
-		<section class="section" aria-labelledby="faq-title">
-			<span class="section-label">Planning your app</span>
-			<h2 id="faq-title">Common Android project questions.</h2>
-			<div class="faq-list">
-				{questions.map((item) => (
-					<details>
-						<summary>{item.question}</summary>
-						<p>{item.answer}</p>
-					</details>
-				))}
-			</div>
-		</section>
-
-		<aside class="cta" aria-labelledby="contact-title">
-			<h2 id="contact-title">Tell me about your Android app.</h2>
-			<p>
-				Share your idea, required features, and timeline so we can discuss
-				the scope and next step.
-			</p>
-			<a class="button" href="/contact/">
-				Contact Ali Ansar <span aria-hidden="true">↗</span>
-			</a>
-		</aside>
-	</main>
+    <main class="page-shell">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="/">Home</a>
+            <span aria-hidden="true">/</span>
+            <a href="/services/">Services</a>
+            <span aria-hidden="true">/</span>
+            <span aria-current="page">Android development</span>
+        </nav>
+        <header class="hero">
+            <span class="section-label">Freelance Android developer</span>
+            <h1>
+                Android app development services
+                <em>with Kotlin & Jetpack Compose.</em>
+            </h1>
+            <p>
+                I’m Ali Ansar, an Android developer based in Pakistan, working remotely
+                with local and international clients. I build custom Android apps with
+                Kotlin and Jetpack Compose, from a focused first version to improvements
+                in an existing app.
+            </p>
+            <p>
+                Need user accounts, offline storage, or a connection to your backend?
+                We’ll agree on the features, deliverables, and development milestones
+                around your business requirements.
+            </p>
+            <div class="actions">
+                <a class="button" href="/contact/">
+                    Discuss your Android app <span aria-hidden="true">↗</span>
+                </a>
+                <a class="button secondary" href="#android-projects">
+                    View Android projects
+                </a>
+            </div>
+        </header>
+        <section aria-labelledby="features-title">
+            <span class="section-label">Development scope</span>
+            <h2 id="features-title">Features your app may need.</h2>
+            <p class="intro">
+                We choose the features and tools around your app’s purpose, budget,
+                and maintenance needs.
+            </p>
+            <div class="feature-grid">
+                {features.map((feature) => (
+                    <article class="card">
+                        <h3>{feature.title}</h3>
+                        <p>{feature.text}</p>
+                    </article>
+                ))}
+            </div>
+        </section>
+        <section class="section" aria-labelledby="fit-title">
+            <span class="section-label">Choose the right starting point</span>
+            <h2 id="fit-title">A new app, an MVP, or an existing product.</h2>
+            <div class="feature-grid">
+                <article class="card">
+                    <h3>Custom Android app development</h3>
+                    <p>Build an app around a specific workflow, such as study tools, productivity, or campus communication. Start with the features your users need most.</p>
+                </article>
+                <article class="card">
+                    <h3>Android MVP development</h3>
+                    <p>Turn your idea into an agreed first version with essential screens and functionality. Keep the scope focused so you can review the product before expanding it.</p>
+                </article>
+                <article class="card">
+                    <h3>Kotlin & Compose improvements</h3>
+                    <p>Add a feature, refine a screen, or connect an existing app to a data source. Share your codebase and requirements so we can identify a practical next step.</p>
+                </article>
+            </div>
+        </section>
+        <section class="section" aria-labelledby="delivery-title">
+            <span class="section-label">Agree on the deliverables</span>
+            <h2 id="delivery-title">Know what your project includes.</h2>
+            <p class="intro">Before work begins, we define the features and handoff. Depending on your scope, deliverables can include:</p>
+            <ul class="delivery-list">
+                <li>Kotlin source code with organized UI, state, and data responsibilities.</li>
+                <li>Jetpack Compose screens and the agreed navigation flows.</li>
+                <li>Firebase, Room, or API integration required by your app.</li>
+                <li>Loading, empty, and error states for the agreed user journeys.</li>
+                <li>A build for review and notes on project setup and configuration.</li>
+            </ul>
+            <p class="intro">Publishing assistance, ongoing maintenance, and additional features are agreed separately as part of the project scope.</p>
+        </section>
+        <section class="section" aria-labelledby="process-title">
+            <span class="section-label">How we work</span>
+            <h2 id="process-title">From your idea to an agreed delivery.</h2>
+            <ol class="process">
+                <li>
+                    <h3>Define the requirements</h3>
+                    <p>
+                        We identify the users, screens, features, data sources, and expected
+                        timeline before agreeing on the scope.
+                    </p>
+                </li>
+                <li>
+                    <h3>Build & review</h3>
+                    <p>
+                        I develop the interface and application logic, then share progress
+                        for feedback on the agreed features.
+                    </p>
+                </li>
+                <li>
+                    <h3>Check & deliver</h3>
+                    <p>
+                        We review key flows, loading and error states, and prepare the
+                        source code and agreed release deliverables.
+                    </p>
+                </li>
+            </ol>
+        </section>
+        <section
+            id="android-projects"
+            class="section"
+            aria-labelledby="projects-title"
+        >
+            <span class="section-label">Project examples</span>
+            <h2 id="projects-title">Explore my Android portfolio.</h2>
+            <p class="intro">Review the screenshots and implementation details in these case studies to see how I approach Android interfaces and data handling.</p>
+            <div class="project-grid">
+                {projects.map((project) => (
+                    <article class="card project-card">
+                        <h3><a href={project.href}>{project.name}</a></h3>
+                        <p>{project.text}</p>
+                        <a
+                            class="text-link"
+                            href={project.href}
+                            aria-label={`Read the ${project.name} case study`}
+                        >
+                            View case study <span aria-hidden="true">→</span>
+                        </a>
+                    </article>
+                ))}
+            </div>
+        </section>
+        <section class="section" aria-labelledby="faq-title">
+            <span class="section-label">Planning your app</span>
+            <h2 id="faq-title">Common Android project questions.</h2>
+            <div class="faq-list">
+                {questions.map((item) => (
+                    <details>
+                        <summary>{item.question}</summary>
+                        <p>{item.answer}</p>
+                    </details>
+                ))}
+            </div>
+        </section>
+        <section class="section related-service" aria-labelledby="web-title">
+            <h2 id="web-title">Need a website alongside your app?</h2>
+            <p class="intro">Explore my web development services for business websites and full-stack web applications.</p>
+            <a class="text-link" href="/services/web-development/">Explore web development services <span aria-hidden="true">→</span></a>
+        </section>
+        <aside class="cta" aria-labelledby="contact-title">
+            <h2 id="contact-title">Tell me about your Android app.</h2>
+            <p>
+                Share your idea, required features, and timeline so we can discuss
+                the scope and next step.
+            </p>
+            <a class="button" href="/contact/">
+                Contact Ali Ansar <span aria-hidden="true">↗</span>
+            </a>
+        </aside>
+    </main>
 </Layout>
-
 <style>
-	.page-shell {
-		width: min(1050px, calc(100% - 3rem));
-		margin: 0 auto;
-		padding: 2rem 0 5rem;
-	}
-	h1, h2, h3, p { margin-top: 0; }
-	.breadcrumb {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 0.5rem;
-		color: #a8b6c9;
-		font-size: 0.75rem;
-	}
-	.breadcrumb a { color: #75d6ff; text-decoration: none; }
-	.breadcrumb a:hover { text-decoration: underline; }
-	.hero { max-width: 950px; padding: 3rem 0 4rem; }
-	.section-label {
-		color: #38bdf8;
-		font-size: 0.68rem;
-		font-weight: 800;
-		letter-spacing: 0.1em;
-		text-transform: uppercase;
-	}
-	.hero h1 {
-		margin: 0.7rem 0 1rem;
-		font-size: clamp(2.5rem, 5.5vw, 4.6rem);
-		line-height: 1.1;
-		letter-spacing: -0.045em;
-	}
-	.hero h1 em {
-		display: block;
-		color: #38bdf8;
-		font-style: normal;
-	}
-	.hero > p { max-width: 720px; color: #a8b6c9; font-size: 1rem; }
-	.actions { display: flex; flex-wrap: wrap; gap: 0.75rem; }
-	.button {
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-		gap: 0.6rem;
-		min-height: 48px;
-		padding: 0.75rem 1rem;
-		border: 1px solid transparent;
-		border-radius: 0.7rem;
-		background: #38bdf8;
-		color: #04111d;
-		font-size: 0.84rem;
-		font-weight: 750;
-		text-decoration: none;
-	}
-	.button:hover { background: #75d6ff; }
-	.secondary { border-color: #26364a; background: #111a29; color: #e2eaf5; }
-	.secondary:hover { border-color: #38bdf8; background: #152235; }
-	h2 {
-		margin: 0.5rem 0 1rem;
-		font-size: clamp(1.8rem, 3.8vw, 2.6rem);
-		line-height: 1.2;
-		letter-spacing: -0.035em;
-	}
-	.intro { max-width: 700px; color: #a8b6c9; font-size: 0.9rem; }
-	.feature-grid {
-		display: grid;
-		grid-template-columns: repeat(3, minmax(0, 1fr));
-		gap: 1rem;
-		margin-top: 1.5rem;
-	}
-	.card {
-		padding: 1.4rem;
-		border: 1px solid #223147;
-		border-radius: 0.85rem;
-		background: #0e1624;
-	}
-	.card h3, .process h3 { margin-bottom: 0.65rem; font-size: 1.05rem; }
-	.card p, .process p { margin-bottom: 0; color: #a8b6c9; font-size: 0.85rem; }
-	.section { margin-top: 4rem; scroll-margin-top: 2rem; }
-	.process {
-		display: grid;
-		grid-template-columns: repeat(3, minmax(0, 1fr));
-		gap: 1.5rem;
-		margin: 1.5rem 0 0;
-		padding-left: 1.5rem;
-	}
-	.process li { padding-left: 0.3rem; }
-	.process li::marker { color: #38bdf8; font-weight: 750; }
-	.project-grid {
-		display: grid;
-		grid-template-columns: repeat(2, minmax(0, 1fr));
-		gap: 1rem;
-		margin-top: 1.5rem;
-	}
-	.project-card { display: flex; flex-direction: column; align-items: flex-start; }
-	.project-card h3 a { color: #eff5ff; text-decoration: none; }
-	.project-card h3 a:hover { color: #75d6ff; }
-	.project-card p { margin-bottom: 1rem; }
-	.text-link {
-		margin-top: auto;
-		color: #75d6ff;
-		font-size: 0.8rem;
-		font-weight: 700;
-		text-decoration: none;
-	}
-	.text-link:hover { text-decoration: underline; text-underline-offset: 4px; }
-	.faq-list { display: grid; gap: 0.75rem; margin-top: 1.5rem; }
-	details {
-		padding: 1rem 1.2rem;
-		border: 1px solid #223147;
-		border-radius: 0.75rem;
-		background: #0e1624;
-	}
-	summary { cursor: pointer; color: #e2eaf5; font-size: 0.9rem; font-weight: 650; }
-	summary:focus-visible { outline: 2px solid #38bdf8; outline-offset: 4px; }
-	details p { margin: 0.8rem 0 0; color: #a8b6c9; font-size: 0.85rem; }
-	.cta {
-		margin-top: 4rem;
-		padding: 2rem;
-		border: 1px solid #1e3a50;
-		border-radius: 1rem;
-		background: #0d1d2b;
-		text-align: center;
-	}
-	.cta p { max-width: 600px; margin: 0 auto 1.5rem; color: #a8b6c9; }
-
-	@media (max-width: 850px) {
-		.feature-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-		.process { grid-template-columns: 1fr; }
-	}
-	@media (max-width: 560px) {
-		.page-shell { width: calc(100% - 2.5rem); }
-		.hero { padding-block: 2.5rem 3rem; }
-		.actions { flex-direction: column; }
-		.feature-grid, .project-grid { grid-template-columns: 1fr; }
-		.section, .cta { margin-top: 3rem; }
-		.cta { padding: 1.4rem; }
-	}
+    .page-shell {
+        width: min(1050px, calc(100% - 3rem));
+        margin: 0 auto;
+        padding: 2rem 0 5rem;
+    }
+    h1, h2, h3, p { margin-top: 0; }
+    .breadcrumb {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        color: #a8b6c9;
+        font-size: 0.75rem;
+    }
+    .breadcrumb a { color: #75d6ff; text-decoration: none; }
+    .breadcrumb a:hover { text-decoration: underline; }
+    .hero { max-width: 950px; padding: 3rem 0 4rem; }
+    .section-label {
+        color: #38bdf8;
+        font-size: 0.68rem;
+        font-weight: 800;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+    }
+    .hero h1 {
+        margin: 0.7rem 0 1rem;
+        font-size: clamp(2.5rem, 5.5vw, 4.6rem);
+        line-height: 1.1;
+        letter-spacing: -0.045em;
+    }
+    .hero h1 em {
+        display: block;
+        color: #38bdf8;
+        font-style: normal;
+    }
+    .hero > p { max-width: 720px; color: #a8b6c9; font-size: 1rem; }
+    .actions { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+    .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.6rem;
+        min-height: 48px;
+        padding: 0.75rem 1rem;
+        border: 1px solid transparent;
+        border-radius: 0.7rem;
+        background: #38bdf8;
+        color: #04111d;
+        font-size: 0.84rem;
+        font-weight: 750;
+        text-decoration: none;
+    }
+    .button:hover { background: #75d6ff; }
+    .secondary { border-color: #26364a; background: #111a29; color: #e2eaf5; }
+    .secondary:hover { border-color: #38bdf8; background: #152235; }
+    h2 {
+        margin: 0.5rem 0 1rem;
+        font-size: clamp(1.8rem, 3.8vw, 2.6rem);
+        line-height: 1.2;
+        letter-spacing: -0.035em;
+    }
+    .intro { max-width: 700px; color: #a8b6c9; font-size: 0.9rem; }
+    .feature-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1rem;
+        margin-top: 1.5rem;
+    }
+    .card {
+        padding: 1.4rem;
+        border: 1px solid #223147;
+        border-radius: 0.85rem;
+        background: #0e1624;
+    }
+    .card h3, .process h3 { margin-bottom: 0.65rem; font-size: 1.05rem; }
+    .card p, .process p { margin-bottom: 0; color: #a8b6c9; font-size: 0.85rem; }
+    .section { margin-top: 4rem; scroll-margin-top: 2rem; }
+    .process {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1.5rem;
+        margin: 1.5rem 0 0;
+        padding-left: 1.5rem;
+    }
+    .process li { padding-left: 0.3rem; }
+    .process li::marker { color: #38bdf8; font-weight: 750; }
+    .project-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1rem;
+        margin-top: 1.5rem;
+    }
+    .project-card { display: flex; flex-direction: column; align-items: flex-start; }
+    .project-card h3 a { color: #eff5ff; text-decoration: none; }
+    .project-card h3 a:hover { color: #75d6ff; }
+    .project-card p { margin-bottom: 1rem; }
+    .delivery-list { display: grid; gap: 0.7rem; padding-left: 1.25rem; color: #a8b6c9; font-size: 0.9rem; }
+    .delivery-list li::marker { color: #38bdf8; }
+    .related-service { padding-block: 1.5rem; border-block: 1px solid #223147; }
+    .text-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        min-height: 44px;
+        margin-top: auto;
+        color: #75d6ff;
+        font-size: 0.8rem;
+        font-weight: 700;
+        text-decoration: none;
+    }
+    .text-link:hover { text-decoration: underline; text-underline-offset: 4px; }
+    .faq-list { display: grid; gap: 0.75rem; margin-top: 1.5rem; }
+    details {
+        padding: 1rem 1.2rem;
+        border: 1px solid #223147;
+        border-radius: 0.75rem;
+        background: #0e1624;
+    }
+    summary { min-height: 44px; align-content: center; cursor: pointer; color: #e2eaf5; font-size: 0.9rem; font-weight: 650; }
+    summary:focus-visible { outline: 2px solid #38bdf8; outline-offset: 4px; }
+    details p { margin: 0.8rem 0 0; color: #a8b6c9; font-size: 0.85rem; }
+    .cta {
+        margin-top: 4rem;
+        padding: 2rem;
+        border: 1px solid #1e3a50;
+        border-radius: 1rem;
+        background: #0d1d2b;
+        text-align: center;
+    }
+    .cta p { max-width: 600px; margin: 0 auto 1.5rem; color: #a8b6c9; }
+    @media (max-width: 850px) {
+        .feature-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .process { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 560px) {
+        .page-shell { width: calc(100% - 2.5rem); }
+        .hero { padding-block: 2.5rem 3rem; }
+        .actions { flex-direction: column; }
+        .feature-grid, .project-grid { grid-template-columns: 1fr; }
+        .section, .cta { margin-top: 3rem; }
+        .cta { padding: 1.4rem; }
+    }
 </style>
